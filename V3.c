@@ -208,7 +208,8 @@ void clearBuffer()
             +CLIP: "0964444373",161,"",0,"",0
             
    -sms: +CMT: "+84964444373","","17/10/14,15:04:39+28" 
-                #0000 on
+                #0000 on   
+   -kttk: +CUSD: 0, "TK goc la 12d. De biet cac CT dac biet cua Quy khach, bam goi *098#.", 15
 
 ******************************************************************/
 void comparePhoneNumber(); 
@@ -330,7 +331,7 @@ void comparePhoneNumber()
    }  
 }
 void callHandle()
-{
+{   unsigned int n=0;
     comparePhoneNumber();
             if(result==1) 
             {  
@@ -353,6 +354,16 @@ void callHandle()
                     clearBuffer(); 
                     result=callFlag=0; 
                 }
+            }
+            else
+            {
+               n++;
+               if(n>2000)
+               {
+                 printf("ATH\r\n");
+                 clearBuffer();
+                 result=callFlag=0;
+               }
             } 
 }
 
@@ -677,15 +688,15 @@ if(begin==255)
   password[2]='0';
   password[3]='0'; 
   sdt1[0]='0'; 
-  sdt1[1]='9';
-  sdt1[2]='6';
-  sdt1[3]='4';
-  sdt1[4]='4';
-  sdt1[5]='4';
-  sdt1[6]='4';
-  sdt1[7]='3';
-  sdt1[8]='7';
-  sdt1[9]='3';
+  sdt1[1]='0';
+  sdt1[2]='0';
+  sdt1[3]='0';
+  sdt1[4]='0';
+  sdt1[5]='0';
+  sdt1[6]='0';
+  sdt1[7]='0';
+  sdt1[8]='0';
+  sdt1[9]='0';
   begin=0;
 }
 if(save1==1) LOAD1=1;
@@ -693,6 +704,7 @@ else LOAD1=0;
 if(save2==1) LOAD2=1;
 else LOAD2=0;
 clearBuffer();
+sendSMS("109","HELLO");
 while (1)
       {     if(flag) strHandle();  
            

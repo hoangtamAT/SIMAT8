@@ -1,0 +1,63 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+type                                                                              0x01A1      10
+content                                                                           0x01AB       5
+phoneNumber                                                                       0x01B0      11
+phoneNumberSms                                                                    0x01BB      11
+msgStr                                                                            0x01C6     160
+rx_buffer                                                                         0x0266     250
+tx_buffer                                                                         0x0360     150
+tx_counter                                                                        0x03F6       1
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+sdt1                                                                              0x0000      11
+sdt2                                                                              0x000B      11
+sdt3                                                                              0x0016      11
+save1                                                                             0x0021       1
+save2                                                                             0x0022       1
+begin                                                                             0x0023       1
+password                                                                          0x0024       4
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+qtyNum                                                                            R5           1
+flag                                                                              R4           1
+rxStatus                                                                          R7           1
+checkpass                                                                         R6           1
+result                                                                            R9           1
+callFlag                                                                          R2.0      1bit
+smsFlag                                                                           R2.1      1bit
+rx_wr_index                                                                       R8           1
+rx_rd_index                                                                       R11          1
+rx_counter                                                                        R10          1
+rx_buffer_overflow                                                                R2.2      1bit
+tx_wr_index                                                                       R13          1
+tx_rd_index                                                                       R12          1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+ext_int1_isr                                                                      0x00114     26
+usart_rx_isr                                                                      0x0012E     28
+usart_tx_isr                                                                      0x0014A     24
+putchar                                                                           0x00162     32
+clearBuffer                                                                       0x00182     36
+strHandle                                                                         0x001A6    168
+checkPassword                                                                     0x0024E     31
+comparePhoneNumber                                                                0x0026D     99
+callHandle                                                                        0x002D0     30
+smsHandle                                                                         0x002EE    372
+main                                                                              0x00462    169
+puts                                                                              0x0050B     17
+put_usart_G100                                                                    0x0051C     12
+_print_G100                                                                       0x00528    279
+printf                                                                            0x0063F     30
+strcmp                                                                            0x0065D     19
+strlen                                                                            0x00670     11
+strlenf                                                                           0x0067B     12
+strpos                                                                            0x00687     15
+strrpos                                                                           0x00696     16

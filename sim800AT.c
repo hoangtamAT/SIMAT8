@@ -1,6 +1,7 @@
 #include <mega8.h>
 #include <sim800AT.h>
 #include <stdio.h>
+#include <string.h>
 #include <delay.h>
 
 void call(char *number)
@@ -13,9 +14,12 @@ void call(char *number)
 }
 void sendSMS(char *number, char *msg)
 {
-    printf("AT+CMGS=");
-    puts(number);
+    char p=34;
+    printf("AT+CMGS="); 
+    putchar(34);
+    puts(strcat(number,&p));
     printf("\r");
+    delay_ms(100);
     puts(msg);
     delay_ms(10);
     putchar(26);

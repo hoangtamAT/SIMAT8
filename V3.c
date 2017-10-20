@@ -32,20 +32,22 @@ Data Stack size         : 256
 #define LOAD2   PORTC.1
 #define strCall     1
 #define strSms      2
-char type[10];
 char content[5];  
 char qtyNum=10;
+char type[4];
 char phoneNumber[11];
 char phoneNumberSms[11];
-char msgStr[160];
+char msgStr[100];
+
 eeprom char sdt1[11];
 eeprom char sdt2[11];
 eeprom char sdt3[11];
 
+
 eeprom char save1,save2,begin;
 eeprom char password[4];
 
-char flag,rxStatus,checkpass,result;
+char flag,rxStatus,checkpass,result=0;
 bit callFlag=0,smsFlag=0;
 // Declare your global variables here
 
@@ -194,9 +196,11 @@ void clearBuffer()
 
     for(i=0;i<rx_wr_index;i++)
     {
-        rx_buffer[i]=msgStr[i]=phoneNumber[i]=phoneNumberSms[i]=content[i]=0;
+        rx_buffer[i]=msgStr[i]=phoneNumber[i]=phoneNumberSms[i]=content[i]=type[i]=0;
     } 
-    rx_wr_index=0; 
+    rx_wr_index=0;   
+    checkpass=0;
+    result=0;
     flag=0; 
 
     
@@ -217,17 +221,23 @@ void callHandle();
 void smsHandle();
 void strHandle()
 {
-    char i,k,l,pos,en=0;  
-    while(strpos(rx_buffer,'+')<0);
-    if(strpos(rx_buffer,'+')>=0)
-    {        
-            for(i=0;i<4;i++) 
+    char i,k,l,pos,e=0,n=0;
+            while(strcmp(type,"CLIP")!=0 && strcmp(type,"CMT:")!=0 && strcmp(type,"CUSD")!=0)
             {
-                type[i]=rx_buffer[strpos(rx_buffer,'+')+1+i];
-                en++;
-            }    
-            while(en<4);   
-            delay_ms(20);
+                for(i=0;i<4;i++) 
+                {
+                    type[i]=rx_buffer[strpos(rx_buffer,'+')+1+i];
+                }
+                e++;
+                printf(".");
+                delay_ms(50);
+                if(e>20)
+                { 
+                  printf("time out");
+                  clearBuffer();
+                  break;
+                }
+            }   
             if(strcmp(type,"CLIP")==0)  //call
             {   
                 rxStatus=strCall;
@@ -238,60 +248,65 @@ void strHandle()
                 {
                    phoneNumber[k]=rx_buffer[pos+1+k];
                 }
-                callFlag=1;  
-                //puts(phoneNumber); 
-                delay_ms(10);
-                //clearBuffer();
+                callFlag=1; 
                 if(callFlag)callHandle();
                        
             }
             else  //sms
             {
                if(strcmp(type,"CMT:")==0)
-               {    //"+84964444373", ":0 ,:14-15  
-                    
-                    pos=strpos(rx_buffer,'#'); 
-                    rxStatus=strSms;
-                    if(strpos(rx_buffer,'.')>pos&&pos>=0)
-                    {   
-                        for(k=0;k<((strpos(rx_buffer,'.'))-pos);k++)
-                        {
-                            msgStr[k]=rx_buffer[pos+1+k];
-                        } 
-                        for(l=1;l<(strpos(rx_buffer,',')-strpos(rx_buffer,34)-4);l++)
-                        {
-                            phoneNumberSms[0]='0'; 
-                            phoneNumberSms[l]=rx_buffer[strpos(rx_buffer,34)+3+l];
-                        }
-                        smsFlag=1;     
-                        //puts(msgStr);
-                        if(smsFlag) smsHandle();
-                           
+               {    //"+84964444373", ":0 ,:14-15   
+                    rxStatus=strSms; 
+                    while(strpos(rx_buffer,'.')<=0)
+                    {
+                       n++;
+                       printf(".");
+                       delay_ms(50);
+                       if(n>20)
+                       {
+                         printf("time out");
+                         clearBuffer();
+                         break;
+                       }
                     } 
-                    else 
-                    {   
-                       // loi cu phap 
-                         
-                        
+                    if(strcmp(type,"CMT:")==0)
+                    {
+                        pos=strpos(rx_buffer,'#');
+                        if(pos>0)
+                        {   
+                            for(k=0;k<strpos(rx_buffer,'.')-pos;k++)
+                            {
+                                msgStr[k]=rx_buffer[pos+1+k];
+                            } 
+                            for(l=1;l<(strpos(rx_buffer,',')-strpos(rx_buffer,34)-4);l++)
+                            {
+                                phoneNumberSms[0]='0'; 
+                                phoneNumberSms[l]=rx_buffer[strpos(rx_buffer,34)+3+l];
+                            }
+                            smsFlag=1;     
+                            //puts(msgStr);
+                            if(smsFlag) smsHandle();   
+                        }
                     }
+                  
                }
                else 
-               {    
-                
-                    
-                    //printf("can1"); 
-                    //clearBuffer();
+               {//+CUSD: 0, "TK goc la 12d. De biet cac CT dac biet cua Quy khach, bam goi *098#.", 15
+                    if(strcmp(type,"CUSD")==0)
+                    {
+                       pos=strpos(rx_buffer,34);
+                       for(k=0;k<(strrpos(rx_buffer,34)-pos-1);k++)
+                       {
+                         msgStr[k]=rx_buffer[pos+1+k];
+                       }
+                       puts(msgStr);
+                       clearBuffer();
+                    }
+                      
                 
                }
             } 
-      
-    }
-    else 
-    { 
-        printf("can2"); 
-        clearBuffer();
-    }
-    
+         
 }
 void checkPassword()
 {  
@@ -299,9 +314,6 @@ void checkPassword()
    else
    {
     checkpass=0;
-    printf("error password");
-    delay_ms(200);
-    clearBuffer();
    }
 }
 void comparePhoneNumber()
@@ -317,65 +329,69 @@ void comparePhoneNumber()
         else dt3[i]=sdt3[i];     
    }
    while(i<11);
-   puts(dt1);
    delay_ms(20);
    if(callFlag==1)
    {
       if(strcmp(phoneNumber,dt1)==0||strcmp(phoneNumber,dt2)==0||strcmp(phoneNumber,dt3)==0) result=1;
       else 
       {
-        result=0; 
-        delay_ms(200);
-        clearBuffer();
+        result=0;
       }    
    }  
 }
 void callHandle()
-{   unsigned int n=0;
+{   unsigned char n=0;
     comparePhoneNumber();
-            if(result==1) 
-            {  
-                if(save1==1&&save2==1)
-                {   
-                    
-                    LOAD1=0;
-                    LOAD2=0;
-                    save1=save2=0;
-                    printf("ATH\r\n"); 
-                    clearBuffer(); 
-                    result=callFlag=0; 
-                }
-                else
-                {    
-                    LOAD1=1;
-                    LOAD2=1;
-                    save1=save2=1; 
-                    printf("ATH\r\n");
-                    clearBuffer(); 
-                    result=callFlag=0; 
-                }
-            }
-            else
-            {
-               n++;
-               if(n>2000)
-               {
-                 printf("ATH\r\n");
-                 clearBuffer();
-                 result=callFlag=0;
-               }
-            } 
+    while(result==0)
+    {
+       n++;
+       printf(".");
+       delay_ms(50);
+       if(n>20)
+       {
+          printf("time out"); 
+          printf("ATH\r\n"); 
+          clearBuffer(); 
+          result=callFlag=0;  
+          break;
+       }
+    }
+    if(result==1)
+    {
+        if(save1==1&&save2==1)
+        {   
+                        
+            LOAD1=0;
+            LOAD2=0;
+            save1=save2=0; 
+            printf("off");
+            printf("ATH\r\n"); 
+            clearBuffer(); 
+            result=callFlag=0; 
+        }
+        else
+        {    
+            LOAD1=1;
+            LOAD2=1;
+            save1=save2=1; 
+            printf("on");
+            printf("ATH\r\n");
+            clearBuffer(); 
+            result=callFlag=0; 
+        }
+    }        
 }
 
 void smsHandle()
 {   
-    char k,i1,i,poskey,i2,endstr,lastspace,firstspace;
-    char syntax[15];
+    char k,i1,i,poskey,i2,endstr=0,lastspace,firstspace,n=0;
+    char syntax[15];  
     char ndt1[11],ndt2[11],ndt3[11]; 
     poskey=11; 
     lastspace=strrpos(msgStr,32); 
     firstspace=strpos(msgStr,32);
-    endstr=strrpos(msgStr,'.');
+    endstr=strrpos(msgStr,'.'); 
+    
     for(i=0;i<endstr-5;i++)
         {
           content[i]=msgStr[5+i];
@@ -387,9 +403,32 @@ void smsHandle()
     for(i2=(lastspace-(firstspace+1));i2<15;i2++)
         {
             syntax[i2]=0;
-        } 
-    puts(syntax);   
-    checkPassword();  
+        }
+    if(msgStr[0]=='c' && msgStr[1]=='t' && msgStr[2]=='a' && msgStr[3]=='G')
+    {
+      char rs;
+      for(rs=0;rs<4;rs++)
+      {
+        password[rs]='0';
+      }  
+      printf("reset success");
+      clearBuffer();
+      smsFlag=0;
+    }  
+    checkPassword(); 
+    while(checkpass==0)
+    {  checkPassword();
+       n++;
+       delay_ms(50);
+       if(n>40)
+       {
+         printf("password error");
+         clearBuffer(); 
+         checkpass=0;
+         smsFlag=0;
+         break;
+       }
+    } 
     if(checkpass==1)
     {     
         if(strcmp(content,"on1")==0)
@@ -478,7 +517,8 @@ void smsHandle()
                                     while(i1<11);
                                     printf("sdt1:");
                                     puts(ndt1); 
-                                    clearBuffer();
+                                    clearBuffer();  
+                                    smsFlag=0;
                                   }
                                   else
                                   {
@@ -490,10 +530,10 @@ void smsHandle()
                                           else sdt2[i1]=ndt2[i1]=msgStr[poskey+i1];
                                         } 
                                         while(i1<11);
-                                        puts(msgStr);
                                         printf("\nsdt2:");
                                         puts(ndt2); 
-                                        clearBuffer();
+                                        clearBuffer(); 
+                                        smsFlag=0;
                                       }
                                       else
                                       {
@@ -508,29 +548,31 @@ void smsHandle()
                                             printf("sdt3:");
                                             puts(ndt3);
                                             clearBuffer();
+                                            smsFlag=0;
                                           }
                                           else
                                           {
-                                            if(strcmp(syntax,"reset")==0)
-                                            {
-                                              for(i1=0;i1<4;i1++)
-                                              {
-                                                password[i1]='0';
-                                              } 
-                                              while(i1<4);
-                                              printf("password:");
-                                              putchar(password[0]); 
-                                              putchar(password[1]);
-                                              putchar(password[2]);
-                                              putchar(password[3]);
-                                              clearBuffer();
-                                            }
-                                            else 
-                                            {
-                                               printf("syntax error");
-                                               clearBuffer();
-                                               
-                                            }
+                                               if(strcmp(content,"kttk")==0)
+                                               {
+                                                 KTTK(); 
+                                                 clearBuffer();
+                                                 smsFlag=0;
+                                               }
+                                               else
+                                               {
+                                                 if(strcmp(syntax,"naptien")==0)
+                                                 {  char mathe[13];
+                                                    char mt;
+                                                    for(mt=0;mt<13;mt++)
+                                                    { 
+                                                      if(msgStr[13+mt]<48||msgStr[13+mt]>57) mathe[mt]='0';
+                                                      else mathe[mt]=msgStr[13+mt];
+                                                    }
+                                                    naptien(mathe);
+                                                    clearBuffer();
+                                                    smsFlag=0;
+                                                 }
+                                               }
                                           }
                                       }
                                   }
@@ -540,16 +582,8 @@ void smsHandle()
                     }
                 } 
             }
-        }
-        
-           
-    }
-    else
-    {
-      printf("password error");
-      clearBuffer();
+        }       
     } 
- 
 }
 
 
@@ -583,39 +617,6 @@ PORTD=(0<<PORTD7) | (0<<PORTD6) | (0<<PORTD5) | (0<<PORTD4) | (1<<PORTD3) | (1<<
 TCCR0=(0<<CS02) | (0<<CS01) | (0<<CS00);
 TCNT0=0x00;
 
-// Timer/Counter 1 initialization
-// Clock source: System Clock
-// Clock value: Timer1 Stopped
-// Mode: Normal top=0xFFFF
-// OC1A output: Disconnected
-// OC1B output: Disconnected
-// Noise Canceler: Off
-// Input Capture on Falling Edge
-// Timer1 Overflow Interrupt: Off
-// Input Capture Interrupt: Off
-// Compare A Match Interrupt: Off
-// Compare B Match Interrupt: Off
-TCCR1A=(0<<COM1A1) | (0<<COM1A0) | (0<<COM1B1) | (0<<COM1B0) | (0<<WGM11) | (0<<WGM10);
-TCCR1B=(0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (0<<CS12) | (0<<CS11) | (0<<CS10);
-TCNT1H=0x00;
-TCNT1L=0x00;
-ICR1H=0x00;
-ICR1L=0x00;
-OCR1AH=0x00;
-OCR1AL=0x00;
-OCR1BH=0x00;
-OCR1BL=0x00;
-
-// Timer/Counter 2 initialization
-// Clock source: System Clock
-// Clock value: Timer2 Stopped
-// Mode: Normal top=0xFF
-// OC2 output: Disconnected
-ASSR=0<<AS2;
-TCCR2=(0<<PWM2) | (0<<COM21) | (0<<COM20) | (0<<CTC2) | (0<<CS22) | (0<<CS21) | (0<<CS20);
-TCNT2=0x00;
-OCR2=0x00;
-
 // Timer(s)/Counter(s) Interrupt(s) initialization
 TIMSK=(0<<OCIE2) | (0<<TOIE2) | (0<<TICIE1) | (0<<OCIE1A) | (0<<OCIE1B) | (0<<TOIE1) | (0<<TOIE0);
 
@@ -640,26 +641,6 @@ UCSRC=(1<<URSEL) | (0<<UMSEL) | (0<<UPM1) | (0<<UPM0) | (0<<USBS) | (1<<UCSZ1) |
 UBRRH=0x00;
 UBRRL=0x0C;
 
-// Analog Comparator initialization
-// Analog Comparator: Off
-// The Analog Comparator's positive input is
-// connected to the AIN0 pin
-// The Analog Comparator's negative input is
-// connected to the AIN1 pin
-ACSR=(1<<ACD) | (0<<ACBG) | (0<<ACO) | (0<<ACI) | (0<<ACIE) | (0<<ACIC) | (0<<ACIS1) | (0<<ACIS0);
-SFIOR=(0<<ACME);
-
-// ADC initialization
-// ADC disabled
-ADCSRA=(0<<ADEN) | (0<<ADSC) | (0<<ADFR) | (0<<ADIF) | (0<<ADIE) | (0<<ADPS2) | (0<<ADPS1) | (0<<ADPS0);
-
-// SPI initialization
-// SPI disabled
-SPCR=(0<<SPIE) | (0<<SPE) | (0<<DORD) | (0<<MSTR) | (0<<CPOL) | (0<<CPHA) | (0<<SPR1) | (0<<SPR0);
-
-// TWI initialization
-// TWI disabled
-TWCR=(0<<TWEA) | (0<<TWSTA) | (0<<TWSTO) | (0<<TWEN) | (0<<TWIE);
 
 // Global enable interrupts
 #asm("sei")
@@ -687,16 +668,6 @@ if(begin==255)
   password[1]='0';
   password[2]='0';
   password[3]='0'; 
-  sdt1[0]='0'; 
-  sdt1[1]='0';
-  sdt1[2]='0';
-  sdt1[3]='0';
-  sdt1[4]='0';
-  sdt1[5]='0';
-  sdt1[6]='0';
-  sdt1[7]='0';
-  sdt1[8]='0';
-  sdt1[9]='0';
   begin=0;
 }
 if(save1==1) LOAD1=1;
@@ -704,38 +675,8 @@ else LOAD1=0;
 if(save2==1) LOAD2=1;
 else LOAD2=0;
 clearBuffer();
-sendSMS("109","HELLO");
+sendSMS("109","hhhhhh");
 while (1)
       {     if(flag) strHandle();  
-           
-            //strHandle();
-//          if(smsFlag==1)
-//          {
-//              checkPassword();
-//              action();  
-//          } 
-//          else{
-//            if(callFlag==1)
-//            {
-//                if(strcmp(phoneNumber,"0964444373")==0)
-//                {
-//                  printf("ATH\r\n");
-//                  LOAD1=~LOAD1;
-//                  LOAD2=~LOAD2;
-//                  save1=~save1;
-//                  save2=~save2;
-//                  clearBuffer();
-//                  callFlag=0;
-//                }else{
-//                  clearBuffer();
-//                  callFlag=0;
-//                }
-//            }
-//            else strHandle();
-//          }
-//          
-          
-
-
       }
 }

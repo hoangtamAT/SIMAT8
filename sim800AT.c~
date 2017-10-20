@@ -7,9 +7,10 @@
 void call(char *number)
 {  char i;
    printf("ATD");
-   for(i=0;i<strlen(number);i++)
+   for(i=0;i<11;i++)
    {  
-     putchar(number[i]);
+     if(number[i]<48&&number[i]>57) break;
+     else putchar(number[i]);
    }
    printf(";\r");
    delay_ms(20);
@@ -37,12 +38,9 @@ void KTTK()
     printf("ATD*101#;\r\n");
 }
 void naptien(char *mathe)
-{   char i;
+{
     printf("AT+CUSD=1\r\n");   
     printf("ATD*100*");
-    for(i=0;i<strlen(mathe);i++)
-    {
-      putchar(mathe[i]);
-    }
+    puts(mathe);
     printf("#;\r\n");
 }

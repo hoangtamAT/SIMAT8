@@ -43,8 +43,7 @@ eeprom char sdt1[11];
 eeprom char sdt2[11];
 eeprom char sdt3[11];
 
-
-eeprom char save1,save2,begin;
+eeprom char save1,save2,begin,tb;
 eeprom char password[4];
 
 char flag,rxStatus,checkpass,result=0;
@@ -382,6 +381,32 @@ void callHandle()
     }        
 }
 
+void checkStatus()
+{
+  if(save1==1)
+  {
+    if(save2==1)
+    {
+      printf("tai 1 va 2 dang bat");
+    }
+    else
+    {
+      printf("tai 1 bat, tai 2 tat");
+    }
+  }
+  else
+  {
+    if(save2==1)
+    {
+        printf("tai 1 tat, tai 2 bat");
+    } 
+    else
+    {
+      printf("tai 1 va 2 dang tat");
+    }
+  }
+}
+
 void smsHandle()
 {   
     char k,i1,i,poskey,i2,endstr=0,lastspace,firstspace,n=0;
@@ -435,7 +460,7 @@ void smsHandle()
         {
           LOAD1=1;
           save1=1; 
-          //printf("on1"); 
+          if(tb!=1) printf("on1"); 
           clearBuffer();
           smsFlag=0;
           
@@ -444,7 +469,7 @@ void smsHandle()
             {
               LOAD2=1;
               save2=1;  
-              //printf("on2"); 
+              if(tb!=1) printf("on2");
               clearBuffer();
               smsFlag=0;
             }else{
@@ -452,7 +477,7 @@ void smsHandle()
                 {
                   LOAD1=0;
                   save1=0; 
-                  //printf("off1");  
+                  if(tb!=1) printf("off1");  
                   clearBuffer();
                   smsFlag=0;
                 } else{
@@ -461,7 +486,7 @@ void smsHandle()
                     {
                       LOAD2=0;
                       save2=0;  
-                      //printf("off2"); 
+                      if(tb!=1) printf("off2"); 
                       clearBuffer();
                       smsFlag=0;
                     }else {
@@ -472,7 +497,7 @@ void smsHandle()
                           LOAD2=1;
                           save1=1;
                           save2=1;
-                          //printf("on");
+                          if(tb!=1) printf("on");
                           clearBuffer();
                           smsFlag=0;
                         }else{
@@ -483,7 +508,7 @@ void smsHandle()
                               LOAD2=0;
                               save1=0;
                               save2=0;
-                              //printf("off"); 
+                              if(tb!=1) printf("off"); 
                               clearBuffer();
                               smsFlag=0;
                             }
@@ -507,7 +532,7 @@ void smsHandle()
                                 }
                                 else
                                 {
-                                  if(strcmp(syntax,"them1")==0)
+                                  if(strcmp(syntax,"sdt1")==0)
                                   {  
                                     for(i1=0;i1<11;i1++)
                                     {
@@ -522,7 +547,7 @@ void smsHandle()
                                   }
                                   else
                                   {
-                                     if(strcmp(syntax,"them2")==0)
+                                     if(strcmp(syntax,"sdt2")==0)
                                       {  
                                         for(i1=0;i1<11;i1++)
                                         {
@@ -537,7 +562,7 @@ void smsHandle()
                                       }
                                       else
                                       {
-                                         if(strcmp(syntax,"them3")==0)
+                                         if(strcmp(syntax,"sdt3")==0)
                                           { 
                                             for(i1=0;i1<11;i1++)
                                             {
@@ -572,6 +597,43 @@ void smsHandle()
                                                     clearBuffer();
                                                     smsFlag=0;
                                                  }
+                                                 else
+                                                 {
+                                                   if(strcmp(content,"thongbao on")==0)
+                                                   {
+                                                     tb=2;  
+                                                     printf("da bat thong bao");
+                                                     clearBuffer();
+                                                     smsFlag=0;
+                                                   }
+                                                   else
+                                                   {
+                                                     if(strcmp(content,"thongbao off")==0)
+                                                       {
+                                                         tb=1;
+                                                         printf("da tat thong bao");
+                                                         clearBuffer();
+                                                         smsFlag=0;
+                                                       }
+                                                       else
+                                                       {
+                                                         if(strcmp(content,"kttt")==0)
+                                                         {
+                                                           checkStatus();
+                                                           clearBuffer();
+                                                           smsFlag=0;
+                                                         }
+                                                         else
+                                                         {
+                                                           printf("Syntax error");
+                                                           clearBuffer();
+                                                           smsFlag=0;
+                                                         }
+                                                       }
+                                                   }
+                                                   
+                                                 }
+                                                 
                                                }
                                           }
                                       }
@@ -644,12 +706,12 @@ UBRRL=0x0C;
 
 // Global enable interrupts
 #asm("sei")
-while(strpos(rx_buffer,'O')<0)
+while(strpos(rx_buffer,'O')<0||strpos(rx_buffer,'K')<0)
 {   
     printf("AT\r\n");
     printf(DISABLE_ECHO);   
     delay_ms(1000);
-    if(strpos(rx_buffer,'O')<0) clearBuffer();  
+    if(strpos(rx_buffer,'O')<0||strpos(rx_buffer,'K')<0) clearBuffer();  
 }
 printf(FORMAT_SMS_TEXT);
 delay_ms(200);
@@ -675,7 +737,6 @@ else LOAD1=0;
 if(save2==1) LOAD2=1;
 else LOAD2=0;
 clearBuffer();
-sendSMS("109","hhhhhh");
 while (1)
       {     if(flag) strHandle();  
       }

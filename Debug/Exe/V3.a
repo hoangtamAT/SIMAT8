@@ -67,8 +67,7 @@
 ;eeprom char sdt2[11];
 ;eeprom char sdt3[11];
 ;
-;
-;eeprom char save1,save2,begin;
+;eeprom char save1,save2,begin,tb;
 ;eeprom char password[4];
 ;
 ;char flag,rxStatus,checkpass,result=0;
@@ -78,12 +77,12 @@
 ;
 ;// External Interrupt 0 service routine
 ;interrupt [EXT_INT0] void ext_int0_isr(void)
-; 0000 0039 {
+; 0000 0038 {
 
 	.CSEG
 ;PCODE: $0000000D VOL: 0
 ;PCODE: $0000000E VOL: 0
-; 0000 003A  LOAD1=~LOAD1;
+; 0000 0039  LOAD1=~LOAD1;
 ;PCODE: $0000000F VOL: 0
 ;PCODE: $00000010 VOL: 0
 ;PCODE: $00000011 VOL: 0
@@ -94,28 +93,28 @@
 ;PCODE: $00000016 VOL: 0
 ;PCODE: $00000017 VOL: 0
 ;PCODE: $00000018 VOL: 0
-; 0000 003B  save1=~save1;
+; 0000 003A  save1=~save1;
 ;PCODE: $00000019 VOL: 0
 ;PCODE: $0000001A VOL: 0
 ;PCODE: $0000001B VOL: 0
 ;PCODE: $0000001C VOL: 0
 ;PCODE: $0000001D VOL: 0
-; 0000 003C  delay_ms(20);
+; 0000 003B  delay_ms(20);
 ;PCODE: $0000001E VOL: 0
 ;PCODE: $0000001F VOL: 0
 ;PCODE: $00000020 VOL: 0
-; 0000 003D 
-; 0000 003E }
+; 0000 003C 
+; 0000 003D }
 ;PCODE: $00000021 VOL: 0
 ;PCODE: $00000022 VOL: 0
 ;PCODE: $00000023 VOL: 0
 ;
 ;// External Interrupt 1 service routine
 ;interrupt [EXT_INT1] void ext_int1_isr(void)
-; 0000 0042 {
+; 0000 0041 {
 ;PCODE: $00000024 VOL: 0
 ;PCODE: $00000025 VOL: 0
-; 0000 0043 LOAD2=~LOAD2;
+; 0000 0042 LOAD2=~LOAD2;
 ;PCODE: $00000026 VOL: 0
 ;PCODE: $00000027 VOL: 0
 ;PCODE: $00000028 VOL: 0
@@ -126,18 +125,18 @@
 ;PCODE: $0000002D VOL: 0
 ;PCODE: $0000002E VOL: 0
 ;PCODE: $0000002F VOL: 0
-; 0000 0044 save2=~save2;
+; 0000 0043 save2=~save2;
 ;PCODE: $00000030 VOL: 0
 ;PCODE: $00000031 VOL: 0
 ;PCODE: $00000032 VOL: 0
 ;PCODE: $00000033 VOL: 0
 ;PCODE: $00000034 VOL: 0
-; 0000 0045     delay_ms(20);
+; 0000 0044     delay_ms(20);
 ;PCODE: $00000035 VOL: 0
 ;PCODE: $00000036 VOL: 0
 ;PCODE: $00000037 VOL: 0
-; 0000 0046 
-; 0000 0047 }
+; 0000 0045 
+; 0000 0046 }
 ;PCODE: $00000038 VOL: 0
 ;PCODE: $00000039 VOL: 0
 ;PCODE: $0000003A VOL: 0
@@ -169,60 +168,60 @@
 ;
 ;// USART Receiver interrupt service routine
 ;interrupt [USART_RXC] void usart_rx_isr(void)
-; 0000 0064 {
+; 0000 0063 {
 ;PCODE: $0000003B VOL: 0
 ;PCODE: $0000003C VOL: 0
-; 0000 0065 char status,data;
-; 0000 0066 status=UCSRA;
+; 0000 0064 char status,data;
+; 0000 0065 status=UCSRA;
 ;PCODE: $0000003D VOL: 0
 ;	status -> R17
 ;	data -> R16
 ;PCODE: $0000003E VOL: 0
 ;PCODE: $0000003F VOL: 0
-; 0000 0067 data=UDR;
+; 0000 0066 data=UDR;
 ;PCODE: $00000040 VOL: 0
 ;PCODE: $00000041 VOL: 0
-; 0000 0068 if ((status & (FRAMING_ERROR | PARITY_ERROR | DATA_OVERRUN))==0)
+; 0000 0067 if ((status & (FRAMING_ERROR | PARITY_ERROR | DATA_OVERRUN))==0)
 ;PCODE: $00000042 VOL: 0
 ;PCODE: $00000043 VOL: 0
 ;PCODE: $00000044 VOL: 0
-; 0000 0069    {
-; 0000 006A    rx_buffer[rx_wr_index++]=data;
+; 0000 0068    {
+; 0000 0069    rx_buffer[rx_wr_index++]=data;
 ;PCODE: $00000045 VOL: 0
 ;PCODE: $00000046 VOL: 0
 ;PCODE: $00000047 VOL: 0
 ;PCODE: $00000048 VOL: 0
 ;PCODE: $00000049 VOL: 0
-; 0000 006B    flag=1;
+; 0000 006A    flag=1;
 ;PCODE: $0000004A VOL: 0
 ;PCODE: $0000004B VOL: 0
-; 0000 006C #if RX_BUFFER_SIZE == 256
-; 0000 006D    // special case for receiver buffer size=256
-; 0000 006E    if (++rx_counter == 0) rx_buffer_overflow=1;
-; 0000 006F #else
-; 0000 0070    if (rx_wr_index == RX_BUFFER_SIZE) rx_wr_index=0;
+; 0000 006B #if RX_BUFFER_SIZE == 256
+; 0000 006C    // special case for receiver buffer size=256
+; 0000 006D    if (++rx_counter == 0) rx_buffer_overflow=1;
+; 0000 006E #else
+; 0000 006F    if (rx_wr_index == RX_BUFFER_SIZE) rx_wr_index=0;
 ;PCODE: $0000004C VOL: 0
 ;PCODE: $0000004D VOL: 0
 ;PCODE: $0000004E VOL: 0
 ;PCODE: $0000004F VOL: 0
-; 0000 0071    if (++rx_counter == RX_BUFFER_SIZE)
+; 0000 0070    if (++rx_counter == RX_BUFFER_SIZE)
 ;PCODE: $00000050 VOL: 0
 ;PCODE: $00000051 VOL: 0
 ;PCODE: $00000052 VOL: 0
 ;PCODE: $00000053 VOL: 0
 ;PCODE: $00000054 VOL: 0
-; 0000 0072       {
-; 0000 0073       rx_counter=0;
+; 0000 0071       {
+; 0000 0072       rx_counter=0;
 ;PCODE: $00000055 VOL: 0
-; 0000 0074       rx_buffer_overflow=1;
+; 0000 0073       rx_buffer_overflow=1;
 ;PCODE: $00000056 VOL: 0
 ;PCODE: $00000057 VOL: 0
 ;PCODE: $00000058 VOL: 0
-; 0000 0075       }
-; 0000 0076 #endif
-; 0000 0077    }
+; 0000 0074       }
+; 0000 0075 #endif
+; 0000 0076    }
 ;PCODE: $00000059 VOL: 0
-; 0000 0078 }
+; 0000 0077 }
 ;PCODE: $0000005A VOL: 0
 ;PCODE: $0000005B VOL: 0
 ;PCODE: $0000005C VOL: 0
@@ -234,11 +233,11 @@
 ;#define _ALTERNATE_GETCHAR_
 ;#pragma used+
 ;char getchar(void)
-; 0000 007F {
+; 0000 007E {
 ;PCODE: $0000005F VOL: 0
 ;PCODE: $00000060 VOL: 0
-; 0000 0080 char data;
-; 0000 0081 while (rx_counter==0);
+; 0000 007F char data;
+; 0000 0080 while (rx_counter==0);
 ;PCODE: $00000061 VOL: 0
 ;	data -> R17
 ;PCODE: $00000062 VOL: 0
@@ -246,35 +245,35 @@
 ;PCODE: $00000064 VOL: 0
 ;PCODE: $00000065 VOL: 0
 ;PCODE: $00000066 VOL: 0
-; 0000 0082 data=rx_buffer[rx_rd_index++];
+; 0000 0081 data=rx_buffer[rx_rd_index++];
 ;PCODE: $00000067 VOL: 0
 ;PCODE: $00000068 VOL: 0
 ;PCODE: $00000069 VOL: 0
 ;PCODE: $0000006A VOL: 0
 ;PCODE: $0000006B VOL: 0
-; 0000 0083 #if RX_BUFFER_SIZE != 256
-; 0000 0084 if (rx_rd_index == RX_BUFFER_SIZE) rx_rd_index=0;
+; 0000 0082 #if RX_BUFFER_SIZE != 256
+; 0000 0083 if (rx_rd_index == RX_BUFFER_SIZE) rx_rd_index=0;
 ;PCODE: $0000006C VOL: 0
 ;PCODE: $0000006D VOL: 0
 ;PCODE: $0000006E VOL: 0
 ;PCODE: $0000006F VOL: 0
-; 0000 0085 #endif
-; 0000 0086 #asm("cli")
+; 0000 0084 #endif
+; 0000 0085 #asm("cli")
 ;PCODE: $00000070 VOL: 0
 ;PCODE: $00000071 VOL: 0
 	cli
 ;PCODE: $00000072 VOL: 0
-; 0000 0087 --rx_counter;
+; 0000 0086 --rx_counter;
 ;PCODE: $00000073 VOL: 0
-; 0000 0088 #asm("sei")
+; 0000 0087 #asm("sei")
 ;PCODE: $00000074 VOL: 0
 	sei
 ;PCODE: $00000075 VOL: 0
-; 0000 0089 return data;
+; 0000 0088 return data;
 ;PCODE: $00000076 VOL: 0
 ;PCODE: $00000077 VOL: 0
 ;PCODE: $00000078 VOL: 0
-; 0000 008A }
+; 0000 0089 }
 ;PCODE: $00000079 VOL: 0
 ;#pragma used-
 ;#endif
@@ -297,35 +296,35 @@
 ;
 ;// USART Transmitter interrupt service routine
 ;interrupt [USART_TXC] void usart_tx_isr(void)
-; 0000 00A0 {
+; 0000 009F {
 ;PCODE: $0000007A VOL: 0
 ;PCODE: $0000007B VOL: 0
-; 0000 00A1 if (tx_counter)
+; 0000 00A0 if (tx_counter)
 ;PCODE: $0000007C VOL: 0
 ;PCODE: $0000007D VOL: 0
 ;PCODE: $0000007E VOL: 0
-; 0000 00A2    {
-; 0000 00A3    --tx_counter;
+; 0000 00A1    {
+; 0000 00A2    --tx_counter;
 ;PCODE: $0000007F VOL: 0
 ;PCODE: $00000080 VOL: 0
 ;PCODE: $00000081 VOL: 0
-; 0000 00A4    UDR=tx_buffer[tx_rd_index++];
+; 0000 00A3    UDR=tx_buffer[tx_rd_index++];
 ;PCODE: $00000082 VOL: 0
 ;PCODE: $00000083 VOL: 0
 ;PCODE: $00000084 VOL: 0
 ;PCODE: $00000085 VOL: 0
 ;PCODE: $00000086 VOL: 0
 ;PCODE: $00000087 VOL: 0
-; 0000 00A5 #if TX_BUFFER_SIZE != 256
-; 0000 00A6    if (tx_rd_index == TX_BUFFER_SIZE) tx_rd_index=0;
+; 0000 00A4 #if TX_BUFFER_SIZE != 256
+; 0000 00A5    if (tx_rd_index == TX_BUFFER_SIZE) tx_rd_index=0;
 ;PCODE: $00000088 VOL: 0
 ;PCODE: $00000089 VOL: 0
 ;PCODE: $0000008A VOL: 0
 ;PCODE: $0000008B VOL: 0
-; 0000 00A7 #endif
-; 0000 00A8    }
+; 0000 00A6 #endif
+; 0000 00A7    }
 ;PCODE: $0000008C VOL: 0
-; 0000 00A9 }
+; 0000 00A8 }
 ;PCODE: $0000008D VOL: 0
 ;PCODE: $0000008E VOL: 0
 ;PCODE: $0000008F VOL: 0
@@ -336,10 +335,10 @@
 ;#define _ALTERNATE_PUTCHAR_
 ;#pragma used+
 ;void putchar(char c)
-; 0000 00B0 {
+; 0000 00AF {
 ;PCODE: $00000091 VOL: 0
 ;PCODE: $00000092 VOL: 0
-; 0000 00B1 while (tx_counter == TX_BUFFER_SIZE);
+; 0000 00B0 while (tx_counter == TX_BUFFER_SIZE);
 ;PCODE: $00000093 VOL: 0
 ;	c -> Y+0
 ;PCODE: $00000094 VOL: 0
@@ -348,11 +347,11 @@
 ;PCODE: $00000097 VOL: 0
 ;PCODE: $00000098 VOL: 0
 ;PCODE: $00000099 VOL: 0
-; 0000 00B2 #asm("cli")
+; 0000 00B1 #asm("cli")
 ;PCODE: $0000009A VOL: 0
 	cli
 ;PCODE: $0000009B VOL: 0
-; 0000 00B3 if (tx_counter || ((UCSRA & DATA_REGISTER_EMPTY)==0))
+; 0000 00B2 if (tx_counter || ((UCSRA & DATA_REGISTER_EMPTY)==0))
 ;PCODE: $0000009C VOL: 0
 ;PCODE: $0000009D VOL: 0
 ;PCODE: $0000009E VOL: 0
@@ -361,39 +360,39 @@
 ;PCODE: $000000A1 VOL: 0
 ;PCODE: $000000A2 VOL: 0
 ;PCODE: $000000A3 VOL: 0
-; 0000 00B4    {
-; 0000 00B5    tx_buffer[tx_wr_index++]=c;
+; 0000 00B3    {
+; 0000 00B4    tx_buffer[tx_wr_index++]=c;
 ;PCODE: $000000A4 VOL: 0
 ;PCODE: $000000A5 VOL: 0
 ;PCODE: $000000A6 VOL: 0
 ;PCODE: $000000A7 VOL: 0
 ;PCODE: $000000A8 VOL: 0
 ;PCODE: $000000A9 VOL: 0
-; 0000 00B6 #if TX_BUFFER_SIZE != 256
-; 0000 00B7    if (tx_wr_index == TX_BUFFER_SIZE) tx_wr_index=0;
+; 0000 00B5 #if TX_BUFFER_SIZE != 256
+; 0000 00B6    if (tx_wr_index == TX_BUFFER_SIZE) tx_wr_index=0;
 ;PCODE: $000000AA VOL: 0
 ;PCODE: $000000AB VOL: 0
 ;PCODE: $000000AC VOL: 0
 ;PCODE: $000000AD VOL: 0
-; 0000 00B8 #endif
-; 0000 00B9    ++tx_counter;
+; 0000 00B7 #endif
+; 0000 00B8    ++tx_counter;
 ;PCODE: $000000AE VOL: 0
 ;PCODE: $000000AF VOL: 0
 ;PCODE: $000000B0 VOL: 0
 ;PCODE: $000000B1 VOL: 0
-; 0000 00BA    }
-; 0000 00BB else
+; 0000 00B9    }
+; 0000 00BA else
 ;PCODE: $000000B2 VOL: 0
 ;PCODE: $000000B3 VOL: 0
-; 0000 00BC    UDR=c;
+; 0000 00BB    UDR=c;
 ;PCODE: $000000B4 VOL: 0
 ;PCODE: $000000B5 VOL: 0
-; 0000 00BD #asm("sei")
+; 0000 00BC #asm("sei")
 ;PCODE: $000000B6 VOL: 0
 ;PCODE: $000000B7 VOL: 0
 	sei
 ;PCODE: $000000B8 VOL: 0
-; 0000 00BE }
+; 0000 00BD }
 ;PCODE: $000000B9 VOL: 0
 ;PCODE: $000000BA VOL: 0
 ;PCODE: $000000BB VOL: 0
@@ -401,11 +400,11 @@
 ;#endif
 ;
 ;void clearBuffer()
-; 0000 00C3 {   char i;
+; 0000 00C2 {   char i;
 ;PCODE: $000000BC VOL: 0
 ;PCODE: $000000BD VOL: 0
-; 0000 00C4 
-; 0000 00C5     for(i=0;i<rx_wr_index;i++)
+; 0000 00C3 
+; 0000 00C4     for(i=0;i<rx_wr_index;i++)
 ;PCODE: $000000BE VOL: 0
 ;	i -> R17
 ;PCODE: $000000BF VOL: 0
@@ -417,8 +416,8 @@
 ;PCODE: $000000C5 VOL: 0
 ;PCODE: $000000C6 VOL: 0
 ;PCODE: $000000C7 VOL: 0
-; 0000 00C6     {
-; 0000 00C7         rx_buffer[i]=msgStr[i]=phoneNumber[i]=phoneNumberSms[i]=content[i]=type[i]=0;
+; 0000 00C5     {
+; 0000 00C6         rx_buffer[i]=msgStr[i]=phoneNumber[i]=phoneNumberSms[i]=content[i]=type[i]=0;
 ;PCODE: $000000C8 VOL: 0
 ;PCODE: $000000C9 VOL: 0
 ;PCODE: $000000CA VOL: 0
@@ -454,23 +453,23 @@
 ;PCODE: $000000E8 VOL: 0
 ;PCODE: $000000E9 VOL: 0
 ;PCODE: $000000EA VOL: 0
-; 0000 00C8     }
+; 0000 00C7     }
 ;PCODE: $000000EB VOL: 0
 ;PCODE: $000000EC VOL: 0
 ;PCODE: $000000ED VOL: 0
 ;PCODE: $000000EE VOL: 0
 ;PCODE: $000000EF VOL: 0
-; 0000 00C9     rx_wr_index=0;
+; 0000 00C8     rx_wr_index=0;
 ;PCODE: $000000F0 VOL: 0
-; 0000 00CA     checkpass=0;
+; 0000 00C9     checkpass=0;
 ;PCODE: $000000F1 VOL: 0
-; 0000 00CB     result=0;
+; 0000 00CA     result=0;
 ;PCODE: $000000F2 VOL: 0
-; 0000 00CC     flag=0;
+; 0000 00CB     flag=0;
 ;PCODE: $000000F3 VOL: 0
+; 0000 00CC 
 ; 0000 00CD 
-; 0000 00CE 
-; 0000 00CF }
+; 0000 00CE }
 ;PCODE: $000000F4 VOL: 0
 ;PCODE: $000000F5 VOL: 0
 ;PCODE: $000000F6 VOL: 0
@@ -489,11 +488,11 @@
 ;void callHandle();
 ;void smsHandle();
 ;void strHandle()
-; 0000 00DF {
+; 0000 00DE {
 ;PCODE: $000000F7 VOL: 0
 ;PCODE: $000000F8 VOL: 0
-; 0000 00E0     char i,k,l,pos,e=0,n=0;
-; 0000 00E1             while(strcmp(type,"CLIP")!=0 && strcmp(type,"CMT:")!=0 && strcmp(type,"CUSD")!=0)
+; 0000 00DF     char i,k,l,pos,e=0,n=0;
+; 0000 00E0             while(strcmp(type,"CLIP")!=0 && strcmp(type,"CMT:")!=0 && strcmp(type,"CUSD")!=0)
 ;PCODE: $000000F9 VOL: 0
 ;	i -> R17
 ;	k -> R16
@@ -531,8 +530,8 @@
 ;PCODE: $00000115 VOL: 0
 ;PCODE: $00000116 VOL: 0
 ;PCODE: $00000117 VOL: 0
-; 0000 00E2             {
-; 0000 00E3                 for(i=0;i<4;i++)
+; 0000 00E1             {
+; 0000 00E2                 for(i=0;i<4;i++)
 ;PCODE: $00000118 VOL: 0
 ;PCODE: $00000119 VOL: 0
 ;PCODE: $0000011A VOL: 0
@@ -542,8 +541,8 @@
 ;PCODE: $0000011E VOL: 0
 ;PCODE: $0000011F VOL: 0
 ;PCODE: $00000120 VOL: 0
-; 0000 00E4                 {
-; 0000 00E5                     type[i]=rx_buffer[strpos(rx_buffer,'+')+1+i];
+; 0000 00E3                 {
+; 0000 00E4                     type[i]=rx_buffer[strpos(rx_buffer,'+')+1+i];
 ;PCODE: $00000121 VOL: 0
 ;PCODE: $00000122 VOL: 0
 ;PCODE: $00000123 VOL: 0
@@ -561,16 +560,16 @@
 ;PCODE: $0000012F VOL: 0
 ;PCODE: $00000130 VOL: 0
 ;PCODE: $00000131 VOL: 0
-; 0000 00E6                 }
+; 0000 00E5                 }
 ;PCODE: $00000132 VOL: 0
 ;PCODE: $00000133 VOL: 0
 ;PCODE: $00000134 VOL: 0
 ;PCODE: $00000135 VOL: 0
 ;PCODE: $00000136 VOL: 0
-; 0000 00E7                 e++;
+; 0000 00E6                 e++;
 ;PCODE: $00000137 VOL: 0
 ;PCODE: $00000138 VOL: 0
-; 0000 00E8                 printf(".");
+; 0000 00E7                 printf(".");
 ;PCODE: $00000139 VOL: 0
 ;PCODE: $0000013A VOL: 0
 ;PCODE: $0000013B VOL: 0
@@ -578,16 +577,16 @@
 ;PCODE: $0000013D VOL: 0
 ;PCODE: $0000013E VOL: 0
 ;PCODE: $0000013F VOL: 0
-; 0000 00E9                 delay_ms(50);
+; 0000 00E8                 delay_ms(50);
 ;PCODE: $00000140 VOL: 0
 ;PCODE: $00000141 VOL: 0
 ;PCODE: $00000142 VOL: 0
-; 0000 00EA                 if(e>20)
+; 0000 00E9                 if(e>20)
 ;PCODE: $00000143 VOL: 0
 ;PCODE: $00000144 VOL: 0
 ;PCODE: $00000145 VOL: 0
-; 0000 00EB                 {
-; 0000 00EC                   printf("time out");
+; 0000 00EA                 {
+; 0000 00EB                   printf("time out");
 ;PCODE: $00000146 VOL: 0
 ;PCODE: $00000147 VOL: 0
 ;PCODE: $00000148 VOL: 0
@@ -595,16 +594,16 @@
 ;PCODE: $0000014A VOL: 0
 ;PCODE: $0000014B VOL: 0
 ;PCODE: $0000014C VOL: 0
-; 0000 00ED                   clearBuffer();
+; 0000 00EC                   clearBuffer();
 ;PCODE: $0000014D VOL: 0
-; 0000 00EE                   break;
+; 0000 00ED                   break;
 ;PCODE: $0000014E VOL: 0
-; 0000 00EF                 }
-; 0000 00F0             }
+; 0000 00EE                 }
+; 0000 00EF             }
 ;PCODE: $0000014F VOL: 0
 ;PCODE: $00000150 VOL: 0
 ;PCODE: $00000151 VOL: 0
-; 0000 00F1             if(strcmp(type,"CLIP")==0)  //call
+; 0000 00F0             if(strcmp(type,"CLIP")==0)  //call
 ;PCODE: $00000152 VOL: 0
 ;PCODE: $00000153 VOL: 0
 ;PCODE: $00000154 VOL: 0
@@ -612,17 +611,17 @@
 ;PCODE: $00000156 VOL: 0
 ;PCODE: $00000157 VOL: 0
 ;PCODE: $00000158 VOL: 0
-; 0000 00F2             {
-; 0000 00F3                 rxStatus=strCall;
+; 0000 00F1             {
+; 0000 00F2                 rxStatus=strCall;
 ;PCODE: $00000159 VOL: 0
 ;PCODE: $0000015A VOL: 0
-; 0000 00F4                 pos=strpos(rx_buffer,34); // "  //
+; 0000 00F3                 pos=strpos(rx_buffer,34); // "  //
 ;PCODE: $0000015B VOL: 0
 ;PCODE: $0000015C VOL: 0
 ;PCODE: $0000015D VOL: 0
 ;PCODE: $0000015E VOL: 0
 ;PCODE: $0000015F VOL: 0
-; 0000 00F5                 if(rx_buffer[pos+11]==34) qtyNum=10;
+; 0000 00F4                 if(rx_buffer[pos+11]==34) qtyNum=10;
 ;PCODE: $00000160 VOL: 0
 ;PCODE: $00000161 VOL: 0
 ;PCODE: $00000162 VOL: 0
@@ -632,12 +631,12 @@
 ;PCODE: $00000166 VOL: 0
 ;PCODE: $00000167 VOL: 0
 ;PCODE: $00000168 VOL: 0
-; 0000 00F6                 else qtyNum=11;
+; 0000 00F5                 else qtyNum=11;
 ;PCODE: $00000169 VOL: 0
 ;PCODE: $0000016A VOL: 0
 ;PCODE: $0000016B VOL: 0
 ;PCODE: $0000016C VOL: 0
-; 0000 00F7                 for(k=0;k<qtyNum;k++)
+; 0000 00F6                 for(k=0;k<qtyNum;k++)
 ;PCODE: $0000016D VOL: 0
 ;PCODE: $0000016E VOL: 0
 ;PCODE: $0000016F VOL: 0
@@ -648,8 +647,8 @@
 ;PCODE: $00000174 VOL: 0
 ;PCODE: $00000175 VOL: 0
 ;PCODE: $00000176 VOL: 0
-; 0000 00F8                 {
-; 0000 00F9                    phoneNumber[k]=rx_buffer[pos+1+k];
+; 0000 00F7                 {
+; 0000 00F8                    phoneNumber[k]=rx_buffer[pos+1+k];
 ;PCODE: $00000177 VOL: 0
 ;PCODE: $00000178 VOL: 0
 ;PCODE: $00000179 VOL: 0
@@ -665,29 +664,29 @@
 ;PCODE: $00000183 VOL: 0
 ;PCODE: $00000184 VOL: 0
 ;PCODE: $00000185 VOL: 0
-; 0000 00FA                 }
+; 0000 00F9                 }
 ;PCODE: $00000186 VOL: 0
 ;PCODE: $00000187 VOL: 0
 ;PCODE: $00000188 VOL: 0
 ;PCODE: $00000189 VOL: 0
 ;PCODE: $0000018A VOL: 0
-; 0000 00FB                 callFlag=1;
+; 0000 00FA                 callFlag=1;
 ;PCODE: $0000018B VOL: 0
 ;PCODE: $0000018C VOL: 0
 ;PCODE: $0000018D VOL: 0
-; 0000 00FC                 if(callFlag)callHandle();
+; 0000 00FB                 if(callFlag)callHandle();
 ;PCODE: $0000018E VOL: 0
 ;PCODE: $0000018F VOL: 0
 ;PCODE: $00000190 VOL: 0
 ;PCODE: $00000191 VOL: 0
-; 0000 00FD 
-; 0000 00FE             }
+; 0000 00FC 
+; 0000 00FD             }
 ;PCODE: $00000192 VOL: 0
-; 0000 00FF             else  //sms
+; 0000 00FE             else  //sms
 ;PCODE: $00000193 VOL: 0
 ;PCODE: $00000194 VOL: 0
-; 0000 0100             {
-; 0000 0101                if(strcmp(type,"CMT:")==0)
+; 0000 00FF             {
+; 0000 0100                if(strcmp(type,"CMT:")==0)
 ;PCODE: $00000195 VOL: 0
 ;PCODE: $00000196 VOL: 0
 ;PCODE: $00000197 VOL: 0
@@ -695,11 +694,11 @@
 ;PCODE: $00000199 VOL: 0
 ;PCODE: $0000019A VOL: 0
 ;PCODE: $0000019B VOL: 0
-; 0000 0102                {    //"+84964444373", ":0 ,:14-15
-; 0000 0103                     rxStatus=strSms;
+; 0000 0101                {    //"+84964444373", ":0 ,:14-15
+; 0000 0102                     rxStatus=strSms;
 ;PCODE: $0000019C VOL: 0
 ;PCODE: $0000019D VOL: 0
-; 0000 0104                     while(strpos(rx_buffer,'.')<=0)
+; 0000 0103                     while(strpos(rx_buffer,'.')<=0)
 ;PCODE: $0000019E VOL: 0
 ;PCODE: $0000019F VOL: 0
 ;PCODE: $000001A0 VOL: 0
@@ -707,11 +706,11 @@
 ;PCODE: $000001A2 VOL: 0
 ;PCODE: $000001A3 VOL: 0
 ;PCODE: $000001A4 VOL: 0
-; 0000 0105                     {
-; 0000 0106                        n++;
+; 0000 0104                     {
+; 0000 0105                        n++;
 ;PCODE: $000001A5 VOL: 0
 ;PCODE: $000001A6 VOL: 0
-; 0000 0107                        printf(".");
+; 0000 0106                        printf(".");
 ;PCODE: $000001A7 VOL: 0
 ;PCODE: $000001A8 VOL: 0
 ;PCODE: $000001A9 VOL: 0
@@ -719,16 +718,16 @@
 ;PCODE: $000001AB VOL: 0
 ;PCODE: $000001AC VOL: 0
 ;PCODE: $000001AD VOL: 0
-; 0000 0108                        delay_ms(50);
+; 0000 0107                        delay_ms(50);
 ;PCODE: $000001AE VOL: 0
 ;PCODE: $000001AF VOL: 0
 ;PCODE: $000001B0 VOL: 0
-; 0000 0109                        if(n>20)
+; 0000 0108                        if(n>20)
 ;PCODE: $000001B1 VOL: 0
 ;PCODE: $000001B2 VOL: 0
 ;PCODE: $000001B3 VOL: 0
-; 0000 010A                        {
-; 0000 010B                          printf("time out");
+; 0000 0109                        {
+; 0000 010A                          printf("time out");
 ;PCODE: $000001B4 VOL: 0
 ;PCODE: $000001B5 VOL: 0
 ;PCODE: $000001B6 VOL: 0
@@ -736,16 +735,16 @@
 ;PCODE: $000001B8 VOL: 0
 ;PCODE: $000001B9 VOL: 0
 ;PCODE: $000001BA VOL: 0
-; 0000 010C                          clearBuffer();
+; 0000 010B                          clearBuffer();
 ;PCODE: $000001BB VOL: 0
-; 0000 010D                          break;
+; 0000 010C                          break;
 ;PCODE: $000001BC VOL: 0
-; 0000 010E                        }
-; 0000 010F                     }
+; 0000 010D                        }
+; 0000 010E                     }
 ;PCODE: $000001BD VOL: 0
 ;PCODE: $000001BE VOL: 0
 ;PCODE: $000001BF VOL: 0
-; 0000 0110                     if(strcmp(type,"CMT:")==0)
+; 0000 010F                     if(strcmp(type,"CMT:")==0)
 ;PCODE: $000001C0 VOL: 0
 ;PCODE: $000001C1 VOL: 0
 ;PCODE: $000001C2 VOL: 0
@@ -753,19 +752,19 @@
 ;PCODE: $000001C4 VOL: 0
 ;PCODE: $000001C5 VOL: 0
 ;PCODE: $000001C6 VOL: 0
-; 0000 0111                     {
-; 0000 0112                         pos=strpos(rx_buffer,'#');
+; 0000 0110                     {
+; 0000 0111                         pos=strpos(rx_buffer,'#');
 ;PCODE: $000001C7 VOL: 0
 ;PCODE: $000001C8 VOL: 0
 ;PCODE: $000001C9 VOL: 0
 ;PCODE: $000001CA VOL: 0
 ;PCODE: $000001CB VOL: 0
-; 0000 0113                         if(pos>0)
+; 0000 0112                         if(pos>0)
 ;PCODE: $000001CC VOL: 0
 ;PCODE: $000001CD VOL: 0
 ;PCODE: $000001CE VOL: 0
-; 0000 0114                         {
-; 0000 0115                             for(k=0;k<strpos(rx_buffer,'.')-pos;k++)
+; 0000 0113                         {
+; 0000 0114                             for(k=0;k<strpos(rx_buffer,'.')-pos;k++)
 ;PCODE: $000001CF VOL: 0
 ;PCODE: $000001D0 VOL: 0
 ;PCODE: $000001D1 VOL: 0
@@ -785,8 +784,8 @@
 ;PCODE: $000001DF VOL: 0
 ;PCODE: $000001E0 VOL: 0
 ;PCODE: $000001E1 VOL: 0
-; 0000 0116                             {
-; 0000 0117                                 msgStr[k]=rx_buffer[pos+1+k];
+; 0000 0115                             {
+; 0000 0116                                 msgStr[k]=rx_buffer[pos+1+k];
 ;PCODE: $000001E2 VOL: 0
 ;PCODE: $000001E3 VOL: 0
 ;PCODE: $000001E4 VOL: 0
@@ -802,13 +801,13 @@
 ;PCODE: $000001EE VOL: 0
 ;PCODE: $000001EF VOL: 0
 ;PCODE: $000001F0 VOL: 0
-; 0000 0118                             }
+; 0000 0117                             }
 ;PCODE: $000001F1 VOL: 0
 ;PCODE: $000001F2 VOL: 0
 ;PCODE: $000001F3 VOL: 0
 ;PCODE: $000001F4 VOL: 0
 ;PCODE: $000001F5 VOL: 0
-; 0000 0119                             for(l=1;l<(strpos(rx_buffer,',')-strpos(rx_buffer,34)-4);l++)
+; 0000 0118                             for(l=1;l<(strpos(rx_buffer,',')-strpos(rx_buffer,34)-4);l++)
 ;PCODE: $000001F6 VOL: 0
 ;PCODE: $000001F7 VOL: 0
 ;PCODE: $000001F8 VOL: 0
@@ -833,11 +832,11 @@
 ;PCODE: $0000020B VOL: 0
 ;PCODE: $0000020C VOL: 0
 ;PCODE: $0000020D VOL: 0
-; 0000 011A                             {
-; 0000 011B                                 phoneNumberSms[0]='0';
+; 0000 0119                             {
+; 0000 011A                                 phoneNumberSms[0]='0';
 ;PCODE: $0000020E VOL: 0
 ;PCODE: $0000020F VOL: 0
-; 0000 011C                                 phoneNumberSms[l]=rx_buffer[strpos(rx_buffer,34)+3+l];
+; 0000 011B                                 phoneNumberSms[l]=rx_buffer[strpos(rx_buffer,34)+3+l];
 ;PCODE: $00000210 VOL: 0
 ;PCODE: $00000211 VOL: 0
 ;PCODE: $00000212 VOL: 0
@@ -855,34 +854,34 @@
 ;PCODE: $0000021E VOL: 0
 ;PCODE: $0000021F VOL: 0
 ;PCODE: $00000220 VOL: 0
-; 0000 011D                             }
+; 0000 011C                             }
 ;PCODE: $00000221 VOL: 0
 ;PCODE: $00000222 VOL: 0
 ;PCODE: $00000223 VOL: 0
 ;PCODE: $00000224 VOL: 0
 ;PCODE: $00000225 VOL: 0
-; 0000 011E                             smsFlag=1;
+; 0000 011D                             smsFlag=1;
 ;PCODE: $00000226 VOL: 0
 ;PCODE: $00000227 VOL: 0
 ;PCODE: $00000228 VOL: 0
-; 0000 011F                             //puts(msgStr);
-; 0000 0120                             if(smsFlag) smsHandle();
+; 0000 011E                             //puts(msgStr);
+; 0000 011F                             if(smsFlag) smsHandle();
 ;PCODE: $00000229 VOL: 0
 ;PCODE: $0000022A VOL: 0
 ;PCODE: $0000022B VOL: 0
 ;PCODE: $0000022C VOL: 0
-; 0000 0121                         }
+; 0000 0120                         }
 ;PCODE: $0000022D VOL: 0
-; 0000 0122                     }
+; 0000 0121                     }
 ;PCODE: $0000022E VOL: 0
-; 0000 0123 
-; 0000 0124                }
+; 0000 0122 
+; 0000 0123                }
 ;PCODE: $0000022F VOL: 0
-; 0000 0125                else
+; 0000 0124                else
 ;PCODE: $00000230 VOL: 0
 ;PCODE: $00000231 VOL: 0
-; 0000 0126                {//+CUSD: 0, "TK goc la 12d. De biet cac CT dac biet cua Quy khach, bam goi *098#.", 15
-; 0000 0127                     if(strcmp(type,"CUSD")==0)
+; 0000 0125                {//+CUSD: 0, "TK goc la 12d. De biet cac CT dac biet cua Quy khach, bam goi *098#.", 15
+; 0000 0126                     if(strcmp(type,"CUSD")==0)
 ;PCODE: $00000232 VOL: 0
 ;PCODE: $00000233 VOL: 0
 ;PCODE: $00000234 VOL: 0
@@ -890,14 +889,14 @@
 ;PCODE: $00000236 VOL: 0
 ;PCODE: $00000237 VOL: 0
 ;PCODE: $00000238 VOL: 0
-; 0000 0128                     {
-; 0000 0129                        pos=strpos(rx_buffer,34);
+; 0000 0127                     {
+; 0000 0128                        pos=strpos(rx_buffer,34);
 ;PCODE: $00000239 VOL: 0
 ;PCODE: $0000023A VOL: 0
 ;PCODE: $0000023B VOL: 0
 ;PCODE: $0000023C VOL: 0
 ;PCODE: $0000023D VOL: 0
-; 0000 012A                        for(k=0;k<(strrpos(rx_buffer,34)-pos-1);k++)
+; 0000 0129                        for(k=0;k<(strrpos(rx_buffer,34)-pos-1);k++)
 ;PCODE: $0000023E VOL: 0
 ;PCODE: $0000023F VOL: 0
 ;PCODE: $00000240 VOL: 0
@@ -919,8 +918,8 @@
 ;PCODE: $00000250 VOL: 0
 ;PCODE: $00000251 VOL: 0
 ;PCODE: $00000252 VOL: 0
-; 0000 012B                        {
-; 0000 012C                          msgStr[k]=rx_buffer[pos+1+k];
+; 0000 012A                        {
+; 0000 012B                          msgStr[k]=rx_buffer[pos+1+k];
 ;PCODE: $00000253 VOL: 0
 ;PCODE: $00000254 VOL: 0
 ;PCODE: $00000255 VOL: 0
@@ -936,27 +935,27 @@
 ;PCODE: $0000025F VOL: 0
 ;PCODE: $00000260 VOL: 0
 ;PCODE: $00000261 VOL: 0
-; 0000 012D                        }
+; 0000 012C                        }
 ;PCODE: $00000262 VOL: 0
 ;PCODE: $00000263 VOL: 0
 ;PCODE: $00000264 VOL: 0
 ;PCODE: $00000265 VOL: 0
 ;PCODE: $00000266 VOL: 0
-; 0000 012E                        puts(msgStr);
+; 0000 012D                        puts(msgStr);
 ;PCODE: $00000267 VOL: 0
 ;PCODE: $00000268 VOL: 0
-; 0000 012F                        clearBuffer();
+; 0000 012E                        clearBuffer();
 ;PCODE: $00000269 VOL: 0
-; 0000 0130                     }
+; 0000 012F                     }
+; 0000 0130 
 ; 0000 0131 
-; 0000 0132 
-; 0000 0133                }
+; 0000 0132                }
 ;PCODE: $0000026A VOL: 0
 ;PCODE: $0000026B VOL: 0
-; 0000 0134             }
+; 0000 0133             }
 ;PCODE: $0000026C VOL: 0
-; 0000 0135 
-; 0000 0136 }
+; 0000 0134 
+; 0000 0135 }
 ;PCODE: $0000026D VOL: 0
 ;PCODE: $0000026E VOL: 0
 ;PCODE: $0000026F VOL: 0
@@ -966,12 +965,12 @@
 _0x1E:
 	.BYTE 0x23
 ;void checkPassword()
-; 0000 0138 {
+; 0000 0137 {
 
 	.CSEG
 ;PCODE: $00000271 VOL: 0
 ;PCODE: $00000272 VOL: 0
-; 0000 0139    if(msgStr[0]==password[0]&&msgStr[1]==password[1]&&msgStr[2]==password[2]&&msgStr[3]==password[3]) checkpass=1;
+; 0000 0138    if(msgStr[0]==password[0]&&msgStr[1]==password[1]&&msgStr[2]==password[2]&&msgStr[3]==password[3]) checkpass=1;
 ;PCODE: $00000273 VOL: 0
 ;PCODE: $00000274 VOL: 0
 ;PCODE: $00000275 VOL: 0
@@ -1004,23 +1003,23 @@ _0x1E:
 ;PCODE: $00000290 VOL: 0
 ;PCODE: $00000291 VOL: 0
 ;PCODE: $00000292 VOL: 0
-; 0000 013A    else
+; 0000 0139    else
 ;PCODE: $00000293 VOL: 0
 ;PCODE: $00000294 VOL: 0
-; 0000 013B    {
-; 0000 013C     checkpass=0;
+; 0000 013A    {
+; 0000 013B     checkpass=0;
 ;PCODE: $00000295 VOL: 0
-; 0000 013D    }
+; 0000 013C    }
 ;PCODE: $00000296 VOL: 0
-; 0000 013E }
+; 0000 013D }
 ;PCODE: $00000297 VOL: 0
 ;PCODE: $00000298 VOL: 0
 ;void comparePhoneNumber()
-; 0000 0140 {  char dt1[11],dt2[11],dt3[11];
+; 0000 013F {  char dt1[11],dt2[11],dt3[11];
 ;PCODE: $00000299 VOL: 0
 ;PCODE: $0000029A VOL: 0
-; 0000 0141    char i;
-; 0000 0142    for(i=0;i<11;i++)
+; 0000 0140    char i;
+; 0000 0141    for(i=0;i<11;i++)
 ;PCODE: $0000029B VOL: 0
 ;PCODE: $0000029C VOL: 0
 ;	dt1 -> Y+23
@@ -1036,8 +1035,8 @@ _0x1E:
 ;PCODE: $000002A3 VOL: 0
 ;PCODE: $000002A4 VOL: 0
 ;PCODE: $000002A5 VOL: 0
-; 0000 0143    {
-; 0000 0144         if(sdt1[i]==255) dt1[i]=0;
+; 0000 0142    {
+; 0000 0143         if(sdt1[i]==255) dt1[i]=0;
 ;PCODE: $000002A6 VOL: 0
 ;PCODE: $000002A7 VOL: 0
 ;PCODE: $000002A8 VOL: 0
@@ -1050,7 +1049,7 @@ _0x1E:
 ;PCODE: $000002AF VOL: 0
 ;PCODE: $000002B0 VOL: 0
 ;PCODE: $000002B1 VOL: 0
-; 0000 0145         else dt1[i]=sdt1[i];
+; 0000 0144         else dt1[i]=sdt1[i];
 ;PCODE: $000002B2 VOL: 0
 ;PCODE: $000002B3 VOL: 0
 ;PCODE: $000002B4 VOL: 0
@@ -1064,7 +1063,7 @@ _0x1E:
 ;PCODE: $000002BC VOL: 0
 ;PCODE: $000002BD VOL: 0
 ;PCODE: $000002BE VOL: 0
-; 0000 0146         if(sdt2[i]==255) dt2[i]=0;
+; 0000 0145         if(sdt2[i]==255) dt2[i]=0;
 ;PCODE: $000002BF VOL: 0
 ;PCODE: $000002C0 VOL: 0
 ;PCODE: $000002C1 VOL: 0
@@ -1078,7 +1077,7 @@ _0x1E:
 ;PCODE: $000002C9 VOL: 0
 ;PCODE: $000002CA VOL: 0
 ;PCODE: $000002CB VOL: 0
-; 0000 0147         else dt2[i]=sdt2[i];
+; 0000 0146         else dt2[i]=sdt2[i];
 ;PCODE: $000002CC VOL: 0
 ;PCODE: $000002CD VOL: 0
 ;PCODE: $000002CE VOL: 0
@@ -1092,7 +1091,7 @@ _0x1E:
 ;PCODE: $000002D6 VOL: 0
 ;PCODE: $000002D7 VOL: 0
 ;PCODE: $000002D8 VOL: 0
-; 0000 0148         if(sdt3[i]==255) dt3[i]=0;
+; 0000 0147         if(sdt3[i]==255) dt3[i]=0;
 ;PCODE: $000002D9 VOL: 0
 ;PCODE: $000002DA VOL: 0
 ;PCODE: $000002DB VOL: 0
@@ -1106,7 +1105,7 @@ _0x1E:
 ;PCODE: $000002E3 VOL: 0
 ;PCODE: $000002E4 VOL: 0
 ;PCODE: $000002E5 VOL: 0
-; 0000 0149         else dt3[i]=sdt3[i];
+; 0000 0148         else dt3[i]=sdt3[i];
 ;PCODE: $000002E6 VOL: 0
 ;PCODE: $000002E7 VOL: 0
 ;PCODE: $000002E8 VOL: 0
@@ -1120,30 +1119,30 @@ _0x1E:
 ;PCODE: $000002F0 VOL: 0
 ;PCODE: $000002F1 VOL: 0
 ;PCODE: $000002F2 VOL: 0
-; 0000 014A    }
+; 0000 0149    }
 ;PCODE: $000002F3 VOL: 0
 ;PCODE: $000002F4 VOL: 0
 ;PCODE: $000002F5 VOL: 0
 ;PCODE: $000002F6 VOL: 0
 ;PCODE: $000002F7 VOL: 0
 ;PCODE: $000002F8 VOL: 0
-; 0000 014B    while(i<11);
+; 0000 014A    while(i<11);
 ;PCODE: $000002F9 VOL: 0
 ;PCODE: $000002FA VOL: 0
 ;PCODE: $000002FB VOL: 0
 ;PCODE: $000002FC VOL: 0
 ;PCODE: $000002FD VOL: 0
 ;PCODE: $000002FE VOL: 0
-; 0000 014C    delay_ms(20);
+; 0000 014B    delay_ms(20);
 ;PCODE: $000002FF VOL: 0
 ;PCODE: $00000300 VOL: 0
 ;PCODE: $00000301 VOL: 0
-; 0000 014D    if(callFlag==1)
+; 0000 014C    if(callFlag==1)
 ;PCODE: $00000302 VOL: 0
 ;PCODE: $00000303 VOL: 0
 ;PCODE: $00000304 VOL: 0
-; 0000 014E    {
-; 0000 014F       if(strcmp(phoneNumber,dt1)==0||strcmp(phoneNumber,dt2)==0||strcmp(phoneNumber,dt3)==0) result=1;
+; 0000 014D    {
+; 0000 014E       if(strcmp(phoneNumber,dt1)==0||strcmp(phoneNumber,dt2)==0||strcmp(phoneNumber,dt3)==0) result=1;
 ;PCODE: $00000305 VOL: 0
 ;PCODE: $00000306 VOL: 0
 ;PCODE: $00000307 VOL: 0
@@ -1166,16 +1165,16 @@ _0x1E:
 ;PCODE: $00000318 VOL: 0
 ;PCODE: $00000319 VOL: 0
 ;PCODE: $0000031A VOL: 0
-; 0000 0150       else
+; 0000 014F       else
 ;PCODE: $0000031B VOL: 0
 ;PCODE: $0000031C VOL: 0
-; 0000 0151       {
-; 0000 0152         result=0;
+; 0000 0150       {
+; 0000 0151         result=0;
 ;PCODE: $0000031D VOL: 0
-; 0000 0153       }
+; 0000 0152       }
 ;PCODE: $0000031E VOL: 0
-; 0000 0154    }
-; 0000 0155 }
+; 0000 0153    }
+; 0000 0154 }
 ;PCODE: $0000031F VOL: 0
 ;PCODE: $00000320 VOL: 0
 ;PCODE: $00000321 VOL: 0
@@ -1183,24 +1182,24 @@ _0x1E:
 ;PCODE: $00000323 VOL: 0
 ;PCODE: $00000324 VOL: 0
 ;void callHandle()
-; 0000 0157 {   unsigned char n=0;
+; 0000 0156 {   unsigned char n=0;
 ;PCODE: $00000325 VOL: 0
 ;PCODE: $00000326 VOL: 0
-; 0000 0158     comparePhoneNumber();
+; 0000 0157     comparePhoneNumber();
 ;PCODE: $00000327 VOL: 0
 ;	n -> R17
 ;PCODE: $00000328 VOL: 0
 ;PCODE: $00000329 VOL: 0
 ;PCODE: $0000032A VOL: 0
-; 0000 0159     while(result==0)
+; 0000 0158     while(result==0)
 ;PCODE: $0000032B VOL: 0
 ;PCODE: $0000032C VOL: 0
 ;PCODE: $0000032D VOL: 0
-; 0000 015A     {
-; 0000 015B        n++;
+; 0000 0159     {
+; 0000 015A        n++;
 ;PCODE: $0000032E VOL: 0
 ;PCODE: $0000032F VOL: 0
-; 0000 015C        printf(".");
+; 0000 015B        printf(".");
 ;PCODE: $00000330 VOL: 0
 ;PCODE: $00000331 VOL: 0
 ;PCODE: $00000332 VOL: 0
@@ -1208,16 +1207,16 @@ _0x1E:
 ;PCODE: $00000334 VOL: 0
 ;PCODE: $00000335 VOL: 0
 ;PCODE: $00000336 VOL: 0
-; 0000 015D        delay_ms(50);
+; 0000 015C        delay_ms(50);
 ;PCODE: $00000337 VOL: 0
 ;PCODE: $00000338 VOL: 0
 ;PCODE: $00000339 VOL: 0
-; 0000 015E        if(n>20)
+; 0000 015D        if(n>20)
 ;PCODE: $0000033A VOL: 0
 ;PCODE: $0000033B VOL: 0
 ;PCODE: $0000033C VOL: 0
-; 0000 015F        {
-; 0000 0160           printf("time out");
+; 0000 015E        {
+; 0000 015F           printf("time out");
 ;PCODE: $0000033D VOL: 0
 ;PCODE: $0000033E VOL: 0
 ;PCODE: $0000033F VOL: 0
@@ -1225,7 +1224,7 @@ _0x1E:
 ;PCODE: $00000341 VOL: 0
 ;PCODE: $00000342 VOL: 0
 ;PCODE: $00000343 VOL: 0
-; 0000 0161           printf("ATH\r\n");
+; 0000 0160           printf("ATH\r\n");
 ;PCODE: $00000344 VOL: 0
 ;PCODE: $00000345 VOL: 0
 ;PCODE: $00000346 VOL: 0
@@ -1233,26 +1232,26 @@ _0x1E:
 ;PCODE: $00000348 VOL: 0
 ;PCODE: $00000349 VOL: 0
 ;PCODE: $0000034A VOL: 0
-; 0000 0162           clearBuffer();
+; 0000 0161           clearBuffer();
 ;PCODE: $0000034B VOL: 0
-; 0000 0163           result=callFlag=0;
+; 0000 0162           result=callFlag=0;
 ;PCODE: $0000034C VOL: 0
 ;PCODE: $0000034D VOL: 0
 ;PCODE: $0000034E VOL: 0
 ;PCODE: $0000034F VOL: 0
-; 0000 0164           break;
+; 0000 0163           break;
 ;PCODE: $00000350 VOL: 0
-; 0000 0165        }
-; 0000 0166     }
+; 0000 0164        }
+; 0000 0165     }
 ;PCODE: $00000351 VOL: 0
 ;PCODE: $00000352 VOL: 0
 ;PCODE: $00000353 VOL: 0
-; 0000 0167     if(result==1)
+; 0000 0166     if(result==1)
 ;PCODE: $00000354 VOL: 0
 ;PCODE: $00000355 VOL: 0
 ;PCODE: $00000356 VOL: 0
-; 0000 0168     {
-; 0000 0169         if(save1==1&&save2==1)
+; 0000 0167     {
+; 0000 0168         if(save1==1&&save2==1)
 ;PCODE: $00000357 VOL: 0
 ;PCODE: $00000358 VOL: 0
 ;PCODE: $00000359 VOL: 0
@@ -1265,21 +1264,21 @@ _0x1E:
 ;PCODE: $00000360 VOL: 0
 ;PCODE: $00000361 VOL: 0
 ;PCODE: $00000362 VOL: 0
-; 0000 016A         {
-; 0000 016B 
-; 0000 016C             LOAD1=0;
+; 0000 0169         {
+; 0000 016A 
+; 0000 016B             LOAD1=0;
 ;PCODE: $00000363 VOL: 0
 ;PCODE: $00000364 VOL: 0
-; 0000 016D             LOAD2=0;
+; 0000 016C             LOAD2=0;
 ;PCODE: $00000365 VOL: 0
 ;PCODE: $00000366 VOL: 0
-; 0000 016E             save1=save2=0;
+; 0000 016D             save1=save2=0;
 ;PCODE: $00000367 VOL: 0
 ;PCODE: $00000368 VOL: 0
 ;PCODE: $00000369 VOL: 0
 ;PCODE: $0000036A VOL: 0
 ;PCODE: $0000036B VOL: 0
-; 0000 016F             printf("off");
+; 0000 016E             printf("off");
 ;PCODE: $0000036C VOL: 0
 ;PCODE: $0000036D VOL: 0
 ;PCODE: $0000036E VOL: 0
@@ -1287,7 +1286,7 @@ _0x1E:
 ;PCODE: $00000370 VOL: 0
 ;PCODE: $00000371 VOL: 0
 ;PCODE: $00000372 VOL: 0
-; 0000 0170             printf("ATH\r\n");
+; 0000 016F             printf("ATH\r\n");
 ;PCODE: $00000373 VOL: 0
 ;PCODE: $00000374 VOL: 0
 ;PCODE: $00000375 VOL: 0
@@ -1295,31 +1294,31 @@ _0x1E:
 ;PCODE: $00000377 VOL: 0
 ;PCODE: $00000378 VOL: 0
 ;PCODE: $00000379 VOL: 0
-; 0000 0171             clearBuffer();
+; 0000 0170             clearBuffer();
 ;PCODE: $0000037A VOL: 0
-; 0000 0172             result=callFlag=0;
+; 0000 0171             result=callFlag=0;
 ;PCODE: $0000037B VOL: 0
 ;PCODE: $0000037C VOL: 0
 ;PCODE: $0000037D VOL: 0
 ;PCODE: $0000037E VOL: 0
-; 0000 0173         }
-; 0000 0174         else
+; 0000 0172         }
+; 0000 0173         else
 ;PCODE: $0000037F VOL: 0
 ;PCODE: $00000380 VOL: 0
-; 0000 0175         {
-; 0000 0176             LOAD1=1;
+; 0000 0174         {
+; 0000 0175             LOAD1=1;
 ;PCODE: $00000381 VOL: 0
 ;PCODE: $00000382 VOL: 0
-; 0000 0177             LOAD2=1;
+; 0000 0176             LOAD2=1;
 ;PCODE: $00000383 VOL: 0
 ;PCODE: $00000384 VOL: 0
-; 0000 0178             save1=save2=1;
+; 0000 0177             save1=save2=1;
 ;PCODE: $00000385 VOL: 0
 ;PCODE: $00000386 VOL: 0
 ;PCODE: $00000387 VOL: 0
 ;PCODE: $00000388 VOL: 0
 ;PCODE: $00000389 VOL: 0
-; 0000 0179             printf("on");
+; 0000 0178             printf("on");
 ;PCODE: $0000038A VOL: 0
 ;PCODE: $0000038B VOL: 0
 ;PCODE: $0000038C VOL: 0
@@ -1327,7 +1326,7 @@ _0x1E:
 ;PCODE: $0000038E VOL: 0
 ;PCODE: $0000038F VOL: 0
 ;PCODE: $00000390 VOL: 0
-; 0000 017A             printf("ATH\r\n");
+; 0000 0179             printf("ATH\r\n");
 ;PCODE: $00000391 VOL: 0
 ;PCODE: $00000392 VOL: 0
 ;PCODE: $00000393 VOL: 0
@@ -1335,34 +1334,113 @@ _0x1E:
 ;PCODE: $00000395 VOL: 0
 ;PCODE: $00000396 VOL: 0
 ;PCODE: $00000397 VOL: 0
-; 0000 017B             clearBuffer();
+; 0000 017A             clearBuffer();
 ;PCODE: $00000398 VOL: 0
-; 0000 017C             result=callFlag=0;
+; 0000 017B             result=callFlag=0;
 ;PCODE: $00000399 VOL: 0
 ;PCODE: $0000039A VOL: 0
 ;PCODE: $0000039B VOL: 0
 ;PCODE: $0000039C VOL: 0
-; 0000 017D         }
+; 0000 017C         }
 ;PCODE: $0000039D VOL: 0
-; 0000 017E     }
-; 0000 017F }
+; 0000 017D     }
+; 0000 017E }
 ;PCODE: $0000039E VOL: 0
 ;PCODE: $0000039F VOL: 0
 ;PCODE: $000003A0 VOL: 0
 ;PCODE: $000003A1 VOL: 0
 ;
-;void smsHandle()
-; 0000 0182 {
+;void checkStatus()
+; 0000 0181 {
 ;PCODE: $000003A2 VOL: 0
 ;PCODE: $000003A3 VOL: 0
-; 0000 0183     char k,i1,i,poskey,i2,endstr=0,lastspace,firstspace,n=0;
-; 0000 0184     char syntax[15];
-; 0000 0185     char ndt1[11],ndt2[11],ndt3[11];
-; 0000 0186     poskey=11;
+; 0000 0182   if(save1==1)
 ;PCODE: $000003A4 VOL: 0
 ;PCODE: $000003A5 VOL: 0
 ;PCODE: $000003A6 VOL: 0
 ;PCODE: $000003A7 VOL: 0
+; 0000 0183   {
+; 0000 0184     if(save2==1)
+;PCODE: $000003A8 VOL: 0
+;PCODE: $000003A9 VOL: 0
+;PCODE: $000003AA VOL: 0
+;PCODE: $000003AB VOL: 0
+; 0000 0185     {
+; 0000 0186       printf("tai 1 va 2 dang bat");
+;PCODE: $000003AC VOL: 0
+;PCODE: $000003AD VOL: 0
+;PCODE: $000003AE VOL: 0
+;PCODE: $000003AF VOL: 0
+;PCODE: $000003B0 VOL: 0
+;PCODE: $000003B1 VOL: 0
+;PCODE: $000003B2 VOL: 0
+; 0000 0187     }
+; 0000 0188     else
+;PCODE: $000003B3 VOL: 0
+;PCODE: $000003B4 VOL: 0
+; 0000 0189     {
+; 0000 018A       printf("tai 1 bat, tai 2 tat");
+;PCODE: $000003B5 VOL: 0
+;PCODE: $000003B6 VOL: 0
+;PCODE: $000003B7 VOL: 0
+;PCODE: $000003B8 VOL: 0
+;PCODE: $000003B9 VOL: 0
+;PCODE: $000003BA VOL: 0
+;PCODE: $000003BB VOL: 0
+; 0000 018B     }
+;PCODE: $000003BC VOL: 0
+; 0000 018C   }
+; 0000 018D   else
+;PCODE: $000003BD VOL: 0
+;PCODE: $000003BE VOL: 0
+; 0000 018E   {
+; 0000 018F     if(save2==1)
+;PCODE: $000003BF VOL: 0
+;PCODE: $000003C0 VOL: 0
+;PCODE: $000003C1 VOL: 0
+;PCODE: $000003C2 VOL: 0
+; 0000 0190     {
+; 0000 0191         printf("tai 1 tat, tai 2 bat");
+;PCODE: $000003C3 VOL: 0
+;PCODE: $000003C4 VOL: 0
+;PCODE: $000003C5 VOL: 0
+;PCODE: $000003C6 VOL: 0
+;PCODE: $000003C7 VOL: 0
+;PCODE: $000003C8 VOL: 0
+;PCODE: $000003C9 VOL: 0
+; 0000 0192     }
+; 0000 0193     else
+;PCODE: $000003CA VOL: 0
+;PCODE: $000003CB VOL: 0
+; 0000 0194     {
+; 0000 0195       printf("tai 1 va 2 dang tat");
+;PCODE: $000003CC VOL: 0
+;PCODE: $000003CD VOL: 0
+;PCODE: $000003CE VOL: 0
+;PCODE: $000003CF VOL: 0
+;PCODE: $000003D0 VOL: 0
+;PCODE: $000003D1 VOL: 0
+;PCODE: $000003D2 VOL: 0
+; 0000 0196     }
+;PCODE: $000003D3 VOL: 0
+; 0000 0197   }
+;PCODE: $000003D4 VOL: 0
+; 0000 0198 }
+;PCODE: $000003D5 VOL: 0
+;PCODE: $000003D6 VOL: 0
+;
+;void smsHandle()
+; 0000 019B {
+;PCODE: $000003D7 VOL: 0
+;PCODE: $000003D8 VOL: 0
+; 0000 019C     char k,i1,i,poskey,i2,endstr=0,lastspace,firstspace,n=0;
+; 0000 019D     char syntax[15];
+; 0000 019E     char ndt1[11],ndt2[11],ndt3[11];
+; 0000 019F     poskey=11;
+;PCODE: $000003D9 VOL: 0
+;PCODE: $000003DA VOL: 0
+;PCODE: $000003DB VOL: 0
+;PCODE: $000003DC VOL: 0
 ;	k -> R17
 ;	i1 -> R16
 ;	i -> R19
@@ -1376,89 +1454,30 @@ _0x1E:
 ;	ndt1 -> Y+28
 ;	ndt2 -> Y+17
 ;	ndt3 -> Y+6
-;PCODE: $000003A8 VOL: 0
-;PCODE: $000003A9 VOL: 0
-;PCODE: $000003AA VOL: 0
-;PCODE: $000003AB VOL: 0
-; 0000 0187     lastspace=strrpos(msgStr,32);
-;PCODE: $000003AC VOL: 0
-;PCODE: $000003AD VOL: 0
-;PCODE: $000003AE VOL: 0
-;PCODE: $000003AF VOL: 0
-;PCODE: $000003B0 VOL: 0
-; 0000 0188     firstspace=strpos(msgStr,32);
-;PCODE: $000003B1 VOL: 0
-;PCODE: $000003B2 VOL: 0
-;PCODE: $000003B3 VOL: 0
-;PCODE: $000003B4 VOL: 0
-;PCODE: $000003B5 VOL: 0
-; 0000 0189     endstr=strrpos(msgStr,'.');
-;PCODE: $000003B6 VOL: 0
-;PCODE: $000003B7 VOL: 0
-;PCODE: $000003B8 VOL: 0
-;PCODE: $000003B9 VOL: 0
-;PCODE: $000003BA VOL: 0
-; 0000 018A 
-; 0000 018B     for(i=0;i<endstr-5;i++)
-;PCODE: $000003BB VOL: 0
-;PCODE: $000003BC VOL: 0
-;PCODE: $000003BD VOL: 0
-;PCODE: $000003BE VOL: 0
-;PCODE: $000003BF VOL: 0
-;PCODE: $000003C0 VOL: 0
-;PCODE: $000003C1 VOL: 0
-;PCODE: $000003C2 VOL: 0
-;PCODE: $000003C3 VOL: 0
-;PCODE: $000003C4 VOL: 0
-;PCODE: $000003C5 VOL: 0
-;PCODE: $000003C6 VOL: 0
-;PCODE: $000003C7 VOL: 0
-; 0000 018C         {
-; 0000 018D           content[i]=msgStr[5+i];
-;PCODE: $000003C8 VOL: 0
-;PCODE: $000003C9 VOL: 0
-;PCODE: $000003CA VOL: 0
-;PCODE: $000003CB VOL: 0
-;PCODE: $000003CC VOL: 0
-;PCODE: $000003CD VOL: 0
-;PCODE: $000003CE VOL: 0
-;PCODE: $000003CF VOL: 0
-;PCODE: $000003D0 VOL: 0
-; 0000 018E         }
-;PCODE: $000003D1 VOL: 0
-;PCODE: $000003D2 VOL: 0
-;PCODE: $000003D3 VOL: 0
-;PCODE: $000003D4 VOL: 0
-;PCODE: $000003D5 VOL: 0
-; 0000 018F     for(i2=0;i2<(lastspace-(firstspace+1));i2++)
-;PCODE: $000003D6 VOL: 0
-;PCODE: $000003D7 VOL: 0
-;PCODE: $000003D8 VOL: 0
-;PCODE: $000003D9 VOL: 0
-;PCODE: $000003DA VOL: 0
-;PCODE: $000003DB VOL: 0
-;PCODE: $000003DC VOL: 0
 ;PCODE: $000003DD VOL: 0
 ;PCODE: $000003DE VOL: 0
 ;PCODE: $000003DF VOL: 0
 ;PCODE: $000003E0 VOL: 0
+; 0000 01A0     lastspace=strrpos(msgStr,32);
 ;PCODE: $000003E1 VOL: 0
 ;PCODE: $000003E2 VOL: 0
 ;PCODE: $000003E3 VOL: 0
 ;PCODE: $000003E4 VOL: 0
 ;PCODE: $000003E5 VOL: 0
+; 0000 01A1     firstspace=strpos(msgStr,32);
 ;PCODE: $000003E6 VOL: 0
-; 0000 0190         {
-; 0000 0191           syntax[i2]=msgStr[firstspace+1+i2];
 ;PCODE: $000003E7 VOL: 0
 ;PCODE: $000003E8 VOL: 0
 ;PCODE: $000003E9 VOL: 0
 ;PCODE: $000003EA VOL: 0
+; 0000 01A2     endstr=strrpos(msgStr,'.');
 ;PCODE: $000003EB VOL: 0
 ;PCODE: $000003EC VOL: 0
 ;PCODE: $000003ED VOL: 0
 ;PCODE: $000003EE VOL: 0
 ;PCODE: $000003EF VOL: 0
+; 0000 01A3 
+; 0000 01A4     for(i=0;i<endstr-5;i++)
 ;PCODE: $000003F0 VOL: 0
 ;PCODE: $000003F1 VOL: 0
 ;PCODE: $000003F2 VOL: 0
@@ -1466,14 +1485,14 @@ _0x1E:
 ;PCODE: $000003F4 VOL: 0
 ;PCODE: $000003F5 VOL: 0
 ;PCODE: $000003F6 VOL: 0
-; 0000 0192         }
 ;PCODE: $000003F7 VOL: 0
 ;PCODE: $000003F8 VOL: 0
 ;PCODE: $000003F9 VOL: 0
 ;PCODE: $000003FA VOL: 0
 ;PCODE: $000003FB VOL: 0
-; 0000 0193     for(i2=(lastspace-(firstspace+1));i2<15;i2++)
 ;PCODE: $000003FC VOL: 0
+; 0000 01A5         {
+; 0000 01A6           content[i]=msgStr[5+i];
 ;PCODE: $000003FD VOL: 0
 ;PCODE: $000003FE VOL: 0
 ;PCODE: $000003FF VOL: 0
@@ -1483,23 +1502,21 @@ _0x1E:
 ;PCODE: $00000403 VOL: 0
 ;PCODE: $00000404 VOL: 0
 ;PCODE: $00000405 VOL: 0
+; 0000 01A7         }
 ;PCODE: $00000406 VOL: 0
 ;PCODE: $00000407 VOL: 0
-; 0000 0194         {
-; 0000 0195             syntax[i2]=0;
 ;PCODE: $00000408 VOL: 0
 ;PCODE: $00000409 VOL: 0
 ;PCODE: $0000040A VOL: 0
+; 0000 01A8     for(i2=0;i2<(lastspace-(firstspace+1));i2++)
 ;PCODE: $0000040B VOL: 0
 ;PCODE: $0000040C VOL: 0
 ;PCODE: $0000040D VOL: 0
-; 0000 0196         }
 ;PCODE: $0000040E VOL: 0
 ;PCODE: $0000040F VOL: 0
 ;PCODE: $00000410 VOL: 0
 ;PCODE: $00000411 VOL: 0
 ;PCODE: $00000412 VOL: 0
-; 0000 0197     if(msgStr[0]=='c' && msgStr[1]=='t' && msgStr[2]=='a' && msgStr[3]=='G')
 ;PCODE: $00000413 VOL: 0
 ;PCODE: $00000414 VOL: 0
 ;PCODE: $00000415 VOL: 0
@@ -1509,6 +1526,8 @@ _0x1E:
 ;PCODE: $00000419 VOL: 0
 ;PCODE: $0000041A VOL: 0
 ;PCODE: $0000041B VOL: 0
+; 0000 01A9         {
+; 0000 01AA           syntax[i2]=msgStr[firstspace+1+i2];
 ;PCODE: $0000041C VOL: 0
 ;PCODE: $0000041D VOL: 0
 ;PCODE: $0000041E VOL: 0
@@ -1519,10 +1538,69 @@ _0x1E:
 ;PCODE: $00000423 VOL: 0
 ;PCODE: $00000424 VOL: 0
 ;PCODE: $00000425 VOL: 0
-; 0000 0198     {
-; 0000 0199       char rs;
-; 0000 019A       for(rs=0;rs<4;rs++)
 ;PCODE: $00000426 VOL: 0
+;PCODE: $00000427 VOL: 0
+;PCODE: $00000428 VOL: 0
+;PCODE: $00000429 VOL: 0
+;PCODE: $0000042A VOL: 0
+;PCODE: $0000042B VOL: 0
+; 0000 01AB         }
+;PCODE: $0000042C VOL: 0
+;PCODE: $0000042D VOL: 0
+;PCODE: $0000042E VOL: 0
+;PCODE: $0000042F VOL: 0
+;PCODE: $00000430 VOL: 0
+; 0000 01AC     for(i2=(lastspace-(firstspace+1));i2<15;i2++)
+;PCODE: $00000431 VOL: 0
+;PCODE: $00000432 VOL: 0
+;PCODE: $00000433 VOL: 0
+;PCODE: $00000434 VOL: 0
+;PCODE: $00000435 VOL: 0
+;PCODE: $00000436 VOL: 0
+;PCODE: $00000437 VOL: 0
+;PCODE: $00000438 VOL: 0
+;PCODE: $00000439 VOL: 0
+;PCODE: $0000043A VOL: 0
+;PCODE: $0000043B VOL: 0
+;PCODE: $0000043C VOL: 0
+; 0000 01AD         {
+; 0000 01AE             syntax[i2]=0;
+;PCODE: $0000043D VOL: 0
+;PCODE: $0000043E VOL: 0
+;PCODE: $0000043F VOL: 0
+;PCODE: $00000440 VOL: 0
+;PCODE: $00000441 VOL: 0
+;PCODE: $00000442 VOL: 0
+; 0000 01AF         }
+;PCODE: $00000443 VOL: 0
+;PCODE: $00000444 VOL: 0
+;PCODE: $00000445 VOL: 0
+;PCODE: $00000446 VOL: 0
+;PCODE: $00000447 VOL: 0
+; 0000 01B0     if(msgStr[0]=='c' && msgStr[1]=='t' && msgStr[2]=='a' && msgStr[3]=='G')
+;PCODE: $00000448 VOL: 0
+;PCODE: $00000449 VOL: 0
+;PCODE: $0000044A VOL: 0
+;PCODE: $0000044B VOL: 0
+;PCODE: $0000044C VOL: 0
+;PCODE: $0000044D VOL: 0
+;PCODE: $0000044E VOL: 0
+;PCODE: $0000044F VOL: 0
+;PCODE: $00000450 VOL: 0
+;PCODE: $00000451 VOL: 0
+;PCODE: $00000452 VOL: 0
+;PCODE: $00000453 VOL: 0
+;PCODE: $00000454 VOL: 0
+;PCODE: $00000455 VOL: 0
+;PCODE: $00000456 VOL: 0
+;PCODE: $00000457 VOL: 0
+;PCODE: $00000458 VOL: 0
+;PCODE: $00000459 VOL: 0
+;PCODE: $0000045A VOL: 0
+; 0000 01B1     {
+; 0000 01B2       char rs;
+; 0000 01B3       for(rs=0;rs<4;rs++)
+;PCODE: $0000045B VOL: 0
 ;	lastspace -> Y+57
 ;	firstspace -> Y+56
 ;	n -> Y+55
@@ -1531,238 +1609,152 @@ _0x1E:
 ;	ndt2 -> Y+18
 ;	ndt3 -> Y+7
 ;	rs -> Y+0
-;PCODE: $00000427 VOL: 0
-;PCODE: $00000428 VOL: 0
-;PCODE: $00000429 VOL: 0
-;PCODE: $0000042A VOL: 0
-;PCODE: $0000042B VOL: 0
-;PCODE: $0000042C VOL: 0
-;PCODE: $0000042D VOL: 0
-;PCODE: $0000042E VOL: 0
-;PCODE: $0000042F VOL: 0
-;PCODE: $00000430 VOL: 0
-; 0000 019B       {
-; 0000 019C         password[rs]='0';
-;PCODE: $00000431 VOL: 0
-;PCODE: $00000432 VOL: 0
-;PCODE: $00000433 VOL: 0
-;PCODE: $00000434 VOL: 0
-;PCODE: $00000435 VOL: 0
-; 0000 019D       }
-;PCODE: $00000436 VOL: 0
-;PCODE: $00000437 VOL: 0
-;PCODE: $00000438 VOL: 0
-;PCODE: $00000439 VOL: 0
-;PCODE: $0000043A VOL: 0
-;PCODE: $0000043B VOL: 0
-; 0000 019E       printf("reset success");
-;PCODE: $0000043C VOL: 0
-;PCODE: $0000043D VOL: 0
-;PCODE: $0000043E VOL: 0
-;PCODE: $0000043F VOL: 0
-;PCODE: $00000440 VOL: 0
-;PCODE: $00000441 VOL: 0
-;PCODE: $00000442 VOL: 0
-; 0000 019F       clearBuffer();
-;PCODE: $00000443 VOL: 0
-; 0000 01A0       smsFlag=0;
-;PCODE: $00000444 VOL: 0
-;PCODE: $00000445 VOL: 0
-;PCODE: $00000446 VOL: 0
-; 0000 01A1     }
-;PCODE: $00000447 VOL: 0
-; 0000 01A2     checkPassword();
-;PCODE: $00000448 VOL: 0
-;PCODE: $00000449 VOL: 0
-; 0000 01A3     while(checkpass==0)
-;PCODE: $0000044A VOL: 0
-;PCODE: $0000044B VOL: 0
-;PCODE: $0000044C VOL: 0
-; 0000 01A4     {  checkPassword();
-;PCODE: $0000044D VOL: 0
-; 0000 01A5        n++;
-;PCODE: $0000044E VOL: 0
-;PCODE: $0000044F VOL: 0
-;PCODE: $00000450 VOL: 0
-; 0000 01A6        delay_ms(50);
-;PCODE: $00000451 VOL: 0
-;PCODE: $00000452 VOL: 0
-;PCODE: $00000453 VOL: 0
-; 0000 01A7        if(n>40)
-;PCODE: $00000454 VOL: 0
-;PCODE: $00000455 VOL: 0
-;PCODE: $00000456 VOL: 0
-; 0000 01A8        {
-; 0000 01A9          printf("password error");
-;PCODE: $00000457 VOL: 0
-;PCODE: $00000458 VOL: 0
-;PCODE: $00000459 VOL: 0
-;PCODE: $0000045A VOL: 0
-;PCODE: $0000045B VOL: 0
 ;PCODE: $0000045C VOL: 0
 ;PCODE: $0000045D VOL: 0
-; 0000 01AA          clearBuffer();
 ;PCODE: $0000045E VOL: 0
-; 0000 01AB          checkpass=0;
 ;PCODE: $0000045F VOL: 0
-; 0000 01AC          smsFlag=0;
 ;PCODE: $00000460 VOL: 0
 ;PCODE: $00000461 VOL: 0
 ;PCODE: $00000462 VOL: 0
-; 0000 01AD          break;
 ;PCODE: $00000463 VOL: 0
-; 0000 01AE        }
-; 0000 01AF     }
 ;PCODE: $00000464 VOL: 0
 ;PCODE: $00000465 VOL: 0
+; 0000 01B4       {
+; 0000 01B5         password[rs]='0';
 ;PCODE: $00000466 VOL: 0
-; 0000 01B0     if(checkpass==1)
 ;PCODE: $00000467 VOL: 0
 ;PCODE: $00000468 VOL: 0
 ;PCODE: $00000469 VOL: 0
-; 0000 01B1     {
-; 0000 01B2         if(strcmp(content,"on1")==0)
 ;PCODE: $0000046A VOL: 0
+; 0000 01B6       }
 ;PCODE: $0000046B VOL: 0
 ;PCODE: $0000046C VOL: 0
 ;PCODE: $0000046D VOL: 0
 ;PCODE: $0000046E VOL: 0
 ;PCODE: $0000046F VOL: 0
 ;PCODE: $00000470 VOL: 0
-; 0000 01B3         {
-; 0000 01B4           LOAD1=1;
+; 0000 01B7       printf("reset success");
 ;PCODE: $00000471 VOL: 0
 ;PCODE: $00000472 VOL: 0
-; 0000 01B5           save1=1;
 ;PCODE: $00000473 VOL: 0
 ;PCODE: $00000474 VOL: 0
 ;PCODE: $00000475 VOL: 0
-; 0000 01B6           //printf("on1");
-; 0000 01B7           clearBuffer();
 ;PCODE: $00000476 VOL: 0
-; 0000 01B8           smsFlag=0;
 ;PCODE: $00000477 VOL: 0
+; 0000 01B8       clearBuffer();
 ;PCODE: $00000478 VOL: 0
+; 0000 01B9       smsFlag=0;
 ;PCODE: $00000479 VOL: 0
-; 0000 01B9 
-; 0000 01BA         }else{
 ;PCODE: $0000047A VOL: 0
 ;PCODE: $0000047B VOL: 0
-; 0000 01BB            if(strcmp(content,"on2")==0)
+; 0000 01BA     }
 ;PCODE: $0000047C VOL: 0
+; 0000 01BB     checkPassword();
 ;PCODE: $0000047D VOL: 0
 ;PCODE: $0000047E VOL: 0
+; 0000 01BC     while(checkpass==0)
 ;PCODE: $0000047F VOL: 0
 ;PCODE: $00000480 VOL: 0
 ;PCODE: $00000481 VOL: 0
+; 0000 01BD     {  checkPassword();
 ;PCODE: $00000482 VOL: 0
-; 0000 01BC             {
-; 0000 01BD               LOAD2=1;
+; 0000 01BE        n++;
 ;PCODE: $00000483 VOL: 0
 ;PCODE: $00000484 VOL: 0
-; 0000 01BE               save2=1;
 ;PCODE: $00000485 VOL: 0
+; 0000 01BF        delay_ms(50);
 ;PCODE: $00000486 VOL: 0
 ;PCODE: $00000487 VOL: 0
-; 0000 01BF               //printf("on2");
-; 0000 01C0               clearBuffer();
 ;PCODE: $00000488 VOL: 0
-; 0000 01C1               smsFlag=0;
+; 0000 01C0        if(n>40)
 ;PCODE: $00000489 VOL: 0
 ;PCODE: $0000048A VOL: 0
 ;PCODE: $0000048B VOL: 0
-; 0000 01C2             }else{
+; 0000 01C1        {
+; 0000 01C2          printf("password error");
 ;PCODE: $0000048C VOL: 0
 ;PCODE: $0000048D VOL: 0
-; 0000 01C3                 if(strcmp(content,"off1")==0)
 ;PCODE: $0000048E VOL: 0
 ;PCODE: $0000048F VOL: 0
 ;PCODE: $00000490 VOL: 0
 ;PCODE: $00000491 VOL: 0
 ;PCODE: $00000492 VOL: 0
+; 0000 01C3          clearBuffer();
 ;PCODE: $00000493 VOL: 0
+; 0000 01C4          checkpass=0;
 ;PCODE: $00000494 VOL: 0
-; 0000 01C4                 {
-; 0000 01C5                   LOAD1=0;
+; 0000 01C5          smsFlag=0;
 ;PCODE: $00000495 VOL: 0
 ;PCODE: $00000496 VOL: 0
-; 0000 01C6                   save1=0;
 ;PCODE: $00000497 VOL: 0
+; 0000 01C6          break;
 ;PCODE: $00000498 VOL: 0
+; 0000 01C7        }
+; 0000 01C8     }
 ;PCODE: $00000499 VOL: 0
-; 0000 01C7                   //printf("off1");
-; 0000 01C8                   clearBuffer();
 ;PCODE: $0000049A VOL: 0
-; 0000 01C9                   smsFlag=0;
 ;PCODE: $0000049B VOL: 0
+; 0000 01C9     if(checkpass==1)
 ;PCODE: $0000049C VOL: 0
 ;PCODE: $0000049D VOL: 0
-; 0000 01CA                 } else{
 ;PCODE: $0000049E VOL: 0
+; 0000 01CA     {
+; 0000 01CB         if(strcmp(content,"on1")==0)
 ;PCODE: $0000049F VOL: 0
-; 0000 01CB 
-; 0000 01CC                     if(strcmp(content,"off2")==0)
 ;PCODE: $000004A0 VOL: 0
 ;PCODE: $000004A1 VOL: 0
 ;PCODE: $000004A2 VOL: 0
 ;PCODE: $000004A3 VOL: 0
 ;PCODE: $000004A4 VOL: 0
 ;PCODE: $000004A5 VOL: 0
+; 0000 01CC         {
+; 0000 01CD           LOAD1=1;
 ;PCODE: $000004A6 VOL: 0
-; 0000 01CD                     {
-; 0000 01CE                       LOAD2=0;
 ;PCODE: $000004A7 VOL: 0
+; 0000 01CE           save1=1;
 ;PCODE: $000004A8 VOL: 0
-; 0000 01CF                       save2=0;
 ;PCODE: $000004A9 VOL: 0
 ;PCODE: $000004AA VOL: 0
+; 0000 01CF           if(tb!=1) printf("on1");
 ;PCODE: $000004AB VOL: 0
-; 0000 01D0                       //printf("off2");
-; 0000 01D1                       clearBuffer();
 ;PCODE: $000004AC VOL: 0
-; 0000 01D2                       smsFlag=0;
 ;PCODE: $000004AD VOL: 0
 ;PCODE: $000004AE VOL: 0
 ;PCODE: $000004AF VOL: 0
-; 0000 01D3                     }else {
 ;PCODE: $000004B0 VOL: 0
 ;PCODE: $000004B1 VOL: 0
-; 0000 01D4 
-; 0000 01D5                         if(strcmp(content,"on")==0)
 ;PCODE: $000004B2 VOL: 0
 ;PCODE: $000004B3 VOL: 0
 ;PCODE: $000004B4 VOL: 0
 ;PCODE: $000004B5 VOL: 0
+; 0000 01D0           clearBuffer();
 ;PCODE: $000004B6 VOL: 0
 ;PCODE: $000004B7 VOL: 0
+; 0000 01D1           smsFlag=0;
 ;PCODE: $000004B8 VOL: 0
-; 0000 01D6                         {
-; 0000 01D7                           LOAD1=1;
 ;PCODE: $000004B9 VOL: 0
 ;PCODE: $000004BA VOL: 0
-; 0000 01D8                           LOAD2=1;
+; 0000 01D2 
+; 0000 01D3         }else{
 ;PCODE: $000004BB VOL: 0
 ;PCODE: $000004BC VOL: 0
-; 0000 01D9                           save1=1;
+; 0000 01D4            if(strcmp(content,"on2")==0)
 ;PCODE: $000004BD VOL: 0
 ;PCODE: $000004BE VOL: 0
 ;PCODE: $000004BF VOL: 0
-; 0000 01DA                           save2=1;
 ;PCODE: $000004C0 VOL: 0
 ;PCODE: $000004C1 VOL: 0
 ;PCODE: $000004C2 VOL: 0
-; 0000 01DB                           //printf("on");
-; 0000 01DC                           clearBuffer();
 ;PCODE: $000004C3 VOL: 0
-; 0000 01DD                           smsFlag=0;
+; 0000 01D5             {
+; 0000 01D6               LOAD2=1;
 ;PCODE: $000004C4 VOL: 0
 ;PCODE: $000004C5 VOL: 0
+; 0000 01D7               save2=1;
 ;PCODE: $000004C6 VOL: 0
-; 0000 01DE                         }else{
 ;PCODE: $000004C7 VOL: 0
 ;PCODE: $000004C8 VOL: 0
-; 0000 01DF 
-; 0000 01E0                             if(strcmp(content,"off")==0)
+; 0000 01D8               if(tb!=1) printf("on2");
 ;PCODE: $000004C9 VOL: 0
 ;PCODE: $000004CA VOL: 0
 ;PCODE: $000004CB VOL: 0
@@ -1770,43 +1762,37 @@ _0x1E:
 ;PCODE: $000004CD VOL: 0
 ;PCODE: $000004CE VOL: 0
 ;PCODE: $000004CF VOL: 0
-; 0000 01E1                             {
-; 0000 01E2                               LOAD1=0;
 ;PCODE: $000004D0 VOL: 0
 ;PCODE: $000004D1 VOL: 0
-; 0000 01E3                               LOAD2=0;
 ;PCODE: $000004D2 VOL: 0
 ;PCODE: $000004D3 VOL: 0
-; 0000 01E4                               save1=0;
+; 0000 01D9               clearBuffer();
 ;PCODE: $000004D4 VOL: 0
 ;PCODE: $000004D5 VOL: 0
+; 0000 01DA               smsFlag=0;
 ;PCODE: $000004D6 VOL: 0
-; 0000 01E5                               save2=0;
 ;PCODE: $000004D7 VOL: 0
 ;PCODE: $000004D8 VOL: 0
+; 0000 01DB             }else{
 ;PCODE: $000004D9 VOL: 0
-; 0000 01E6                               //printf("off");
-; 0000 01E7                               clearBuffer();
 ;PCODE: $000004DA VOL: 0
-; 0000 01E8                               smsFlag=0;
+; 0000 01DC                 if(strcmp(content,"off1")==0)
 ;PCODE: $000004DB VOL: 0
 ;PCODE: $000004DC VOL: 0
 ;PCODE: $000004DD VOL: 0
-; 0000 01E9                             }
-; 0000 01EA                             else
 ;PCODE: $000004DE VOL: 0
 ;PCODE: $000004DF VOL: 0
-; 0000 01EB                             {
-; 0000 01EC                               if(strcmp(syntax,"doimk")==0)
 ;PCODE: $000004E0 VOL: 0
 ;PCODE: $000004E1 VOL: 0
+; 0000 01DD                 {
+; 0000 01DE                   LOAD1=0;
 ;PCODE: $000004E2 VOL: 0
 ;PCODE: $000004E3 VOL: 0
+; 0000 01DF                   save1=0;
 ;PCODE: $000004E4 VOL: 0
 ;PCODE: $000004E5 VOL: 0
 ;PCODE: $000004E6 VOL: 0
-; 0000 01ED                                 {
-; 0000 01EE                                   for(k=0;k<4;k++)
+; 0000 01E0                   if(tb!=1) printf("off1");
 ;PCODE: $000004E7 VOL: 0
 ;PCODE: $000004E8 VOL: 0
 ;PCODE: $000004E9 VOL: 0
@@ -1816,81 +1802,83 @@ _0x1E:
 ;PCODE: $000004ED VOL: 0
 ;PCODE: $000004EE VOL: 0
 ;PCODE: $000004EF VOL: 0
-; 0000 01EF                                   {
-; 0000 01F0                                     password[k]=msgStr[poskey+k];
 ;PCODE: $000004F0 VOL: 0
 ;PCODE: $000004F1 VOL: 0
+; 0000 01E1                   clearBuffer();
 ;PCODE: $000004F2 VOL: 0
 ;PCODE: $000004F3 VOL: 0
+; 0000 01E2                   smsFlag=0;
 ;PCODE: $000004F4 VOL: 0
 ;PCODE: $000004F5 VOL: 0
 ;PCODE: $000004F6 VOL: 0
+; 0000 01E3                 } else{
 ;PCODE: $000004F7 VOL: 0
 ;PCODE: $000004F8 VOL: 0
+; 0000 01E4 
+; 0000 01E5                     if(strcmp(content,"off2")==0)
 ;PCODE: $000004F9 VOL: 0
 ;PCODE: $000004FA VOL: 0
 ;PCODE: $000004FB VOL: 0
 ;PCODE: $000004FC VOL: 0
-; 0000 01F1                                   }
 ;PCODE: $000004FD VOL: 0
 ;PCODE: $000004FE VOL: 0
 ;PCODE: $000004FF VOL: 0
+; 0000 01E6                     {
+; 0000 01E7                       LOAD2=0;
 ;PCODE: $00000500 VOL: 0
 ;PCODE: $00000501 VOL: 0
-; 0000 01F2                                   //sendSMS(phoneNumber,"Doi mat khau thanh cong");
-; 0000 01F3                                   printf("success:");
+; 0000 01E8                       save2=0;
 ;PCODE: $00000502 VOL: 0
 ;PCODE: $00000503 VOL: 0
 ;PCODE: $00000504 VOL: 0
+; 0000 01E9                       if(tb!=1) printf("off2");
 ;PCODE: $00000505 VOL: 0
 ;PCODE: $00000506 VOL: 0
 ;PCODE: $00000507 VOL: 0
 ;PCODE: $00000508 VOL: 0
-; 0000 01F4                                   putchar(password[0]);
 ;PCODE: $00000509 VOL: 0
 ;PCODE: $0000050A VOL: 0
 ;PCODE: $0000050B VOL: 0
 ;PCODE: $0000050C VOL: 0
-; 0000 01F5                                   putchar(password[1]);
 ;PCODE: $0000050D VOL: 0
 ;PCODE: $0000050E VOL: 0
 ;PCODE: $0000050F VOL: 0
+; 0000 01EA                       clearBuffer();
 ;PCODE: $00000510 VOL: 0
 ;PCODE: $00000511 VOL: 0
-; 0000 01F6                                   putchar(password[2]);
+; 0000 01EB                       smsFlag=0;
 ;PCODE: $00000512 VOL: 0
 ;PCODE: $00000513 VOL: 0
 ;PCODE: $00000514 VOL: 0
+; 0000 01EC                     }else {
 ;PCODE: $00000515 VOL: 0
 ;PCODE: $00000516 VOL: 0
-; 0000 01F7                                   putchar(password[3]);
+; 0000 01ED 
+; 0000 01EE                         if(strcmp(content,"on")==0)
 ;PCODE: $00000517 VOL: 0
 ;PCODE: $00000518 VOL: 0
 ;PCODE: $00000519 VOL: 0
 ;PCODE: $0000051A VOL: 0
 ;PCODE: $0000051B VOL: 0
-; 0000 01F8                                   clearBuffer();
 ;PCODE: $0000051C VOL: 0
-; 0000 01F9                                   smsFlag=0;
 ;PCODE: $0000051D VOL: 0
+; 0000 01EF                         {
+; 0000 01F0                           LOAD1=1;
 ;PCODE: $0000051E VOL: 0
 ;PCODE: $0000051F VOL: 0
-; 0000 01FA 
-; 0000 01FB                                 }
-; 0000 01FC                                 else
+; 0000 01F1                           LOAD2=1;
 ;PCODE: $00000520 VOL: 0
 ;PCODE: $00000521 VOL: 0
-; 0000 01FD                                 {
-; 0000 01FE                                   if(strcmp(syntax,"them1")==0)
+; 0000 01F2                           save1=1;
 ;PCODE: $00000522 VOL: 0
 ;PCODE: $00000523 VOL: 0
 ;PCODE: $00000524 VOL: 0
+; 0000 01F3                           save2=1;
 ;PCODE: $00000525 VOL: 0
 ;PCODE: $00000526 VOL: 0
 ;PCODE: $00000527 VOL: 0
+; 0000 01F4                           if(tb!=1) printf("on");
 ;PCODE: $00000528 VOL: 0
-; 0000 01FF                                   {
-; 0000 0200                                     for(i1=0;i1<11;i1++)
 ;PCODE: $00000529 VOL: 0
 ;PCODE: $0000052A VOL: 0
 ;PCODE: $0000052B VOL: 0
@@ -1900,16 +1888,19 @@ _0x1E:
 ;PCODE: $0000052F VOL: 0
 ;PCODE: $00000530 VOL: 0
 ;PCODE: $00000531 VOL: 0
-; 0000 0201                                     {
-; 0000 0202                                       if(msgStr[poskey+i1]<48||msgStr[poskey+i1]>57) sdt1[i1]=ndt1[i1]=0;
 ;PCODE: $00000532 VOL: 0
+; 0000 01F5                           clearBuffer();
 ;PCODE: $00000533 VOL: 0
 ;PCODE: $00000534 VOL: 0
+; 0000 01F6                           smsFlag=0;
 ;PCODE: $00000535 VOL: 0
 ;PCODE: $00000536 VOL: 0
 ;PCODE: $00000537 VOL: 0
+; 0000 01F7                         }else{
 ;PCODE: $00000538 VOL: 0
 ;PCODE: $00000539 VOL: 0
+; 0000 01F8 
+; 0000 01F9                             if(strcmp(content,"off")==0)
 ;PCODE: $0000053A VOL: 0
 ;PCODE: $0000053B VOL: 0
 ;PCODE: $0000053C VOL: 0
@@ -1917,18 +1908,23 @@ _0x1E:
 ;PCODE: $0000053E VOL: 0
 ;PCODE: $0000053F VOL: 0
 ;PCODE: $00000540 VOL: 0
+; 0000 01FA                             {
+; 0000 01FB                               LOAD1=0;
 ;PCODE: $00000541 VOL: 0
 ;PCODE: $00000542 VOL: 0
+; 0000 01FC                               LOAD2=0;
 ;PCODE: $00000543 VOL: 0
 ;PCODE: $00000544 VOL: 0
+; 0000 01FD                               save1=0;
 ;PCODE: $00000545 VOL: 0
 ;PCODE: $00000546 VOL: 0
 ;PCODE: $00000547 VOL: 0
+; 0000 01FE                               save2=0;
 ;PCODE: $00000548 VOL: 0
 ;PCODE: $00000549 VOL: 0
 ;PCODE: $0000054A VOL: 0
+; 0000 01FF                               if(tb!=1) printf("off");
 ;PCODE: $0000054B VOL: 0
-; 0000 0203                                       else sdt1[i1]=ndt1[i1]=msgStr[poskey+i1];
 ;PCODE: $0000054C VOL: 0
 ;PCODE: $0000054D VOL: 0
 ;PCODE: $0000054E VOL: 0
@@ -1939,33 +1935,40 @@ _0x1E:
 ;PCODE: $00000553 VOL: 0
 ;PCODE: $00000554 VOL: 0
 ;PCODE: $00000555 VOL: 0
+; 0000 0200                               clearBuffer();
 ;PCODE: $00000556 VOL: 0
 ;PCODE: $00000557 VOL: 0
+; 0000 0201                               smsFlag=0;
 ;PCODE: $00000558 VOL: 0
 ;PCODE: $00000559 VOL: 0
 ;PCODE: $0000055A VOL: 0
+; 0000 0202                             }
+; 0000 0203                             else
 ;PCODE: $0000055B VOL: 0
 ;PCODE: $0000055C VOL: 0
+; 0000 0204                             {
+; 0000 0205                               if(strcmp(syntax,"doimk")==0)
 ;PCODE: $0000055D VOL: 0
 ;PCODE: $0000055E VOL: 0
 ;PCODE: $0000055F VOL: 0
 ;PCODE: $00000560 VOL: 0
 ;PCODE: $00000561 VOL: 0
-; 0000 0204                                     }
 ;PCODE: $00000562 VOL: 0
 ;PCODE: $00000563 VOL: 0
+; 0000 0206                                 {
+; 0000 0207                                   for(k=0;k<4;k++)
 ;PCODE: $00000564 VOL: 0
 ;PCODE: $00000565 VOL: 0
 ;PCODE: $00000566 VOL: 0
 ;PCODE: $00000567 VOL: 0
-; 0000 0205                                     while(i1<11);
 ;PCODE: $00000568 VOL: 0
 ;PCODE: $00000569 VOL: 0
 ;PCODE: $0000056A VOL: 0
 ;PCODE: $0000056B VOL: 0
 ;PCODE: $0000056C VOL: 0
+; 0000 0208                                   {
+; 0000 0209                                     password[k]=msgStr[poskey+k];
 ;PCODE: $0000056D VOL: 0
-; 0000 0206                                     printf("sdt1:");
 ;PCODE: $0000056E VOL: 0
 ;PCODE: $0000056F VOL: 0
 ;PCODE: $00000570 VOL: 0
@@ -1973,59 +1976,62 @@ _0x1E:
 ;PCODE: $00000572 VOL: 0
 ;PCODE: $00000573 VOL: 0
 ;PCODE: $00000574 VOL: 0
-; 0000 0207                                     puts(ndt1);
 ;PCODE: $00000575 VOL: 0
 ;PCODE: $00000576 VOL: 0
-; 0000 0208                                     clearBuffer();
 ;PCODE: $00000577 VOL: 0
-; 0000 0209                                     smsFlag=0;
 ;PCODE: $00000578 VOL: 0
 ;PCODE: $00000579 VOL: 0
-;PCODE: $0000057A VOL: 0
 ; 0000 020A                                   }
-; 0000 020B                                   else
+;PCODE: $0000057A VOL: 0
 ;PCODE: $0000057B VOL: 0
 ;PCODE: $0000057C VOL: 0
-; 0000 020C                                   {
-; 0000 020D                                      if(strcmp(syntax,"them2")==0)
 ;PCODE: $0000057D VOL: 0
 ;PCODE: $0000057E VOL: 0
+; 0000 020B                                   //sendSMS(phoneNumber,"Doi mat khau thanh cong");
+; 0000 020C                                   printf("success:");
 ;PCODE: $0000057F VOL: 0
 ;PCODE: $00000580 VOL: 0
 ;PCODE: $00000581 VOL: 0
 ;PCODE: $00000582 VOL: 0
 ;PCODE: $00000583 VOL: 0
-; 0000 020E                                       {
-; 0000 020F                                         for(i1=0;i1<11;i1++)
 ;PCODE: $00000584 VOL: 0
 ;PCODE: $00000585 VOL: 0
+; 0000 020D                                   putchar(password[0]);
 ;PCODE: $00000586 VOL: 0
 ;PCODE: $00000587 VOL: 0
 ;PCODE: $00000588 VOL: 0
 ;PCODE: $00000589 VOL: 0
+; 0000 020E                                   putchar(password[1]);
 ;PCODE: $0000058A VOL: 0
 ;PCODE: $0000058B VOL: 0
 ;PCODE: $0000058C VOL: 0
-; 0000 0210                                         {
-; 0000 0211                                           if(msgStr[poskey+i1]<48||msgStr[poskey+i1]>57) sdt2[i1]=ndt2[i1]=0;
 ;PCODE: $0000058D VOL: 0
 ;PCODE: $0000058E VOL: 0
+; 0000 020F                                   putchar(password[2]);
 ;PCODE: $0000058F VOL: 0
 ;PCODE: $00000590 VOL: 0
 ;PCODE: $00000591 VOL: 0
 ;PCODE: $00000592 VOL: 0
 ;PCODE: $00000593 VOL: 0
+; 0000 0210                                   putchar(password[3]);
 ;PCODE: $00000594 VOL: 0
 ;PCODE: $00000595 VOL: 0
 ;PCODE: $00000596 VOL: 0
 ;PCODE: $00000597 VOL: 0
 ;PCODE: $00000598 VOL: 0
+; 0000 0211                                   clearBuffer();
 ;PCODE: $00000599 VOL: 0
+; 0000 0212                                   smsFlag=0;
 ;PCODE: $0000059A VOL: 0
 ;PCODE: $0000059B VOL: 0
 ;PCODE: $0000059C VOL: 0
+; 0000 0213 
+; 0000 0214                                 }
+; 0000 0215                                 else
 ;PCODE: $0000059D VOL: 0
 ;PCODE: $0000059E VOL: 0
+; 0000 0216                                 {
+; 0000 0217                                   if(strcmp(syntax,"sdt1")==0)
 ;PCODE: $0000059F VOL: 0
 ;PCODE: $000005A0 VOL: 0
 ;PCODE: $000005A1 VOL: 0
@@ -2033,8 +2039,9 @@ _0x1E:
 ;PCODE: $000005A3 VOL: 0
 ;PCODE: $000005A4 VOL: 0
 ;PCODE: $000005A5 VOL: 0
+; 0000 0218                                   {
+; 0000 0219                                     for(i1=0;i1<11;i1++)
 ;PCODE: $000005A6 VOL: 0
-; 0000 0212                                           else sdt2[i1]=ndt2[i1]=msgStr[poskey+i1];
 ;PCODE: $000005A7 VOL: 0
 ;PCODE: $000005A8 VOL: 0
 ;PCODE: $000005A9 VOL: 0
@@ -2043,6 +2050,8 @@ _0x1E:
 ;PCODE: $000005AC VOL: 0
 ;PCODE: $000005AD VOL: 0
 ;PCODE: $000005AE VOL: 0
+; 0000 021A                                     {
+; 0000 021B                                       if(msgStr[poskey+i1]<48||msgStr[poskey+i1]>57) sdt1[i1]=ndt1[i1]=0;
 ;PCODE: $000005AF VOL: 0
 ;PCODE: $000005B0 VOL: 0
 ;PCODE: $000005B1 VOL: 0
@@ -2057,21 +2066,19 @@ _0x1E:
 ;PCODE: $000005BA VOL: 0
 ;PCODE: $000005BB VOL: 0
 ;PCODE: $000005BC VOL: 0
-; 0000 0213                                         }
 ;PCODE: $000005BD VOL: 0
 ;PCODE: $000005BE VOL: 0
 ;PCODE: $000005BF VOL: 0
 ;PCODE: $000005C0 VOL: 0
 ;PCODE: $000005C1 VOL: 0
 ;PCODE: $000005C2 VOL: 0
-; 0000 0214                                         while(i1<11);
 ;PCODE: $000005C3 VOL: 0
 ;PCODE: $000005C4 VOL: 0
 ;PCODE: $000005C5 VOL: 0
 ;PCODE: $000005C6 VOL: 0
 ;PCODE: $000005C7 VOL: 0
 ;PCODE: $000005C8 VOL: 0
-; 0000 0215                                         printf("\nsdt2:");
+; 0000 021C                                       else sdt1[i1]=ndt1[i1]=msgStr[poskey+i1];
 ;PCODE: $000005C9 VOL: 0
 ;PCODE: $000005CA VOL: 0
 ;PCODE: $000005CB VOL: 0
@@ -2079,21 +2086,14 @@ _0x1E:
 ;PCODE: $000005CD VOL: 0
 ;PCODE: $000005CE VOL: 0
 ;PCODE: $000005CF VOL: 0
-; 0000 0216                                         puts(ndt2);
 ;PCODE: $000005D0 VOL: 0
 ;PCODE: $000005D1 VOL: 0
-; 0000 0217                                         clearBuffer();
 ;PCODE: $000005D2 VOL: 0
-; 0000 0218                                         smsFlag=0;
 ;PCODE: $000005D3 VOL: 0
 ;PCODE: $000005D4 VOL: 0
 ;PCODE: $000005D5 VOL: 0
-; 0000 0219                                       }
-; 0000 021A                                       else
 ;PCODE: $000005D6 VOL: 0
 ;PCODE: $000005D7 VOL: 0
-; 0000 021B                                       {
-; 0000 021C                                          if(strcmp(syntax,"them3")==0)
 ;PCODE: $000005D8 VOL: 0
 ;PCODE: $000005D9 VOL: 0
 ;PCODE: $000005DA VOL: 0
@@ -2101,22 +2101,21 @@ _0x1E:
 ;PCODE: $000005DC VOL: 0
 ;PCODE: $000005DD VOL: 0
 ;PCODE: $000005DE VOL: 0
-; 0000 021D                                           {
-; 0000 021E                                             for(i1=0;i1<11;i1++)
+; 0000 021D                                     }
 ;PCODE: $000005DF VOL: 0
 ;PCODE: $000005E0 VOL: 0
 ;PCODE: $000005E1 VOL: 0
 ;PCODE: $000005E2 VOL: 0
 ;PCODE: $000005E3 VOL: 0
 ;PCODE: $000005E4 VOL: 0
+; 0000 021E                                     while(i1<11);
 ;PCODE: $000005E5 VOL: 0
 ;PCODE: $000005E6 VOL: 0
 ;PCODE: $000005E7 VOL: 0
-; 0000 021F                                             {
-; 0000 0220                                               if(msgStr[poskey+i1]<48||msgStr[poskey+i1]>57) sdt3[i1]=ndt3[i1]=0;
 ;PCODE: $000005E8 VOL: 0
 ;PCODE: $000005E9 VOL: 0
 ;PCODE: $000005EA VOL: 0
+; 0000 021F                                     printf("sdt1:");
 ;PCODE: $000005EB VOL: 0
 ;PCODE: $000005EC VOL: 0
 ;PCODE: $000005ED VOL: 0
@@ -2124,14 +2123,21 @@ _0x1E:
 ;PCODE: $000005EF VOL: 0
 ;PCODE: $000005F0 VOL: 0
 ;PCODE: $000005F1 VOL: 0
+; 0000 0220                                     puts(ndt1);
 ;PCODE: $000005F2 VOL: 0
 ;PCODE: $000005F3 VOL: 0
+; 0000 0221                                     clearBuffer();
 ;PCODE: $000005F4 VOL: 0
+; 0000 0222                                     smsFlag=0;
 ;PCODE: $000005F5 VOL: 0
 ;PCODE: $000005F6 VOL: 0
 ;PCODE: $000005F7 VOL: 0
+; 0000 0223                                   }
+; 0000 0224                                   else
 ;PCODE: $000005F8 VOL: 0
 ;PCODE: $000005F9 VOL: 0
+; 0000 0225                                   {
+; 0000 0226                                      if(strcmp(syntax,"sdt2")==0)
 ;PCODE: $000005FA VOL: 0
 ;PCODE: $000005FB VOL: 0
 ;PCODE: $000005FC VOL: 0
@@ -2139,8 +2145,9 @@ _0x1E:
 ;PCODE: $000005FE VOL: 0
 ;PCODE: $000005FF VOL: 0
 ;PCODE: $00000600 VOL: 0
+; 0000 0227                                       {
+; 0000 0228                                         for(i1=0;i1<11;i1++)
 ;PCODE: $00000601 VOL: 0
-; 0000 0221                                               else sdt3[i1]=ndt3[i1]=msgStr[poskey+i1];
 ;PCODE: $00000602 VOL: 0
 ;PCODE: $00000603 VOL: 0
 ;PCODE: $00000604 VOL: 0
@@ -2149,6 +2156,8 @@ _0x1E:
 ;PCODE: $00000607 VOL: 0
 ;PCODE: $00000608 VOL: 0
 ;PCODE: $00000609 VOL: 0
+; 0000 0229                                         {
+; 0000 022A                                           if(msgStr[poskey+i1]<48||msgStr[poskey+i1]>57) sdt2[i1]=ndt2[i1]=0;
 ;PCODE: $0000060A VOL: 0
 ;PCODE: $0000060B VOL: 0
 ;PCODE: $0000060C VOL: 0
@@ -2163,21 +2172,19 @@ _0x1E:
 ;PCODE: $00000615 VOL: 0
 ;PCODE: $00000616 VOL: 0
 ;PCODE: $00000617 VOL: 0
-; 0000 0222                                             }
 ;PCODE: $00000618 VOL: 0
 ;PCODE: $00000619 VOL: 0
 ;PCODE: $0000061A VOL: 0
 ;PCODE: $0000061B VOL: 0
 ;PCODE: $0000061C VOL: 0
 ;PCODE: $0000061D VOL: 0
-; 0000 0223                                             while(i1<11);
 ;PCODE: $0000061E VOL: 0
 ;PCODE: $0000061F VOL: 0
 ;PCODE: $00000620 VOL: 0
 ;PCODE: $00000621 VOL: 0
 ;PCODE: $00000622 VOL: 0
 ;PCODE: $00000623 VOL: 0
-; 0000 0224                                             printf("sdt3:");
+; 0000 022B                                           else sdt2[i1]=ndt2[i1]=msgStr[poskey+i1];
 ;PCODE: $00000624 VOL: 0
 ;PCODE: $00000625 VOL: 0
 ;PCODE: $00000626 VOL: 0
@@ -2185,21 +2192,14 @@ _0x1E:
 ;PCODE: $00000628 VOL: 0
 ;PCODE: $00000629 VOL: 0
 ;PCODE: $0000062A VOL: 0
-; 0000 0225                                             puts(ndt3);
 ;PCODE: $0000062B VOL: 0
 ;PCODE: $0000062C VOL: 0
-; 0000 0226                                             clearBuffer();
 ;PCODE: $0000062D VOL: 0
-; 0000 0227                                             smsFlag=0;
 ;PCODE: $0000062E VOL: 0
 ;PCODE: $0000062F VOL: 0
 ;PCODE: $00000630 VOL: 0
-; 0000 0228                                           }
-; 0000 0229                                           else
 ;PCODE: $00000631 VOL: 0
 ;PCODE: $00000632 VOL: 0
-; 0000 022A                                           {
-; 0000 022B                                                if(strcmp(content,"kttk")==0)
 ;PCODE: $00000633 VOL: 0
 ;PCODE: $00000634 VOL: 0
 ;PCODE: $00000635 VOL: 0
@@ -2207,55 +2207,43 @@ _0x1E:
 ;PCODE: $00000637 VOL: 0
 ;PCODE: $00000638 VOL: 0
 ;PCODE: $00000639 VOL: 0
-; 0000 022C                                                {
-; 0000 022D                                                  KTTK();
+; 0000 022C                                         }
 ;PCODE: $0000063A VOL: 0
-; 0000 022E                                                  clearBuffer();
 ;PCODE: $0000063B VOL: 0
-; 0000 022F                                                  smsFlag=0;
 ;PCODE: $0000063C VOL: 0
 ;PCODE: $0000063D VOL: 0
 ;PCODE: $0000063E VOL: 0
-; 0000 0230                                                }
-; 0000 0231                                                else
 ;PCODE: $0000063F VOL: 0
+; 0000 022D                                         while(i1<11);
 ;PCODE: $00000640 VOL: 0
-; 0000 0232                                                {
-; 0000 0233                                                  if(strcmp(syntax,"naptien")==0)
 ;PCODE: $00000641 VOL: 0
 ;PCODE: $00000642 VOL: 0
 ;PCODE: $00000643 VOL: 0
 ;PCODE: $00000644 VOL: 0
 ;PCODE: $00000645 VOL: 0
+; 0000 022E                                         printf("\nsdt2:");
 ;PCODE: $00000646 VOL: 0
 ;PCODE: $00000647 VOL: 0
-; 0000 0234                                                  {  char mathe[13];
-; 0000 0235                                                     char mt;
-; 0000 0236                                                     for(mt=0;mt<13;mt++)
 ;PCODE: $00000648 VOL: 0
-;	lastspace -> Y+70
-;	firstspace -> Y+69
-;	n -> Y+68
-;	syntax -> Y+53
-;	ndt1 -> Y+42
-;	ndt2 -> Y+31
-;	ndt3 -> Y+20
-;	mathe -> Y+1
-;	mt -> Y+0
 ;PCODE: $00000649 VOL: 0
 ;PCODE: $0000064A VOL: 0
 ;PCODE: $0000064B VOL: 0
 ;PCODE: $0000064C VOL: 0
+; 0000 022F                                         puts(ndt2);
 ;PCODE: $0000064D VOL: 0
 ;PCODE: $0000064E VOL: 0
+; 0000 0230                                         clearBuffer();
 ;PCODE: $0000064F VOL: 0
+; 0000 0231                                         smsFlag=0;
 ;PCODE: $00000650 VOL: 0
 ;PCODE: $00000651 VOL: 0
 ;PCODE: $00000652 VOL: 0
-; 0000 0237                                                     {
-; 0000 0238                                                       if(msgStr[13+mt]<48||msgStr[13+mt]>57) mathe[mt]='0';
+; 0000 0232                                       }
+; 0000 0233                                       else
 ;PCODE: $00000653 VOL: 0
 ;PCODE: $00000654 VOL: 0
+; 0000 0234                                       {
+; 0000 0235                                          if(strcmp(syntax,"sdt3")==0)
 ;PCODE: $00000655 VOL: 0
 ;PCODE: $00000656 VOL: 0
 ;PCODE: $00000657 VOL: 0
@@ -2263,6 +2251,8 @@ _0x1E:
 ;PCODE: $00000659 VOL: 0
 ;PCODE: $0000065A VOL: 0
 ;PCODE: $0000065B VOL: 0
+; 0000 0236                                           {
+; 0000 0237                                             for(i1=0;i1<11;i1++)
 ;PCODE: $0000065C VOL: 0
 ;PCODE: $0000065D VOL: 0
 ;PCODE: $0000065E VOL: 0
@@ -2272,7 +2262,8 @@ _0x1E:
 ;PCODE: $00000662 VOL: 0
 ;PCODE: $00000663 VOL: 0
 ;PCODE: $00000664 VOL: 0
-; 0000 0239                                                       else mathe[mt]=msgStr[13+mt];
+; 0000 0238                                             {
+; 0000 0239                                               if(msgStr[poskey+i1]<48||msgStr[poskey+i1]>57) sdt3[i1]=ndt3[i1]=0;
 ;PCODE: $00000665 VOL: 0
 ;PCODE: $00000666 VOL: 0
 ;PCODE: $00000667 VOL: 0
@@ -2285,7 +2276,6 @@ _0x1E:
 ;PCODE: $0000066E VOL: 0
 ;PCODE: $0000066F VOL: 0
 ;PCODE: $00000670 VOL: 0
-; 0000 023A                                                     }
 ;PCODE: $00000671 VOL: 0
 ;PCODE: $00000672 VOL: 0
 ;PCODE: $00000673 VOL: 0
@@ -2293,192 +2283,134 @@ _0x1E:
 ;PCODE: $00000675 VOL: 0
 ;PCODE: $00000676 VOL: 0
 ;PCODE: $00000677 VOL: 0
-; 0000 023B                                                     naptien(mathe);
 ;PCODE: $00000678 VOL: 0
 ;PCODE: $00000679 VOL: 0
-; 0000 023C                                                     clearBuffer();
 ;PCODE: $0000067A VOL: 0
-; 0000 023D                                                     smsFlag=0;
 ;PCODE: $0000067B VOL: 0
 ;PCODE: $0000067C VOL: 0
 ;PCODE: $0000067D VOL: 0
-; 0000 023E                                                  }
 ;PCODE: $0000067E VOL: 0
-; 0000 023F                                                }
+; 0000 023A                                               else sdt3[i1]=ndt3[i1]=msgStr[poskey+i1];
 ;PCODE: $0000067F VOL: 0
 ;PCODE: $00000680 VOL: 0
-; 0000 0240                                           }
 ;PCODE: $00000681 VOL: 0
-; 0000 0241                                       }
 ;PCODE: $00000682 VOL: 0
-; 0000 0242                                   }
 ;PCODE: $00000683 VOL: 0
-; 0000 0243                                 }
 ;PCODE: $00000684 VOL: 0
-; 0000 0244                             }
 ;PCODE: $00000685 VOL: 0
-; 0000 0245                         }
 ;PCODE: $00000686 VOL: 0
-; 0000 0246                     }
 ;PCODE: $00000687 VOL: 0
-; 0000 0247                 }
 ;PCODE: $00000688 VOL: 0
-; 0000 0248             }
 ;PCODE: $00000689 VOL: 0
-; 0000 0249         }
 ;PCODE: $0000068A VOL: 0
-; 0000 024A     }
-; 0000 024B }
 ;PCODE: $0000068B VOL: 0
 ;PCODE: $0000068C VOL: 0
 ;PCODE: $0000068D VOL: 0
 ;PCODE: $0000068E VOL: 0
 ;PCODE: $0000068F VOL: 0
-
-	.DSEG
-_0x7B:
-	.BYTE 0x3E
-;
-;
-;void main(void)
-; 0000 024F {
-
-	.CSEG
 ;PCODE: $00000690 VOL: 0
-; 0000 0250 // Declare your local variables here
-; 0000 0251 
-; 0000 0252 // Input/Output Ports initialization
-; 0000 0253 // Port B initialization
-; 0000 0254 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
-; 0000 0255 DDRB=(0<<DDB7) | (0<<DDB6) | (0<<DDB5) | (0<<DDB4) | (1<<DDB3) | (1<<DDB2) | (1<<DDB1) | (1<<DDB0);
 ;PCODE: $00000691 VOL: 0
 ;PCODE: $00000692 VOL: 0
-; 0000 0256 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
-; 0000 0257 PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
 ;PCODE: $00000693 VOL: 0
 ;PCODE: $00000694 VOL: 0
-; 0000 0258 
-; 0000 0259 // Port C initialization
-; 0000 025A // Function: Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=Out Bit0=Out
-; 0000 025B DDRC=(0<<DDC6) | (0<<DDC5) | (0<<DDC4) | (0<<DDC3) | (0<<DDC2) | (1<<DDC1) | (1<<DDC0);
+; 0000 023B                                             }
 ;PCODE: $00000695 VOL: 0
 ;PCODE: $00000696 VOL: 0
-; 0000 025C // State: Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=0 Bit0=0
-; 0000 025D PORTC=(0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
 ;PCODE: $00000697 VOL: 0
 ;PCODE: $00000698 VOL: 0
-; 0000 025E 
-; 0000 025F // Port D initialization
-; 0000 0260 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=Out Bit0=In
-; 0000 0261 DDRD=(0<<DDD7) | (0<<DDD6) | (0<<DDD5) | (0<<DDD4) | (0<<DDD3) | (0<<DDD2) | (1<<DDD1) | (0<<DDD0);
 ;PCODE: $00000699 VOL: 0
 ;PCODE: $0000069A VOL: 0
-; 0000 0262 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=P Bit2=P Bit1=0 Bit0=T
-; 0000 0263 PORTD=(0<<PORTD7) | (0<<PORTD6) | (0<<PORTD5) | (0<<PORTD4) | (1<<PORTD3) | (1<<PORTD2) | (0<<PORTD1) | (0<<PORTD0);
+; 0000 023C                                             while(i1<11);
 ;PCODE: $0000069B VOL: 0
 ;PCODE: $0000069C VOL: 0
-; 0000 0264 
-; 0000 0265 // Timer/Counter 0 initialization
-; 0000 0266 // Clock source: System Clock
-; 0000 0267 // Clock value: 0.977 kHz
-; 0000 0268 //0.26214s
-; 0000 0269 TCCR0=(0<<CS02) | (0<<CS01) | (0<<CS00);
 ;PCODE: $0000069D VOL: 0
 ;PCODE: $0000069E VOL: 0
-; 0000 026A TCNT0=0x00;
 ;PCODE: $0000069F VOL: 0
 ;PCODE: $000006A0 VOL: 0
-; 0000 026B 
-; 0000 026C // Timer(s)/Counter(s) Interrupt(s) initialization
-; 0000 026D TIMSK=(0<<OCIE2) | (0<<TOIE2) | (0<<TICIE1) | (0<<OCIE1A) | (0<<OCIE1B) | (0<<TOIE1) | (0<<TOIE0);
+; 0000 023D                                             printf("sdt3:");
 ;PCODE: $000006A1 VOL: 0
 ;PCODE: $000006A2 VOL: 0
-; 0000 026E 
-; 0000 026F // External Interrupt(s) initialization
-; 0000 0270 // INT0: On
-; 0000 0271 // INT0 Mode: Falling Edge
-; 0000 0272 // INT1: On
-; 0000 0273 // INT1 Mode: Falling Edge
-; 0000 0274 GICR|=(1<<INT1) | (1<<INT0);
 ;PCODE: $000006A3 VOL: 0
 ;PCODE: $000006A4 VOL: 0
 ;PCODE: $000006A5 VOL: 0
-; 0000 0275 MCUCR=(1<<ISC11) | (0<<ISC10) | (1<<ISC01) | (0<<ISC00);
 ;PCODE: $000006A6 VOL: 0
 ;PCODE: $000006A7 VOL: 0
-; 0000 0276 GIFR=(1<<INTF1) | (1<<INTF0);
+; 0000 023E                                             puts(ndt3);
 ;PCODE: $000006A8 VOL: 0
 ;PCODE: $000006A9 VOL: 0
-; 0000 0277 
-; 0000 0278 // USART initialization
-; 0000 0279 // Communication Parameters: 8 Data, 1 Stop, No Parity
-; 0000 027A // USART Receiver: On
-; 0000 027B // USART Transmitter: On
-; 0000 027C // USART Mode: Asynchronous
-; 0000 027D // USART Baud Rate: 9600 (Double Speed Mode)
-; 0000 027E UCSRA=(0<<RXC) | (0<<TXC) | (0<<UDRE) | (0<<FE) | (0<<DOR) | (0<<UPE) | (1<<U2X) | (1<<MPCM);
+; 0000 023F                                             clearBuffer();
 ;PCODE: $000006AA VOL: 0
+; 0000 0240                                             smsFlag=0;
 ;PCODE: $000006AB VOL: 0
-; 0000 027F UCSRB=(1<<RXCIE) | (1<<TXCIE) | (0<<UDRIE) | (1<<RXEN) | (1<<TXEN) | (0<<UCSZ2) | (0<<RXB8) | (0<<TXB8);
 ;PCODE: $000006AC VOL: 0
 ;PCODE: $000006AD VOL: 0
-; 0000 0280 UCSRC=(1<<URSEL) | (0<<UMSEL) | (0<<UPM1) | (0<<UPM0) | (0<<USBS) | (1<<UCSZ1) | (1<<UCSZ0) | (0<<UCPOL);
+; 0000 0241                                           }
+; 0000 0242                                           else
 ;PCODE: $000006AE VOL: 0
 ;PCODE: $000006AF VOL: 0
-; 0000 0281 UBRRH=0x00;
+; 0000 0243                                           {
+; 0000 0244                                                if(strcmp(content,"kttk")==0)
 ;PCODE: $000006B0 VOL: 0
 ;PCODE: $000006B1 VOL: 0
-; 0000 0282 UBRRL=0x0C;
 ;PCODE: $000006B2 VOL: 0
 ;PCODE: $000006B3 VOL: 0
-; 0000 0283 
-; 0000 0284 
-; 0000 0285 // Global enable interrupts
-; 0000 0286 #asm("sei")
 ;PCODE: $000006B4 VOL: 0
-	sei
 ;PCODE: $000006B5 VOL: 0
-; 0000 0287 while(strpos(rx_buffer,'O')<0)
 ;PCODE: $000006B6 VOL: 0
+; 0000 0245                                                {
+; 0000 0246                                                  KTTK();
 ;PCODE: $000006B7 VOL: 0
+; 0000 0247                                                  clearBuffer();
 ;PCODE: $000006B8 VOL: 0
+; 0000 0248                                                  smsFlag=0;
 ;PCODE: $000006B9 VOL: 0
 ;PCODE: $000006BA VOL: 0
 ;PCODE: $000006BB VOL: 0
+; 0000 0249                                                }
+; 0000 024A                                                else
 ;PCODE: $000006BC VOL: 0
-; 0000 0288 {
-; 0000 0289     printf("AT\r\n");
 ;PCODE: $000006BD VOL: 0
+; 0000 024B                                                {
+; 0000 024C                                                  if(strcmp(syntax,"naptien")==0)
 ;PCODE: $000006BE VOL: 0
 ;PCODE: $000006BF VOL: 0
 ;PCODE: $000006C0 VOL: 0
 ;PCODE: $000006C1 VOL: 0
 ;PCODE: $000006C2 VOL: 0
 ;PCODE: $000006C3 VOL: 0
-; 0000 028A     printf(DISABLE_ECHO);
 ;PCODE: $000006C4 VOL: 0
+; 0000 024D                                                  {  char mathe[13];
+; 0000 024E                                                     char mt;
+; 0000 024F                                                     for(mt=0;mt<13;mt++)
 ;PCODE: $000006C5 VOL: 0
+;	lastspace -> Y+70
+;	firstspace -> Y+69
+;	n -> Y+68
+;	syntax -> Y+53
+;	ndt1 -> Y+42
+;	ndt2 -> Y+31
+;	ndt3 -> Y+20
+;	mathe -> Y+1
+;	mt -> Y+0
 ;PCODE: $000006C6 VOL: 0
 ;PCODE: $000006C7 VOL: 0
 ;PCODE: $000006C8 VOL: 0
 ;PCODE: $000006C9 VOL: 0
 ;PCODE: $000006CA VOL: 0
-; 0000 028B     delay_ms(1000);
 ;PCODE: $000006CB VOL: 0
 ;PCODE: $000006CC VOL: 0
-; 0000 028C     if(strpos(rx_buffer,'O')<0) clearBuffer();
 ;PCODE: $000006CD VOL: 0
 ;PCODE: $000006CE VOL: 0
 ;PCODE: $000006CF VOL: 0
+; 0000 0250                                                     {
+; 0000 0251                                                       if(msgStr[13+mt]<48||msgStr[13+mt]>57) mathe[mt]='0';
 ;PCODE: $000006D0 VOL: 0
 ;PCODE: $000006D1 VOL: 0
 ;PCODE: $000006D2 VOL: 0
 ;PCODE: $000006D3 VOL: 0
-; 0000 028D }
 ;PCODE: $000006D4 VOL: 0
 ;PCODE: $000006D5 VOL: 0
 ;PCODE: $000006D6 VOL: 0
-; 0000 028E printf(FORMAT_SMS_TEXT);
 ;PCODE: $000006D7 VOL: 0
 ;PCODE: $000006D8 VOL: 0
 ;PCODE: $000006D9 VOL: 0
@@ -2486,90 +2418,92 @@ _0x7B:
 ;PCODE: $000006DB VOL: 0
 ;PCODE: $000006DC VOL: 0
 ;PCODE: $000006DD VOL: 0
-; 0000 028F delay_ms(200);
 ;PCODE: $000006DE VOL: 0
 ;PCODE: $000006DF VOL: 0
 ;PCODE: $000006E0 VOL: 0
-; 0000 0290 printf(DISABLE_ECHO);
 ;PCODE: $000006E1 VOL: 0
+; 0000 0252                                                       else mathe[mt]=msgStr[13+mt];
 ;PCODE: $000006E2 VOL: 0
 ;PCODE: $000006E3 VOL: 0
 ;PCODE: $000006E4 VOL: 0
 ;PCODE: $000006E5 VOL: 0
 ;PCODE: $000006E6 VOL: 0
 ;PCODE: $000006E7 VOL: 0
-; 0000 0291 delay_ms(200);
 ;PCODE: $000006E8 VOL: 0
 ;PCODE: $000006E9 VOL: 0
 ;PCODE: $000006EA VOL: 0
-; 0000 0292 printf(READ_WHEN_NEWSMS);
 ;PCODE: $000006EB VOL: 0
 ;PCODE: $000006EC VOL: 0
 ;PCODE: $000006ED VOL: 0
+; 0000 0253                                                     }
 ;PCODE: $000006EE VOL: 0
 ;PCODE: $000006EF VOL: 0
 ;PCODE: $000006F0 VOL: 0
 ;PCODE: $000006F1 VOL: 0
-; 0000 0293 delay_ms(200);
 ;PCODE: $000006F2 VOL: 0
 ;PCODE: $000006F3 VOL: 0
 ;PCODE: $000006F4 VOL: 0
-; 0000 0294 printf(ENABLE_USSD);
+; 0000 0254                                                     naptien(mathe);
 ;PCODE: $000006F5 VOL: 0
 ;PCODE: $000006F6 VOL: 0
+; 0000 0255                                                     clearBuffer();
 ;PCODE: $000006F7 VOL: 0
+; 0000 0256                                                     smsFlag=0;
 ;PCODE: $000006F8 VOL: 0
 ;PCODE: $000006F9 VOL: 0
 ;PCODE: $000006FA VOL: 0
+; 0000 0257                                                  }
 ;PCODE: $000006FB VOL: 0
-; 0000 0295 delay_ms(200);
+; 0000 0258                                                  else
 ;PCODE: $000006FC VOL: 0
 ;PCODE: $000006FD VOL: 0
+; 0000 0259                                                  {
+; 0000 025A                                                    if(strcmp(content,"thongbao on")==0)
 ;PCODE: $000006FE VOL: 0
-; 0000 0296 printf(DELETE_ALL_MSG);
 ;PCODE: $000006FF VOL: 0
 ;PCODE: $00000700 VOL: 0
 ;PCODE: $00000701 VOL: 0
 ;PCODE: $00000702 VOL: 0
 ;PCODE: $00000703 VOL: 0
 ;PCODE: $00000704 VOL: 0
+; 0000 025B                                                    {
+; 0000 025C                                                      tb=2;
 ;PCODE: $00000705 VOL: 0
-; 0000 0297 delay_ms(200);
 ;PCODE: $00000706 VOL: 0
 ;PCODE: $00000707 VOL: 0
+; 0000 025D                                                      printf("da bat thong bao");
 ;PCODE: $00000708 VOL: 0
-; 0000 0298 if(begin==255)
 ;PCODE: $00000709 VOL: 0
 ;PCODE: $0000070A VOL: 0
 ;PCODE: $0000070B VOL: 0
 ;PCODE: $0000070C VOL: 0
-; 0000 0299 {
-; 0000 029A 
-; 0000 029B   password[0]='0';
 ;PCODE: $0000070D VOL: 0
 ;PCODE: $0000070E VOL: 0
+; 0000 025E                                                      clearBuffer();
 ;PCODE: $0000070F VOL: 0
-; 0000 029C   password[1]='0';
+; 0000 025F                                                      smsFlag=0;
 ;PCODE: $00000710 VOL: 0
 ;PCODE: $00000711 VOL: 0
 ;PCODE: $00000712 VOL: 0
+; 0000 0260                                                    }
+; 0000 0261                                                    else
 ;PCODE: $00000713 VOL: 0
-; 0000 029D   password[2]='0';
 ;PCODE: $00000714 VOL: 0
+; 0000 0262                                                    {
+; 0000 0263                                                      if(strcmp(content,"thongbao off")==0)
 ;PCODE: $00000715 VOL: 0
 ;PCODE: $00000716 VOL: 0
 ;PCODE: $00000717 VOL: 0
-; 0000 029E   password[3]='0';
 ;PCODE: $00000718 VOL: 0
 ;PCODE: $00000719 VOL: 0
 ;PCODE: $0000071A VOL: 0
 ;PCODE: $0000071B VOL: 0
-; 0000 029F   begin=0;
+; 0000 0264                                                        {
+; 0000 0265                                                          tb=1;
 ;PCODE: $0000071C VOL: 0
 ;PCODE: $0000071D VOL: 0
 ;PCODE: $0000071E VOL: 0
-; 0000 02A0 }
-; 0000 02A1 if(save1==1) LOAD1=1;
+; 0000 0266                                                          printf("da tat thong bao");
 ;PCODE: $0000071F VOL: 0
 ;PCODE: $00000720 VOL: 0
 ;PCODE: $00000721 VOL: 0
@@ -2577,49 +2511,383 @@ _0x7B:
 ;PCODE: $00000723 VOL: 0
 ;PCODE: $00000724 VOL: 0
 ;PCODE: $00000725 VOL: 0
-; 0000 02A2 else LOAD1=0;
+; 0000 0267                                                          clearBuffer();
 ;PCODE: $00000726 VOL: 0
+; 0000 0268                                                          smsFlag=0;
 ;PCODE: $00000727 VOL: 0
 ;PCODE: $00000728 VOL: 0
 ;PCODE: $00000729 VOL: 0
-; 0000 02A3 if(save2==1) LOAD2=1;
+; 0000 0269                                                        }
+; 0000 026A                                                        else
 ;PCODE: $0000072A VOL: 0
 ;PCODE: $0000072B VOL: 0
+; 0000 026B                                                        {
+; 0000 026C                                                          if(strcmp(content,"kttt")==0)
 ;PCODE: $0000072C VOL: 0
 ;PCODE: $0000072D VOL: 0
 ;PCODE: $0000072E VOL: 0
 ;PCODE: $0000072F VOL: 0
 ;PCODE: $00000730 VOL: 0
-; 0000 02A4 else LOAD2=0;
 ;PCODE: $00000731 VOL: 0
 ;PCODE: $00000732 VOL: 0
+; 0000 026D                                                          {
+; 0000 026E                                                            checkStatus();
 ;PCODE: $00000733 VOL: 0
+; 0000 026F                                                            clearBuffer();
 ;PCODE: $00000734 VOL: 0
-; 0000 02A5 clearBuffer();
+; 0000 0270                                                            smsFlag=0;
 ;PCODE: $00000735 VOL: 0
 ;PCODE: $00000736 VOL: 0
-; 0000 02A6 sendSMS("109","hhhhhh");
 ;PCODE: $00000737 VOL: 0
+; 0000 0271                                                          }
+; 0000 0272                                                          else
 ;PCODE: $00000738 VOL: 0
 ;PCODE: $00000739 VOL: 0
+; 0000 0273                                                          {
+; 0000 0274                                                            printf("Syntax error");
 ;PCODE: $0000073A VOL: 0
 ;PCODE: $0000073B VOL: 0
 ;PCODE: $0000073C VOL: 0
-; 0000 02A7 while (1)
 ;PCODE: $0000073D VOL: 0
-; 0000 02A8       {     if(flag) strHandle();
 ;PCODE: $0000073E VOL: 0
 ;PCODE: $0000073F VOL: 0
 ;PCODE: $00000740 VOL: 0
-; 0000 02A9       }
+; 0000 0275                                                            clearBuffer();
 ;PCODE: $00000741 VOL: 0
+; 0000 0276                                                            smsFlag=0;
 ;PCODE: $00000742 VOL: 0
 ;PCODE: $00000743 VOL: 0
-; 0000 02AA }
 ;PCODE: $00000744 VOL: 0
+; 0000 0277                                                          }
 ;PCODE: $00000745 VOL: 0
+; 0000 0278                                                        }
 ;PCODE: $00000746 VOL: 0
+; 0000 0279                                                    }
+;PCODE: $00000747 VOL: 0
+; 0000 027A 
+; 0000 027B                                                  }
+;PCODE: $00000748 VOL: 0
+; 0000 027C 
+; 0000 027D                                                }
+;PCODE: $00000749 VOL: 0
+; 0000 027E                                           }
+;PCODE: $0000074A VOL: 0
+; 0000 027F                                       }
+;PCODE: $0000074B VOL: 0
+; 0000 0280                                   }
+;PCODE: $0000074C VOL: 0
+; 0000 0281                                 }
+;PCODE: $0000074D VOL: 0
+; 0000 0282                             }
+;PCODE: $0000074E VOL: 0
+; 0000 0283                         }
+;PCODE: $0000074F VOL: 0
+; 0000 0284                     }
+;PCODE: $00000750 VOL: 0
+; 0000 0285                 }
+;PCODE: $00000751 VOL: 0
+; 0000 0286             }
+;PCODE: $00000752 VOL: 0
+; 0000 0287         }
+;PCODE: $00000753 VOL: 0
+; 0000 0288     }
+; 0000 0289 }
+;PCODE: $00000754 VOL: 0
+;PCODE: $00000755 VOL: 0
+;PCODE: $00000756 VOL: 0
+;PCODE: $00000757 VOL: 0
+;PCODE: $00000758 VOL: 0
 
 	.DSEG
-_0xDB:
-	.BYTE 0xB
+_0x81:
+	.BYTE 0x59
+;
+;
+;void main(void)
+; 0000 028D {
+
+	.CSEG
+;PCODE: $00000759 VOL: 0
+; 0000 028E // Declare your local variables here
+; 0000 028F 
+; 0000 0290 // Input/Output Ports initialization
+; 0000 0291 // Port B initialization
+; 0000 0292 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
+; 0000 0293 DDRB=(0<<DDB7) | (0<<DDB6) | (0<<DDB5) | (0<<DDB4) | (1<<DDB3) | (1<<DDB2) | (1<<DDB1) | (1<<DDB0);
+;PCODE: $0000075A VOL: 0
+;PCODE: $0000075B VOL: 0
+; 0000 0294 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
+; 0000 0295 PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
+;PCODE: $0000075C VOL: 0
+;PCODE: $0000075D VOL: 0
+; 0000 0296 
+; 0000 0297 // Port C initialization
+; 0000 0298 // Function: Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=Out Bit0=Out
+; 0000 0299 DDRC=(0<<DDC6) | (0<<DDC5) | (0<<DDC4) | (0<<DDC3) | (0<<DDC2) | (1<<DDC1) | (1<<DDC0);
+;PCODE: $0000075E VOL: 0
+;PCODE: $0000075F VOL: 0
+; 0000 029A // State: Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=0 Bit0=0
+; 0000 029B PORTC=(0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
+;PCODE: $00000760 VOL: 0
+;PCODE: $00000761 VOL: 0
+; 0000 029C 
+; 0000 029D // Port D initialization
+; 0000 029E // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=Out Bit0=In
+; 0000 029F DDRD=(0<<DDD7) | (0<<DDD6) | (0<<DDD5) | (0<<DDD4) | (0<<DDD3) | (0<<DDD2) | (1<<DDD1) | (0<<DDD0);
+;PCODE: $00000762 VOL: 0
+;PCODE: $00000763 VOL: 0
+; 0000 02A0 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=P Bit2=P Bit1=0 Bit0=T
+; 0000 02A1 PORTD=(0<<PORTD7) | (0<<PORTD6) | (0<<PORTD5) | (0<<PORTD4) | (1<<PORTD3) | (1<<PORTD2) | (0<<PORTD1) | (0<<PORTD0);
+;PCODE: $00000764 VOL: 0
+;PCODE: $00000765 VOL: 0
+; 0000 02A2 
+; 0000 02A3 // Timer/Counter 0 initialization
+; 0000 02A4 // Clock source: System Clock
+; 0000 02A5 // Clock value: 0.977 kHz
+; 0000 02A6 //0.26214s
+; 0000 02A7 TCCR0=(0<<CS02) | (0<<CS01) | (0<<CS00);
+;PCODE: $00000766 VOL: 0
+;PCODE: $00000767 VOL: 0
+; 0000 02A8 TCNT0=0x00;
+;PCODE: $00000768 VOL: 0
+;PCODE: $00000769 VOL: 0
+; 0000 02A9 
+; 0000 02AA // Timer(s)/Counter(s) Interrupt(s) initialization
+; 0000 02AB TIMSK=(0<<OCIE2) | (0<<TOIE2) | (0<<TICIE1) | (0<<OCIE1A) | (0<<OCIE1B) | (0<<TOIE1) | (0<<TOIE0);
+;PCODE: $0000076A VOL: 0
+;PCODE: $0000076B VOL: 0
+; 0000 02AC 
+; 0000 02AD // External Interrupt(s) initialization
+; 0000 02AE // INT0: On
+; 0000 02AF // INT0 Mode: Falling Edge
+; 0000 02B0 // INT1: On
+; 0000 02B1 // INT1 Mode: Falling Edge
+; 0000 02B2 GICR|=(1<<INT1) | (1<<INT0);
+;PCODE: $0000076C VOL: 0
+;PCODE: $0000076D VOL: 0
+;PCODE: $0000076E VOL: 0
+; 0000 02B3 MCUCR=(1<<ISC11) | (0<<ISC10) | (1<<ISC01) | (0<<ISC00);
+;PCODE: $0000076F VOL: 0
+;PCODE: $00000770 VOL: 0
+; 0000 02B4 GIFR=(1<<INTF1) | (1<<INTF0);
+;PCODE: $00000771 VOL: 0
+;PCODE: $00000772 VOL: 0
+; 0000 02B5 
+; 0000 02B6 // USART initialization
+; 0000 02B7 // Communication Parameters: 8 Data, 1 Stop, No Parity
+; 0000 02B8 // USART Receiver: On
+; 0000 02B9 // USART Transmitter: On
+; 0000 02BA // USART Mode: Asynchronous
+; 0000 02BB // USART Baud Rate: 9600 (Double Speed Mode)
+; 0000 02BC UCSRA=(0<<RXC) | (0<<TXC) | (0<<UDRE) | (0<<FE) | (0<<DOR) | (0<<UPE) | (1<<U2X) | (1<<MPCM);
+;PCODE: $00000773 VOL: 0
+;PCODE: $00000774 VOL: 0
+; 0000 02BD UCSRB=(1<<RXCIE) | (1<<TXCIE) | (0<<UDRIE) | (1<<RXEN) | (1<<TXEN) | (0<<UCSZ2) | (0<<RXB8) | (0<<TXB8);
+;PCODE: $00000775 VOL: 0
+;PCODE: $00000776 VOL: 0
+; 0000 02BE UCSRC=(1<<URSEL) | (0<<UMSEL) | (0<<UPM1) | (0<<UPM0) | (0<<USBS) | (1<<UCSZ1) | (1<<UCSZ0) | (0<<UCPOL);
+;PCODE: $00000777 VOL: 0
+;PCODE: $00000778 VOL: 0
+; 0000 02BF UBRRH=0x00;
+;PCODE: $00000779 VOL: 0
+;PCODE: $0000077A VOL: 0
+; 0000 02C0 UBRRL=0x0C;
+;PCODE: $0000077B VOL: 0
+;PCODE: $0000077C VOL: 0
+; 0000 02C1 
+; 0000 02C2 
+; 0000 02C3 // Global enable interrupts
+; 0000 02C4 #asm("sei")
+;PCODE: $0000077D VOL: 0
+	sei
+;PCODE: $0000077E VOL: 0
+; 0000 02C5 while(strpos(rx_buffer,'O')<0||strpos(rx_buffer,'K')<0)
+;PCODE: $0000077F VOL: 0
+;PCODE: $00000780 VOL: 0
+;PCODE: $00000781 VOL: 0
+;PCODE: $00000782 VOL: 0
+;PCODE: $00000783 VOL: 0
+;PCODE: $00000784 VOL: 0
+;PCODE: $00000785 VOL: 0
+;PCODE: $00000786 VOL: 0
+;PCODE: $00000787 VOL: 0
+;PCODE: $00000788 VOL: 0
+;PCODE: $00000789 VOL: 0
+;PCODE: $0000078A VOL: 0
+;PCODE: $0000078B VOL: 0
+;PCODE: $0000078C VOL: 0
+;PCODE: $0000078D VOL: 0
+; 0000 02C6 {
+; 0000 02C7     printf("AT\r\n");
+;PCODE: $0000078E VOL: 0
+;PCODE: $0000078F VOL: 0
+;PCODE: $00000790 VOL: 0
+;PCODE: $00000791 VOL: 0
+;PCODE: $00000792 VOL: 0
+;PCODE: $00000793 VOL: 0
+;PCODE: $00000794 VOL: 0
+; 0000 02C8     printf(DISABLE_ECHO);
+;PCODE: $00000795 VOL: 0
+;PCODE: $00000796 VOL: 0
+;PCODE: $00000797 VOL: 0
+;PCODE: $00000798 VOL: 0
+;PCODE: $00000799 VOL: 0
+;PCODE: $0000079A VOL: 0
+;PCODE: $0000079B VOL: 0
+; 0000 02C9     delay_ms(1000);
+;PCODE: $0000079C VOL: 0
+;PCODE: $0000079D VOL: 0
+; 0000 02CA     if(strpos(rx_buffer,'O')<0||strpos(rx_buffer,'K')<0) clearBuffer();
+;PCODE: $0000079E VOL: 0
+;PCODE: $0000079F VOL: 0
+;PCODE: $000007A0 VOL: 0
+;PCODE: $000007A1 VOL: 0
+;PCODE: $000007A2 VOL: 0
+;PCODE: $000007A3 VOL: 0
+;PCODE: $000007A4 VOL: 0
+;PCODE: $000007A5 VOL: 0
+;PCODE: $000007A6 VOL: 0
+;PCODE: $000007A7 VOL: 0
+;PCODE: $000007A8 VOL: 0
+;PCODE: $000007A9 VOL: 0
+;PCODE: $000007AA VOL: 0
+;PCODE: $000007AB VOL: 0
+;PCODE: $000007AC VOL: 0
+; 0000 02CB }
+;PCODE: $000007AD VOL: 0
+;PCODE: $000007AE VOL: 0
+;PCODE: $000007AF VOL: 0
+; 0000 02CC printf(FORMAT_SMS_TEXT);
+;PCODE: $000007B0 VOL: 0
+;PCODE: $000007B1 VOL: 0
+;PCODE: $000007B2 VOL: 0
+;PCODE: $000007B3 VOL: 0
+;PCODE: $000007B4 VOL: 0
+;PCODE: $000007B5 VOL: 0
+;PCODE: $000007B6 VOL: 0
+; 0000 02CD delay_ms(200);
+;PCODE: $000007B7 VOL: 0
+;PCODE: $000007B8 VOL: 0
+;PCODE: $000007B9 VOL: 0
+; 0000 02CE printf(DISABLE_ECHO);
+;PCODE: $000007BA VOL: 0
+;PCODE: $000007BB VOL: 0
+;PCODE: $000007BC VOL: 0
+;PCODE: $000007BD VOL: 0
+;PCODE: $000007BE VOL: 0
+;PCODE: $000007BF VOL: 0
+;PCODE: $000007C0 VOL: 0
+; 0000 02CF delay_ms(200);
+;PCODE: $000007C1 VOL: 0
+;PCODE: $000007C2 VOL: 0
+;PCODE: $000007C3 VOL: 0
+; 0000 02D0 printf(READ_WHEN_NEWSMS);
+;PCODE: $000007C4 VOL: 0
+;PCODE: $000007C5 VOL: 0
+;PCODE: $000007C6 VOL: 0
+;PCODE: $000007C7 VOL: 0
+;PCODE: $000007C8 VOL: 0
+;PCODE: $000007C9 VOL: 0
+;PCODE: $000007CA VOL: 0
+; 0000 02D1 delay_ms(200);
+;PCODE: $000007CB VOL: 0
+;PCODE: $000007CC VOL: 0
+;PCODE: $000007CD VOL: 0
+; 0000 02D2 printf(ENABLE_USSD);
+;PCODE: $000007CE VOL: 0
+;PCODE: $000007CF VOL: 0
+;PCODE: $000007D0 VOL: 0
+;PCODE: $000007D1 VOL: 0
+;PCODE: $000007D2 VOL: 0
+;PCODE: $000007D3 VOL: 0
+;PCODE: $000007D4 VOL: 0
+; 0000 02D3 delay_ms(200);
+;PCODE: $000007D5 VOL: 0
+;PCODE: $000007D6 VOL: 0
+;PCODE: $000007D7 VOL: 0
+; 0000 02D4 printf(DELETE_ALL_MSG);
+;PCODE: $000007D8 VOL: 0
+;PCODE: $000007D9 VOL: 0
+;PCODE: $000007DA VOL: 0
+;PCODE: $000007DB VOL: 0
+;PCODE: $000007DC VOL: 0
+;PCODE: $000007DD VOL: 0
+;PCODE: $000007DE VOL: 0
+; 0000 02D5 delay_ms(200);
+;PCODE: $000007DF VOL: 0
+;PCODE: $000007E0 VOL: 0
+;PCODE: $000007E1 VOL: 0
+; 0000 02D6 if(begin==255)
+;PCODE: $000007E2 VOL: 0
+;PCODE: $000007E3 VOL: 0
+;PCODE: $000007E4 VOL: 0
+;PCODE: $000007E5 VOL: 0
+; 0000 02D7 {
+; 0000 02D8 
+; 0000 02D9   password[0]='0';
+;PCODE: $000007E6 VOL: 0
+;PCODE: $000007E7 VOL: 0
+;PCODE: $000007E8 VOL: 0
+; 0000 02DA   password[1]='0';
+;PCODE: $000007E9 VOL: 0
+;PCODE: $000007EA VOL: 0
+;PCODE: $000007EB VOL: 0
+;PCODE: $000007EC VOL: 0
+; 0000 02DB   password[2]='0';
+;PCODE: $000007ED VOL: 0
+;PCODE: $000007EE VOL: 0
+;PCODE: $000007EF VOL: 0
+;PCODE: $000007F0 VOL: 0
+; 0000 02DC   password[3]='0';
+;PCODE: $000007F1 VOL: 0
+;PCODE: $000007F2 VOL: 0
+;PCODE: $000007F3 VOL: 0
+;PCODE: $000007F4 VOL: 0
+; 0000 02DD   begin=0;
+;PCODE: $000007F5 VOL: 0
+;PCODE: $000007F6 VOL: 0
+;PCODE: $000007F7 VOL: 0
+; 0000 02DE }
+; 0000 02DF if(save1==1) LOAD1=1;
+;PCODE: $000007F8 VOL: 0
+;PCODE: $000007F9 VOL: 0
+;PCODE: $000007FA VOL: 0
+;PCODE: $000007FB VOL: 0
+;PCODE: $000007FC VOL: 0
+;PCODE: $000007FD VOL: 0
+;PCODE: $000007FE VOL: 0
+; 0000 02E0 else LOAD1=0;
+;PCODE: $000007FF VOL: 0
+;PCODE: $00000800 VOL: 0
+;PCODE: $00000801 VOL: 0
+;PCODE: $00000802 VOL: 0
+; 0000 02E1 if(save2==1) LOAD2=1;
+;PCODE: $00000803 VOL: 0
+;PCODE: $00000804 VOL: 0
+;PCODE: $00000805 VOL: 0
+;PCODE: $00000806 VOL: 0
+;PCODE: $00000807 VOL: 0
+;PCODE: $00000808 VOL: 0
+;PCODE: $00000809 VOL: 0
+; 0000 02E2 else LOAD2=0;
+;PCODE: $0000080A VOL: 0
+;PCODE: $0000080B VOL: 0
+;PCODE: $0000080C VOL: 0
+;PCODE: $0000080D VOL: 0
+; 0000 02E3 clearBuffer();
+;PCODE: $0000080E VOL: 0
+;PCODE: $0000080F VOL: 0
+; 0000 02E4 while (1)
+;PCODE: $00000810 VOL: 0
+; 0000 02E5       {     if(flag) strHandle();
+;PCODE: $00000811 VOL: 0
+;PCODE: $00000812 VOL: 0
+;PCODE: $00000813 VOL: 0
+; 0000 02E6       }
+;PCODE: $00000814 VOL: 0
+;PCODE: $00000815 VOL: 0
+;PCODE: $00000816 VOL: 0
+; 0000 02E7 }
+;PCODE: $00000817 VOL: 0
+;PCODE: $00000818 VOL: 0
+;PCODE: $00000819 VOL: 0

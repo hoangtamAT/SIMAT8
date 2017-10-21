@@ -1142,32 +1142,50 @@ _0x0:
 	.DB  0x3A,0x0,0x43,0x55,0x53,0x44,0x0,0x2E
 	.DB  0x0,0x74,0x69,0x6D,0x65,0x20,0x6F,0x75
 	.DB  0x74,0x0,0x41,0x54,0x48,0xD,0xA,0x0
-	.DB  0x6F,0x66,0x66,0x0,0x6F,0x6E,0x0,0x72
-	.DB  0x65,0x73,0x65,0x74,0x20,0x73,0x75,0x63
-	.DB  0x63,0x65,0x73,0x73,0x0,0x70,0x61,0x73
-	.DB  0x73,0x77,0x6F,0x72,0x64,0x20,0x65,0x72
-	.DB  0x72,0x6F,0x72,0x0,0x6F,0x6E,0x31,0x0
-	.DB  0x6F,0x6E,0x32,0x0,0x6F,0x66,0x66,0x31
-	.DB  0x0,0x6F,0x66,0x66,0x32,0x0,0x64,0x6F
-	.DB  0x69,0x6D,0x6B,0x0,0x73,0x75,0x63,0x63
-	.DB  0x65,0x73,0x73,0x3A,0x0,0x74,0x68,0x65
-	.DB  0x6D,0x31,0x0,0x73,0x64,0x74,0x31,0x3A
-	.DB  0x0,0x74,0x68,0x65,0x6D,0x32,0x0,0xA
-	.DB  0x73,0x64,0x74,0x32,0x3A,0x0,0x74,0x68
-	.DB  0x65,0x6D,0x33,0x0,0x73,0x64,0x74,0x33
-	.DB  0x3A,0x0,0x6B,0x74,0x74,0x6B,0x0,0x6E
-	.DB  0x61,0x70,0x74,0x69,0x65,0x6E,0x0,0x41
-	.DB  0x54,0xD,0xA,0x0,0x41,0x54,0x45,0x30
+	.DB  0x6F,0x66,0x66,0x0,0x6F,0x6E,0x0,0x74
+	.DB  0x61,0x69,0x20,0x31,0x20,0x76,0x61,0x20
+	.DB  0x32,0x20,0x64,0x61,0x6E,0x67,0x20,0x62
+	.DB  0x61,0x74,0x0,0x74,0x61,0x69,0x20,0x31
+	.DB  0x20,0x62,0x61,0x74,0x2C,0x20,0x74,0x61
+	.DB  0x69,0x20,0x32,0x20,0x74,0x61,0x74,0x0
+	.DB  0x74,0x61,0x69,0x20,0x31,0x20,0x74,0x61
+	.DB  0x74,0x2C,0x20,0x74,0x61,0x69,0x20,0x32
+	.DB  0x20,0x62,0x61,0x74,0x0,0x74,0x61,0x69
+	.DB  0x20,0x31,0x20,0x76,0x61,0x20,0x32,0x20
+	.DB  0x64,0x61,0x6E,0x67,0x20,0x74,0x61,0x74
+	.DB  0x0,0x72,0x65,0x73,0x65,0x74,0x20,0x73
+	.DB  0x75,0x63,0x63,0x65,0x73,0x73,0x0,0x70
+	.DB  0x61,0x73,0x73,0x77,0x6F,0x72,0x64,0x20
+	.DB  0x65,0x72,0x72,0x6F,0x72,0x0,0x6F,0x6E
+	.DB  0x31,0x0,0x6F,0x6E,0x32,0x0,0x6F,0x66
+	.DB  0x66,0x31,0x0,0x6F,0x66,0x66,0x32,0x0
+	.DB  0x64,0x6F,0x69,0x6D,0x6B,0x0,0x73,0x75
+	.DB  0x63,0x63,0x65,0x73,0x73,0x3A,0x0,0x73
+	.DB  0x64,0x74,0x31,0x0,0x73,0x64,0x74,0x31
+	.DB  0x3A,0x0,0x73,0x64,0x74,0x32,0x0,0xA
+	.DB  0x73,0x64,0x74,0x32,0x3A,0x0,0x73,0x64
+	.DB  0x74,0x33,0x0,0x73,0x64,0x74,0x33,0x3A
+	.DB  0x0,0x6B,0x74,0x74,0x6B,0x0,0x6E,0x61
+	.DB  0x70,0x74,0x69,0x65,0x6E,0x0,0x74,0x68
+	.DB  0x6F,0x6E,0x67,0x62,0x61,0x6F,0x20,0x6F
+	.DB  0x6E,0x0,0x64,0x61,0x20,0x62,0x61,0x74
+	.DB  0x20,0x74,0x68,0x6F,0x6E,0x67,0x20,0x62
+	.DB  0x61,0x6F,0x0,0x74,0x68,0x6F,0x6E,0x67
+	.DB  0x62,0x61,0x6F,0x20,0x6F,0x66,0x66,0x0
+	.DB  0x64,0x61,0x20,0x74,0x61,0x74,0x20,0x74
+	.DB  0x68,0x6F,0x6E,0x67,0x20,0x62,0x61,0x6F
+	.DB  0x0,0x6B,0x74,0x74,0x74,0x0,0x53,0x79
+	.DB  0x6E,0x74,0x61,0x78,0x20,0x65,0x72,0x72
+	.DB  0x6F,0x72,0x0,0x41,0x54,0xD,0xA,0x0
+	.DB  0x41,0x54,0x45,0x30,0xD,0xA,0x0,0x41
+	.DB  0x54,0x2B,0x43,0x4D,0x47,0x46,0x3D,0x31
+	.DB  0xD,0xA,0x0,0x41,0x54,0x2B,0x43,0x4E
+	.DB  0x4D,0x49,0x3D,0x32,0x2C,0x32,0x2C,0x30
+	.DB  0x2C,0x30,0x2C,0x30,0xD,0xA,0x0,0x41
+	.DB  0x54,0x2B,0x43,0x55,0x53,0x44,0x3D,0x31
 	.DB  0xD,0xA,0x0,0x41,0x54,0x2B,0x43,0x4D
-	.DB  0x47,0x46,0x3D,0x31,0xD,0xA,0x0,0x41
-	.DB  0x54,0x2B,0x43,0x4E,0x4D,0x49,0x3D,0x32
-	.DB  0x2C,0x32,0x2C,0x30,0x2C,0x30,0x2C,0x30
-	.DB  0xD,0xA,0x0,0x41,0x54,0x2B,0x43,0x55
-	.DB  0x53,0x44,0x3D,0x31,0xD,0xA,0x0,0x41
-	.DB  0x54,0x2B,0x43,0x4D,0x47,0x44,0x41,0x3D
-	.DB  0x44,0x45,0x4C,0x20,0x41,0x4C,0x4C,0xD
-	.DB  0xA,0x0,0x31,0x30,0x39,0x0,0x68,0x68
-	.DB  0x68,0x68,0x68,0x68,0x0
+	.DB  0x47,0x44,0x41,0x3D,0x44,0x45,0x4C,0x20
+	.DB  0x41,0x4C,0x4C,0xD,0xA,0x0
 _0x2020000:
 	.DB  0x41,0x54,0x44,0x0,0x3B,0xD,0x0,0x41
 	.DB  0x54,0x2B,0x43,0x4D,0x47,0x53,0x3D,0x0
@@ -1215,60 +1233,64 @@ __GLOBAL_INI_TBL:
 	.DW  _0x0*2+10
 
 	.DW  0x04
-	.DW  _0x7B
-	.DW  _0x0*2+68
+	.DW  _0x81
+	.DW  _0x0*2+150
 
 	.DW  0x04
-	.DW  _0x7B+4
-	.DW  _0x0*2+72
+	.DW  _0x81+4
+	.DW  _0x0*2+154
 
 	.DW  0x05
-	.DW  _0x7B+8
-	.DW  _0x0*2+76
+	.DW  _0x81+8
+	.DW  _0x0*2+158
 
 	.DW  0x05
-	.DW  _0x7B+13
-	.DW  _0x0*2+81
+	.DW  _0x81+13
+	.DW  _0x0*2+163
 
 	.DW  0x03
-	.DW  _0x7B+18
+	.DW  _0x81+18
 	.DW  _0x0*2+36
 
 	.DW  0x04
-	.DW  _0x7B+21
+	.DW  _0x81+21
 	.DW  _0x0*2+32
 
 	.DW  0x06
-	.DW  _0x7B+25
-	.DW  _0x0*2+86
-
-	.DW  0x06
-	.DW  _0x7B+31
-	.DW  _0x0*2+101
-
-	.DW  0x06
-	.DW  _0x7B+37
-	.DW  _0x0*2+113
-
-	.DW  0x06
-	.DW  _0x7B+43
-	.DW  _0x0*2+126
+	.DW  _0x81+25
+	.DW  _0x0*2+168
 
 	.DW  0x05
-	.DW  _0x7B+49
-	.DW  _0x0*2+138
+	.DW  _0x81+31
+	.DW  _0x0*2+183
+
+	.DW  0x05
+	.DW  _0x81+36
+	.DW  _0x0*2+194
+
+	.DW  0x05
+	.DW  _0x81+41
+	.DW  _0x0*2+206
+
+	.DW  0x05
+	.DW  _0x81+46
+	.DW  _0x0*2+217
 
 	.DW  0x08
-	.DW  _0x7B+54
-	.DW  _0x0*2+143
+	.DW  _0x81+51
+	.DW  _0x0*2+222
 
-	.DW  0x04
-	.DW  _0xDB
-	.DW  _0x0*2+226
-
-	.DW  0x07
-	.DW  _0xDB+4
+	.DW  0x0C
+	.DW  _0x81+59
 	.DW  _0x0*2+230
+
+	.DW  0x0D
+	.DW  _0x81+71
+	.DW  _0x0*2+259
+
+	.DW  0x05
+	.DW  _0x81+84
+	.DW  _0x0*2+289
 
 _0xFFFFFFFF:
 	.DW  0
@@ -1403,8 +1425,7 @@ __GLOBAL_INI_END:
 ;eeprom char sdt2[11];
 ;eeprom char sdt3[11];
 ;
-;
-;eeprom char save1,save2,begin;
+;eeprom char save1,save2,begin,tb;
 ;eeprom char password[4];
 ;
 ;char flag,rxStatus,checkpass,result=0;
@@ -1414,13 +1435,13 @@ __GLOBAL_INI_END:
 ;
 ;// External Interrupt 0 service routine
 ;interrupt [EXT_INT0] void ext_int0_isr(void)
-; 0000 0039 {
+; 0000 0038 {
 
 	.CSEG
 _ext_int0_isr:
 ; .FSTART _ext_int0_isr
 	RCALL SUBOPT_0x0
-; 0000 003A  LOAD1=~LOAD1;
+; 0000 0039  LOAD1=~LOAD1;
 	SBIS 0x15,0
 	RJMP _0x3
 	CBI  0x15,0
@@ -1428,24 +1449,24 @@ _ext_int0_isr:
 _0x3:
 	SBI  0x15,0
 _0x4:
-; 0000 003B  save1=~save1;
+; 0000 003A  save1=~save1;
 	RCALL SUBOPT_0x1
 	RCALL __EEPROMRDB
 	COM  R30
 	RCALL SUBOPT_0x1
-	RJMP _0xEB
-; 0000 003C  delay_ms(20);
-; 0000 003D 
-; 0000 003E }
+	RJMP _0x105
+; 0000 003B  delay_ms(20);
+; 0000 003C 
+; 0000 003D }
 ; .FEND
 ;
 ;// External Interrupt 1 service routine
 ;interrupt [EXT_INT1] void ext_int1_isr(void)
-; 0000 0042 {
+; 0000 0041 {
 _ext_int1_isr:
 ; .FSTART _ext_int1_isr
 	RCALL SUBOPT_0x0
-; 0000 0043 LOAD2=~LOAD2;
+; 0000 0042 LOAD2=~LOAD2;
 	SBIS 0x15,1
 	RJMP _0x5
 	CBI  0x15,1
@@ -1453,18 +1474,18 @@ _ext_int1_isr:
 _0x5:
 	SBI  0x15,1
 _0x6:
-; 0000 0044 save2=~save2;
+; 0000 0043 save2=~save2;
 	RCALL SUBOPT_0x2
 	RCALL __EEPROMRDB
 	COM  R30
 	RCALL SUBOPT_0x2
-_0xEB:
+_0x105:
 	RCALL __EEPROMWRB
-; 0000 0045     delay_ms(20);
+; 0000 0044     delay_ms(20);
 	LDI  R26,LOW(20)
 	RCALL SUBOPT_0x3
-; 0000 0046 
-; 0000 0047 }
+; 0000 0045 
+; 0000 0046 }
 	LD   R30,Y+
 	OUT  SREG,R30
 	LD   R31,Y+
@@ -1508,62 +1529,62 @@ _0xEB:
 ;
 ;// USART Receiver interrupt service routine
 ;interrupt [USART_RXC] void usart_rx_isr(void)
-; 0000 0064 {
+; 0000 0063 {
 _usart_rx_isr:
 ; .FSTART _usart_rx_isr
 	RCALL SUBOPT_0x4
-; 0000 0065 char status,data;
-; 0000 0066 status=UCSRA;
+; 0000 0064 char status,data;
+; 0000 0065 status=UCSRA;
 	RCALL __SAVELOCR2
 ;	status -> R17
 ;	data -> R16
 	IN   R17,11
-; 0000 0067 data=UDR;
+; 0000 0066 data=UDR;
 	IN   R16,12
-; 0000 0068 if ((status & (FRAMING_ERROR | PARITY_ERROR | DATA_OVERRUN))==0)
+; 0000 0067 if ((status & (FRAMING_ERROR | PARITY_ERROR | DATA_OVERRUN))==0)
 	MOV  R30,R17
 	ANDI R30,LOW(0x1C)
 	BRNE _0x7
-; 0000 0069    {
-; 0000 006A    rx_buffer[rx_wr_index++]=data;
+; 0000 0068    {
+; 0000 0069    rx_buffer[rx_wr_index++]=data;
 	MOV  R30,R8
 	INC  R8
 	LDI  R31,0
 	RCALL SUBOPT_0x5
 	ST   Z,R16
-; 0000 006B    flag=1;
+; 0000 006A    flag=1;
 	LDI  R30,LOW(1)
 	MOV  R4,R30
-; 0000 006C #if RX_BUFFER_SIZE == 256
-; 0000 006D    // special case for receiver buffer size=256
-; 0000 006E    if (++rx_counter == 0) rx_buffer_overflow=1;
-; 0000 006F #else
-; 0000 0070    if (rx_wr_index == RX_BUFFER_SIZE) rx_wr_index=0;
+; 0000 006B #if RX_BUFFER_SIZE == 256
+; 0000 006C    // special case for receiver buffer size=256
+; 0000 006D    if (++rx_counter == 0) rx_buffer_overflow=1;
+; 0000 006E #else
+; 0000 006F    if (rx_wr_index == RX_BUFFER_SIZE) rx_wr_index=0;
 	LDI  R30,LOW(250)
 	CP   R30,R8
 	BRNE _0x8
 	CLR  R8
-; 0000 0071    if (++rx_counter == RX_BUFFER_SIZE)
+; 0000 0070    if (++rx_counter == RX_BUFFER_SIZE)
 _0x8:
 	INC  R10
 	LDI  R30,LOW(250)
 	CP   R30,R10
 	BRNE _0x9
-; 0000 0072       {
-; 0000 0073       rx_counter=0;
+; 0000 0071       {
+; 0000 0072       rx_counter=0;
 	CLR  R10
-; 0000 0074       rx_buffer_overflow=1;
+; 0000 0073       rx_buffer_overflow=1;
 	SET
 	BLD  R2,2
-; 0000 0075       }
-; 0000 0076 #endif
-; 0000 0077    }
+; 0000 0074       }
+; 0000 0075 #endif
+; 0000 0076    }
 _0x9:
-; 0000 0078 }
+; 0000 0077 }
 _0x7:
 	LD   R16,Y+
 	LD   R17,Y+
-	RJMP _0xEA
+	RJMP _0x104
 ; .FEND
 ;
 ;#ifndef _DEBUG_TERMINAL_IO_
@@ -1571,19 +1592,19 @@ _0x7:
 ;#define _ALTERNATE_GETCHAR_
 ;#pragma used+
 ;char getchar(void)
-; 0000 007F {
-; 0000 0080 char data;
-; 0000 0081 while (rx_counter==0);
+; 0000 007E {
+; 0000 007F char data;
+; 0000 0080 while (rx_counter==0);
 ;	data -> R17
-; 0000 0082 data=rx_buffer[rx_rd_index++];
-; 0000 0083 #if RX_BUFFER_SIZE != 256
-; 0000 0084 if (rx_rd_index == RX_BUFFER_SIZE) rx_rd_index=0;
-; 0000 0085 #endif
-; 0000 0086 #asm("cli")
-; 0000 0087 --rx_counter;
-; 0000 0088 #asm("sei")
-; 0000 0089 return data;
-; 0000 008A }
+; 0000 0081 data=rx_buffer[rx_rd_index++];
+; 0000 0082 #if RX_BUFFER_SIZE != 256
+; 0000 0083 if (rx_rd_index == RX_BUFFER_SIZE) rx_rd_index=0;
+; 0000 0084 #endif
+; 0000 0085 #asm("cli")
+; 0000 0086 --rx_counter;
+; 0000 0087 #asm("sei")
+; 0000 0088 return data;
+; 0000 0089 }
 ;#pragma used-
 ;#endif
 ;
@@ -1605,20 +1626,20 @@ _0x7:
 ;
 ;// USART Transmitter interrupt service routine
 ;interrupt [USART_TXC] void usart_tx_isr(void)
-; 0000 00A0 {
+; 0000 009F {
 _usart_tx_isr:
 ; .FSTART _usart_tx_isr
 	RCALL SUBOPT_0x4
-; 0000 00A1 if (tx_counter)
+; 0000 00A0 if (tx_counter)
 	RCALL SUBOPT_0x6
 	CPI  R30,0
 	BREQ _0xE
-; 0000 00A2    {
-; 0000 00A3    --tx_counter;
+; 0000 00A1    {
+; 0000 00A2    --tx_counter;
 	RCALL SUBOPT_0x6
 	SUBI R30,LOW(1)
 	STS  _tx_counter,R30
-; 0000 00A4    UDR=tx_buffer[tx_rd_index++];
+; 0000 00A3    UDR=tx_buffer[tx_rd_index++];
 	MOV  R30,R12
 	INC  R12
 	LDI  R31,0
@@ -1626,18 +1647,18 @@ _usart_tx_isr:
 	SBCI R31,HIGH(-_tx_buffer)
 	LD   R30,Z
 	OUT  0xC,R30
-; 0000 00A5 #if TX_BUFFER_SIZE != 256
-; 0000 00A6    if (tx_rd_index == TX_BUFFER_SIZE) tx_rd_index=0;
+; 0000 00A4 #if TX_BUFFER_SIZE != 256
+; 0000 00A5    if (tx_rd_index == TX_BUFFER_SIZE) tx_rd_index=0;
 	LDI  R30,LOW(150)
 	CP   R30,R12
 	BRNE _0xF
 	CLR  R12
-; 0000 00A7 #endif
-; 0000 00A8    }
+; 0000 00A6 #endif
+; 0000 00A7    }
 _0xF:
-; 0000 00A9 }
+; 0000 00A8 }
 _0xE:
-_0xEA:
+_0x104:
 	LD   R30,Y+
 	OUT  SREG,R30
 	LD   R31,Y+
@@ -1650,27 +1671,27 @@ _0xEA:
 ;#define _ALTERNATE_PUTCHAR_
 ;#pragma used+
 ;void putchar(char c)
-; 0000 00B0 {
+; 0000 00AF {
 _putchar:
 ; .FSTART _putchar
-; 0000 00B1 while (tx_counter == TX_BUFFER_SIZE);
+; 0000 00B0 while (tx_counter == TX_BUFFER_SIZE);
 	ST   -Y,R26
 ;	c -> Y+0
 _0x10:
 	LDS  R26,_tx_counter
 	CPI  R26,LOW(0x96)
 	BREQ _0x10
-; 0000 00B2 #asm("cli")
+; 0000 00B1 #asm("cli")
 	cli
-; 0000 00B3 if (tx_counter || ((UCSRA & DATA_REGISTER_EMPTY)==0))
+; 0000 00B2 if (tx_counter || ((UCSRA & DATA_REGISTER_EMPTY)==0))
 	RCALL SUBOPT_0x6
 	CPI  R30,0
 	BRNE _0x14
 	SBIC 0xB,5
 	RJMP _0x13
 _0x14:
-; 0000 00B4    {
-; 0000 00B5    tx_buffer[tx_wr_index++]=c;
+; 0000 00B3    {
+; 0000 00B4    tx_buffer[tx_wr_index++]=c;
 	MOV  R30,R13
 	INC  R13
 	LDI  R31,0
@@ -1678,29 +1699,29 @@ _0x14:
 	SBCI R31,HIGH(-_tx_buffer)
 	LD   R26,Y
 	STD  Z+0,R26
-; 0000 00B6 #if TX_BUFFER_SIZE != 256
-; 0000 00B7    if (tx_wr_index == TX_BUFFER_SIZE) tx_wr_index=0;
+; 0000 00B5 #if TX_BUFFER_SIZE != 256
+; 0000 00B6    if (tx_wr_index == TX_BUFFER_SIZE) tx_wr_index=0;
 	LDI  R30,LOW(150)
 	CP   R30,R13
 	BRNE _0x16
 	CLR  R13
-; 0000 00B8 #endif
-; 0000 00B9    ++tx_counter;
+; 0000 00B7 #endif
+; 0000 00B8    ++tx_counter;
 _0x16:
 	RCALL SUBOPT_0x6
 	SUBI R30,-LOW(1)
 	STS  _tx_counter,R30
-; 0000 00BA    }
-; 0000 00BB else
+; 0000 00B9    }
+; 0000 00BA else
 	RJMP _0x17
 _0x13:
-; 0000 00BC    UDR=c;
+; 0000 00BB    UDR=c;
 	LD   R30,Y
 	OUT  0xC,R30
-; 0000 00BD #asm("sei")
+; 0000 00BC #asm("sei")
 _0x17:
 	sei
-; 0000 00BE }
+; 0000 00BD }
 	ADIW R28,1
 	RET
 ; .FEND
@@ -1708,19 +1729,19 @@ _0x17:
 ;#endif
 ;
 ;void clearBuffer()
-; 0000 00C3 {   char i;
+; 0000 00C2 {   char i;
 _clearBuffer:
 ; .FSTART _clearBuffer
-; 0000 00C4 
-; 0000 00C5     for(i=0;i<rx_wr_index;i++)
+; 0000 00C3 
+; 0000 00C4     for(i=0;i<rx_wr_index;i++)
 	ST   -Y,R17
 ;	i -> R17
 	LDI  R17,LOW(0)
 _0x19:
 	CP   R17,R8
 	BRSH _0x1A
-; 0000 00C6     {
-; 0000 00C7         rx_buffer[i]=msgStr[i]=phoneNumber[i]=phoneNumberSms[i]=content[i]=type[i]=0;
+; 0000 00C5     {
+; 0000 00C6         rx_buffer[i]=msgStr[i]=phoneNumber[i]=phoneNumberSms[i]=content[i]=type[i]=0;
 	RCALL SUBOPT_0x7
 	RCALL SUBOPT_0x5
 	PUSH R31
@@ -1755,21 +1776,21 @@ _0x19:
 	POP  R26
 	POP  R27
 	ST   X,R30
-; 0000 00C8     }
+; 0000 00C7     }
 	SUBI R17,-1
 	RJMP _0x19
 _0x1A:
-; 0000 00C9     rx_wr_index=0;
+; 0000 00C8     rx_wr_index=0;
 	CLR  R8
-; 0000 00CA     checkpass=0;
+; 0000 00C9     checkpass=0;
 	CLR  R6
-; 0000 00CB     result=0;
+; 0000 00CA     result=0;
 	CLR  R9
-; 0000 00CC     flag=0;
+; 0000 00CB     flag=0;
 	CLR  R4
+; 0000 00CC 
 ; 0000 00CD 
-; 0000 00CE 
-; 0000 00CF }
+; 0000 00CE }
 	RJMP _0x2080003
 ; .FEND
 ;/****************************************************************
@@ -1787,11 +1808,11 @@ _0x1A:
 ;void callHandle();
 ;void smsHandle();
 ;void strHandle()
-; 0000 00DF {
+; 0000 00DE {
 _strHandle:
 ; .FSTART _strHandle
-; 0000 00E0     char i,k,l,pos,e=0,n=0;
-; 0000 00E1             while(strcmp(type,"CLIP")!=0 && strcmp(type,"CMT:")!=0 && strcmp(type,"CUSD")!=0)
+; 0000 00DF     char i,k,l,pos,e=0,n=0;
+; 0000 00E0             while(strcmp(type,"CLIP")!=0 && strcmp(type,"CMT:")!=0 && strcmp(type,"CUSD")!=0)
 	RCALL __SAVELOCR6
 ;	i -> R17
 ;	k -> R16
@@ -1817,14 +1838,14 @@ _0x1B:
 _0x1F:
 	RJMP _0x1D
 _0x20:
-; 0000 00E2             {
-; 0000 00E3                 for(i=0;i<4;i++)
+; 0000 00E1             {
+; 0000 00E2                 for(i=0;i<4;i++)
 	LDI  R17,LOW(0)
 _0x22:
 	CPI  R17,4
 	BRSH _0x23
-; 0000 00E4                 {
-; 0000 00E5                     type[i]=rx_buffer[strpos(rx_buffer,'+')+1+i];
+; 0000 00E3                 {
+; 0000 00E4                     type[i]=rx_buffer[strpos(rx_buffer,'+')+1+i];
 	RCALL SUBOPT_0x7
 	SUBI R30,LOW(-_type)
 	SBCI R31,HIGH(-_type)
@@ -1839,62 +1860,62 @@ _0x22:
 	POP  R26
 	POP  R27
 	ST   X,R30
-; 0000 00E6                 }
+; 0000 00E5                 }
 	SUBI R17,-1
 	RJMP _0x22
 _0x23:
-; 0000 00E7                 e++;
+; 0000 00E6                 e++;
 	SUBI R21,-1
-; 0000 00E8                 printf(".");
+; 0000 00E7                 printf(".");
 	RCALL SUBOPT_0x11
-; 0000 00E9                 delay_ms(50);
-; 0000 00EA                 if(e>20)
+; 0000 00E8                 delay_ms(50);
+; 0000 00E9                 if(e>20)
 	CPI  R21,21
 	BRLO _0x24
-; 0000 00EB                 {
-; 0000 00EC                   printf("time out");
+; 0000 00EA                 {
+; 0000 00EB                   printf("time out");
 	RCALL SUBOPT_0x12
-; 0000 00ED                   clearBuffer();
-; 0000 00EE                   break;
+; 0000 00EC                   clearBuffer();
+; 0000 00ED                   break;
 	RJMP _0x1D
-; 0000 00EF                 }
-; 0000 00F0             }
+; 0000 00EE                 }
+; 0000 00EF             }
 _0x24:
 	RJMP _0x1B
 _0x1D:
-; 0000 00F1             if(strcmp(type,"CLIP")==0)  //call
+; 0000 00F0             if(strcmp(type,"CLIP")==0)  //call
 	RCALL SUBOPT_0xC
 	__POINTW2MN _0x1E,15
 	RCALL SUBOPT_0xD
 	BRNE _0x25
-; 0000 00F2             {
-; 0000 00F3                 rxStatus=strCall;
+; 0000 00F1             {
+; 0000 00F2                 rxStatus=strCall;
 	LDI  R30,LOW(1)
 	MOV  R7,R30
-; 0000 00F4                 pos=strpos(rx_buffer,34); // "  //
+; 0000 00F3                 pos=strpos(rx_buffer,34); // "  //
 	RCALL SUBOPT_0xE
 	RCALL SUBOPT_0x13
 	MOV  R18,R30
-; 0000 00F5                 if(rx_buffer[pos+11]==34) qtyNum=10;
+; 0000 00F4                 if(rx_buffer[pos+11]==34) qtyNum=10;
 	RCALL SUBOPT_0x14
 	__ADDW1MN _rx_buffer,11
 	LD   R26,Z
 	CPI  R26,LOW(0x22)
 	BRNE _0x26
 	LDI  R30,LOW(10)
-	RJMP _0xE1
-; 0000 00F6                 else qtyNum=11;
+	RJMP _0xF7
+; 0000 00F5                 else qtyNum=11;
 _0x26:
 	LDI  R30,LOW(11)
-_0xE1:
+_0xF7:
 	MOV  R5,R30
-; 0000 00F7                 for(k=0;k<qtyNum;k++)
+; 0000 00F6                 for(k=0;k<qtyNum;k++)
 	LDI  R16,LOW(0)
 _0x29:
 	CP   R16,R5
 	BRSH _0x2A
-; 0000 00F8                 {
-; 0000 00F9                    phoneNumber[k]=rx_buffer[pos+1+k];
+; 0000 00F7                 {
+; 0000 00F8                    phoneNumber[k]=rx_buffer[pos+1+k];
 	RCALL SUBOPT_0x15
 	SUBI R30,LOW(-_phoneNumber)
 	SBCI R31,HIGH(-_phoneNumber)
@@ -1904,76 +1925,76 @@ _0x29:
 	RCALL SUBOPT_0x15
 	RCALL SUBOPT_0x10
 	RCALL SUBOPT_0xB
-; 0000 00FA                 }
+; 0000 00F9                 }
 	SUBI R16,-1
 	RJMP _0x29
 _0x2A:
-; 0000 00FB                 callFlag=1;
+; 0000 00FA                 callFlag=1;
 	SET
 	BLD  R2,0
-; 0000 00FC                 if(callFlag)callHandle();
+; 0000 00FB                 if(callFlag)callHandle();
 	SBRC R2,0
 	RCALL _callHandle
-; 0000 00FD 
-; 0000 00FE             }
-; 0000 00FF             else  //sms
+; 0000 00FC 
+; 0000 00FD             }
+; 0000 00FE             else  //sms
 	RJMP _0x2C
 _0x25:
-; 0000 0100             {
-; 0000 0101                if(strcmp(type,"CMT:")==0)
+; 0000 00FF             {
+; 0000 0100                if(strcmp(type,"CMT:")==0)
 	RCALL SUBOPT_0xC
 	__POINTW2MN _0x1E,20
 	RCALL SUBOPT_0xD
 	BREQ PC+2
 	RJMP _0x2D
-; 0000 0102                {    //"+84964444373", ":0 ,:14-15
-; 0000 0103                     rxStatus=strSms;
+; 0000 0101                {    //"+84964444373", ":0 ,:14-15
+; 0000 0102                     rxStatus=strSms;
 	LDI  R30,LOW(2)
 	MOV  R7,R30
-; 0000 0104                     while(strpos(rx_buffer,'.')<=0)
+; 0000 0103                     while(strpos(rx_buffer,'.')<=0)
 _0x2E:
 	RCALL SUBOPT_0xE
 	LDI  R26,LOW(46)
 	RCALL _strpos
 	RCALL __CPW01
 	BRLT _0x30
-; 0000 0105                     {
-; 0000 0106                        n++;
+; 0000 0104                     {
+; 0000 0105                        n++;
 	SUBI R20,-1
-; 0000 0107                        printf(".");
+; 0000 0106                        printf(".");
 	RCALL SUBOPT_0x11
-; 0000 0108                        delay_ms(50);
-; 0000 0109                        if(n>20)
+; 0000 0107                        delay_ms(50);
+; 0000 0108                        if(n>20)
 	CPI  R20,21
 	BRLO _0x31
-; 0000 010A                        {
-; 0000 010B                          printf("time out");
+; 0000 0109                        {
+; 0000 010A                          printf("time out");
 	RCALL SUBOPT_0x12
-; 0000 010C                          clearBuffer();
-; 0000 010D                          break;
+; 0000 010B                          clearBuffer();
+; 0000 010C                          break;
 	RJMP _0x30
-; 0000 010E                        }
-; 0000 010F                     }
+; 0000 010D                        }
+; 0000 010E                     }
 _0x31:
 	RJMP _0x2E
 _0x30:
-; 0000 0110                     if(strcmp(type,"CMT:")==0)
+; 0000 010F                     if(strcmp(type,"CMT:")==0)
 	RCALL SUBOPT_0xC
 	__POINTW2MN _0x1E,25
 	RCALL SUBOPT_0xD
 	BREQ PC+2
 	RJMP _0x32
-; 0000 0111                     {
-; 0000 0112                         pos=strpos(rx_buffer,'#');
+; 0000 0110                     {
+; 0000 0111                         pos=strpos(rx_buffer,'#');
 	RCALL SUBOPT_0xE
 	LDI  R26,LOW(35)
 	RCALL _strpos
 	MOV  R18,R30
-; 0000 0113                         if(pos>0)
+; 0000 0112                         if(pos>0)
 	CPI  R18,1
 	BRLO _0x33
-; 0000 0114                         {
-; 0000 0115                             for(k=0;k<strpos(rx_buffer,'.')-pos;k++)
+; 0000 0113                         {
+; 0000 0114                             for(k=0;k<strpos(rx_buffer,'.')-pos;k++)
 	LDI  R16,LOW(0)
 _0x35:
 	RCALL SUBOPT_0xE
@@ -1984,8 +2005,8 @@ _0x35:
 	RCALL SUBOPT_0x16
 	RCALL SUBOPT_0x17
 	BRGE _0x36
-; 0000 0116                             {
-; 0000 0117                                 msgStr[k]=rx_buffer[pos+1+k];
+; 0000 0115                             {
+; 0000 0116                                 msgStr[k]=rx_buffer[pos+1+k];
 	RCALL SUBOPT_0x15
 	RCALL SUBOPT_0x8
 	MOVW R0,R30
@@ -1994,11 +2015,11 @@ _0x35:
 	RCALL SUBOPT_0x15
 	RCALL SUBOPT_0x10
 	RCALL SUBOPT_0xB
-; 0000 0118                             }
+; 0000 0117                             }
 	SUBI R16,-1
 	RJMP _0x35
 _0x36:
-; 0000 0119                             for(l=1;l<(strpos(rx_buffer,',')-strpos(rx_buffer,34)-4);l++)
+; 0000 0118                             for(l=1;l<(strpos(rx_buffer,',')-strpos(rx_buffer,34)-4);l++)
 	LDI  R19,LOW(1)
 _0x38:
 	RCALL SUBOPT_0xE
@@ -2017,11 +2038,11 @@ _0x38:
 	RCALL SUBOPT_0x16
 	RCALL SUBOPT_0x18
 	BRGE _0x39
-; 0000 011A                             {
-; 0000 011B                                 phoneNumberSms[0]='0';
+; 0000 0119                             {
+; 0000 011A                                 phoneNumberSms[0]='0';
 	LDI  R30,LOW(48)
 	STS  _phoneNumberSms,R30
-; 0000 011C                                 phoneNumberSms[l]=rx_buffer[strpos(rx_buffer,34)+3+l];
+; 0000 011B                                 phoneNumberSms[l]=rx_buffer[strpos(rx_buffer,34)+3+l];
 	MOV  R30,R19
 	LDI  R31,0
 	SUBI R30,LOW(-_phoneNumberSms)
@@ -2038,38 +2059,38 @@ _0x38:
 	POP  R26
 	POP  R27
 	ST   X,R30
-; 0000 011D                             }
+; 0000 011C                             }
 	SUBI R19,-1
 	RJMP _0x38
 _0x39:
-; 0000 011E                             smsFlag=1;
+; 0000 011D                             smsFlag=1;
 	SET
 	BLD  R2,1
-; 0000 011F                             //puts(msgStr);
-; 0000 0120                             if(smsFlag) smsHandle();
+; 0000 011E                             //puts(msgStr);
+; 0000 011F                             if(smsFlag) smsHandle();
 	SBRC R2,1
 	RCALL _smsHandle
-; 0000 0121                         }
-; 0000 0122                     }
+; 0000 0120                         }
+; 0000 0121                     }
 _0x33:
-; 0000 0123 
-; 0000 0124                }
+; 0000 0122 
+; 0000 0123                }
 _0x32:
-; 0000 0125                else
+; 0000 0124                else
 	RJMP _0x3B
 _0x2D:
-; 0000 0126                {//+CUSD: 0, "TK goc la 12d. De biet cac CT dac biet cua Quy khach, bam goi *098#.", 15
-; 0000 0127                     if(strcmp(type,"CUSD")==0)
+; 0000 0125                {//+CUSD: 0, "TK goc la 12d. De biet cac CT dac biet cua Quy khach, bam goi *098#.", 15
+; 0000 0126                     if(strcmp(type,"CUSD")==0)
 	RCALL SUBOPT_0xC
 	__POINTW2MN _0x1E,30
 	RCALL SUBOPT_0xD
 	BRNE _0x3C
-; 0000 0128                     {
-; 0000 0129                        pos=strpos(rx_buffer,34);
+; 0000 0127                     {
+; 0000 0128                        pos=strpos(rx_buffer,34);
 	RCALL SUBOPT_0xE
 	RCALL SUBOPT_0x13
 	MOV  R18,R30
-; 0000 012A                        for(k=0;k<(strrpos(rx_buffer,34)-pos-1);k++)
+; 0000 0129                        for(k=0;k<(strrpos(rx_buffer,34)-pos-1);k++)
 	LDI  R16,LOW(0)
 _0x3E:
 	RCALL SUBOPT_0xE
@@ -2084,8 +2105,8 @@ _0x3E:
 	RCALL SUBOPT_0x16
 	RCALL SUBOPT_0x17
 	BRGE _0x3F
-; 0000 012B                        {
-; 0000 012C                          msgStr[k]=rx_buffer[pos+1+k];
+; 0000 012A                        {
+; 0000 012B                          msgStr[k]=rx_buffer[pos+1+k];
 	RCALL SUBOPT_0x15
 	RCALL SUBOPT_0x8
 	MOVW R0,R30
@@ -2094,25 +2115,26 @@ _0x3E:
 	RCALL SUBOPT_0x15
 	RCALL SUBOPT_0x10
 	RCALL SUBOPT_0xB
-; 0000 012D                        }
+; 0000 012C                        }
 	SUBI R16,-1
 	RJMP _0x3E
 _0x3F:
-; 0000 012E                        puts(msgStr);
+; 0000 012D                        puts(msgStr);
 	LDI  R26,LOW(_msgStr)
 	LDI  R27,HIGH(_msgStr)
-	RCALL SUBOPT_0x19
-; 0000 012F                        clearBuffer();
-; 0000 0130                     }
+	RCALL _puts
+; 0000 012E                        clearBuffer();
+	RCALL _clearBuffer
+; 0000 012F                     }
+; 0000 0130 
 ; 0000 0131 
-; 0000 0132 
-; 0000 0133                }
+; 0000 0132                }
 _0x3C:
 _0x3B:
-; 0000 0134             }
+; 0000 0133             }
 _0x2C:
-; 0000 0135 
-; 0000 0136 }
+; 0000 0134 
+; 0000 0135 }
 	RCALL __LOADLOCR6
 	ADIW R28,6
 	RET
@@ -2122,12 +2144,12 @@ _0x2C:
 _0x1E:
 	.BYTE 0x23
 ;void checkPassword()
-; 0000 0138 {
+; 0000 0137 {
 
 	.CSEG
 _checkPassword:
 ; .FSTART _checkPassword
-; 0000 0139    if(msgStr[0]==password[0]&&msgStr[1]==password[1]&&msgStr[2]==password[2]&&msgStr[3]==password[3]) checkpass=1;
+; 0000 0138    if(msgStr[0]==password[0]&&msgStr[1]==password[1]&&msgStr[2]==password[2]&&msgStr[3]==password[3]) checkpass=1;
 	LDI  R26,LOW(_password)
 	LDI  R27,HIGH(_password)
 	RCALL __EEPROMRDB
@@ -2154,23 +2176,23 @@ _0x41:
 _0x42:
 	LDI  R30,LOW(1)
 	MOV  R6,R30
-; 0000 013A    else
+; 0000 0139    else
 	RJMP _0x43
 _0x40:
-; 0000 013B    {
-; 0000 013C     checkpass=0;
+; 0000 013A    {
+; 0000 013B     checkpass=0;
 	CLR  R6
-; 0000 013D    }
+; 0000 013C    }
 _0x43:
-; 0000 013E }
+; 0000 013D }
 	RET
 ; .FEND
 ;void comparePhoneNumber()
-; 0000 0140 {  char dt1[11],dt2[11],dt3[11];
+; 0000 013F {  char dt1[11],dt2[11],dt3[11];
 _comparePhoneNumber:
 ; .FSTART _comparePhoneNumber
-; 0000 0141    char i;
-; 0000 0142    for(i=0;i<11;i++)
+; 0000 0140    char i;
+; 0000 0141    for(i=0;i<11;i++)
 	SBIW R28,33
 	ST   -Y,R17
 ;	dt1 -> Y+23
@@ -2181,101 +2203,101 @@ _comparePhoneNumber:
 _0x45:
 	CPI  R17,11
 	BRSH _0x46
-; 0000 0143    {
-; 0000 0144         if(sdt1[i]==255) dt1[i]=0;
-	RCALL SUBOPT_0x1A
+; 0000 0142    {
+; 0000 0143         if(sdt1[i]==255) dt1[i]=0;
+	RCALL SUBOPT_0x19
 	SUBI R26,LOW(-_sdt1)
 	SBCI R27,HIGH(-_sdt1)
-	RCALL SUBOPT_0x1B
+	RCALL SUBOPT_0x1A
 	BRNE _0x47
 	RCALL SUBOPT_0x7
 	MOVW R26,R28
 	ADIW R26,23
-	RCALL SUBOPT_0x1C
-	RJMP _0xE2
-; 0000 0145         else dt1[i]=sdt1[i];
+	RCALL SUBOPT_0x1B
+	RJMP _0xF8
+; 0000 0144         else dt1[i]=sdt1[i];
 _0x47:
 	RCALL SUBOPT_0x7
 	MOVW R26,R28
 	ADIW R26,23
-	RCALL SUBOPT_0x1D
+	RCALL SUBOPT_0x1C
 	SUBI R26,LOW(-_sdt1)
 	SBCI R27,HIGH(-_sdt1)
 	RCALL __EEPROMRDB
 	MOVW R26,R0
-_0xE2:
+_0xF8:
 	ST   X,R30
-; 0000 0146         if(sdt2[i]==255) dt2[i]=0;
-	RCALL SUBOPT_0x1A
+; 0000 0145         if(sdt2[i]==255) dt2[i]=0;
+	RCALL SUBOPT_0x19
 	SUBI R26,LOW(-_sdt2)
 	SBCI R27,HIGH(-_sdt2)
-	RCALL SUBOPT_0x1B
+	RCALL SUBOPT_0x1A
 	BRNE _0x49
 	RCALL SUBOPT_0x7
 	MOVW R26,R28
 	ADIW R26,12
-	RCALL SUBOPT_0x1C
-	RJMP _0xE3
-; 0000 0147         else dt2[i]=sdt2[i];
+	RCALL SUBOPT_0x1B
+	RJMP _0xF9
+; 0000 0146         else dt2[i]=sdt2[i];
 _0x49:
 	RCALL SUBOPT_0x7
 	MOVW R26,R28
 	ADIW R26,12
-	RCALL SUBOPT_0x1D
+	RCALL SUBOPT_0x1C
 	SUBI R26,LOW(-_sdt2)
 	SBCI R27,HIGH(-_sdt2)
 	RCALL __EEPROMRDB
 	MOVW R26,R0
-_0xE3:
+_0xF9:
 	ST   X,R30
-; 0000 0148         if(sdt3[i]==255) dt3[i]=0;
-	RCALL SUBOPT_0x1A
+; 0000 0147         if(sdt3[i]==255) dt3[i]=0;
+	RCALL SUBOPT_0x19
 	SUBI R26,LOW(-_sdt3)
 	SBCI R27,HIGH(-_sdt3)
-	RCALL SUBOPT_0x1B
+	RCALL SUBOPT_0x1A
 	BRNE _0x4B
 	RCALL SUBOPT_0x7
-	RCALL SUBOPT_0x1E
-	RCALL SUBOPT_0x1C
-	RJMP _0xE4
-; 0000 0149         else dt3[i]=sdt3[i];
+	RCALL SUBOPT_0x1D
+	RCALL SUBOPT_0x1B
+	RJMP _0xFA
+; 0000 0148         else dt3[i]=sdt3[i];
 _0x4B:
 	RCALL SUBOPT_0x7
-	RCALL SUBOPT_0x1E
 	RCALL SUBOPT_0x1D
+	RCALL SUBOPT_0x1C
 	SUBI R26,LOW(-_sdt3)
 	SBCI R27,HIGH(-_sdt3)
 	RCALL __EEPROMRDB
 	MOVW R26,R0
-_0xE4:
+_0xFA:
 	ST   X,R30
-; 0000 014A    }
+; 0000 0149    }
 	SUBI R17,-1
 	RJMP _0x45
 _0x46:
-; 0000 014B    while(i<11);
+; 0000 014A    while(i<11);
 _0x4D:
 	CPI  R17,11
 	BRLO _0x4D
-; 0000 014C    delay_ms(20);
+; 0000 014B    delay_ms(20);
 	LDI  R26,LOW(20)
 	RCALL SUBOPT_0x3
-; 0000 014D    if(callFlag==1)
+; 0000 014C    if(callFlag==1)
 	SBRS R2,0
 	RJMP _0x50
-; 0000 014E    {
-; 0000 014F       if(strcmp(phoneNumber,dt1)==0||strcmp(phoneNumber,dt2)==0||strcmp(phoneNumber,dt3)==0) result=1;
-	RCALL SUBOPT_0x1F
+; 0000 014D    {
+; 0000 014E       if(strcmp(phoneNumber,dt1)==0||strcmp(phoneNumber,dt2)==0||strcmp(phoneNumber,dt3)==0) result=1;
+	RCALL SUBOPT_0x1E
 	MOVW R26,R28
 	ADIW R26,25
 	RCALL SUBOPT_0xD
 	BREQ _0x52
-	RCALL SUBOPT_0x1F
+	RCALL SUBOPT_0x1E
 	MOVW R26,R28
 	ADIW R26,14
 	RCALL SUBOPT_0xD
 	BREQ _0x52
-	RCALL SUBOPT_0x1F
+	RCALL SUBOPT_0x1E
 	MOVW R26,R28
 	ADIW R26,3
 	RCALL SUBOPT_0xD
@@ -2283,132 +2305,183 @@ _0x4D:
 _0x52:
 	LDI  R30,LOW(1)
 	MOV  R9,R30
-; 0000 0150       else
+; 0000 014F       else
 	RJMP _0x54
 _0x51:
-; 0000 0151       {
-; 0000 0152         result=0;
+; 0000 0150       {
+; 0000 0151         result=0;
 	CLR  R9
-; 0000 0153       }
+; 0000 0152       }
 _0x54:
-; 0000 0154    }
-; 0000 0155 }
+; 0000 0153    }
+; 0000 0154 }
 _0x50:
 	LDD  R17,Y+0
 	ADIW R28,34
 	RET
 ; .FEND
 ;void callHandle()
-; 0000 0157 {   unsigned char n=0;
+; 0000 0156 {   unsigned char n=0;
 _callHandle:
 ; .FSTART _callHandle
-; 0000 0158     comparePhoneNumber();
+; 0000 0157     comparePhoneNumber();
 	ST   -Y,R17
 ;	n -> R17
 	LDI  R17,0
 	RCALL _comparePhoneNumber
-; 0000 0159     while(result==0)
+; 0000 0158     while(result==0)
 _0x55:
 	TST  R9
 	BRNE _0x57
-; 0000 015A     {
-; 0000 015B        n++;
+; 0000 0159     {
+; 0000 015A        n++;
 	SUBI R17,-1
-; 0000 015C        printf(".");
+; 0000 015B        printf(".");
 	RCALL SUBOPT_0x11
-; 0000 015D        delay_ms(50);
-; 0000 015E        if(n>20)
+; 0000 015C        delay_ms(50);
+; 0000 015D        if(n>20)
 	CPI  R17,21
 	BRLO _0x58
-; 0000 015F        {
-; 0000 0160           printf("time out");
+; 0000 015E        {
+; 0000 015F           printf("time out");
 	__POINTW1FN _0x0,17
-	RCALL SUBOPT_0x20
-; 0000 0161           printf("ATH\r\n");
+	RCALL SUBOPT_0x1F
+; 0000 0160           printf("ATH\r\n");
 	__POINTW1FN _0x0,26
+	RCALL SUBOPT_0x1F
+; 0000 0161           clearBuffer();
 	RCALL SUBOPT_0x20
-; 0000 0162           clearBuffer();
-	RCALL SUBOPT_0x21
-; 0000 0163           result=callFlag=0;
-; 0000 0164           break;
+; 0000 0162           result=callFlag=0;
+; 0000 0163           break;
 	RJMP _0x57
-; 0000 0165        }
-; 0000 0166     }
+; 0000 0164        }
+; 0000 0165     }
 _0x58:
 	RJMP _0x55
 _0x57:
-; 0000 0167     if(result==1)
+; 0000 0166     if(result==1)
 	LDI  R30,LOW(1)
 	CP   R30,R9
 	BRNE _0x59
-; 0000 0168     {
-; 0000 0169         if(save1==1&&save2==1)
-	RCALL SUBOPT_0x1
-	RCALL SUBOPT_0x22
+; 0000 0167     {
+; 0000 0168         if(save1==1&&save2==1)
+	RCALL SUBOPT_0x21
 	BRNE _0x5B
-	RCALL SUBOPT_0x2
 	RCALL SUBOPT_0x22
 	BREQ _0x5C
 _0x5B:
 	RJMP _0x5A
 _0x5C:
-; 0000 016A         {
-; 0000 016B 
-; 0000 016C             LOAD1=0;
+; 0000 0169         {
+; 0000 016A 
+; 0000 016B             LOAD1=0;
 	CBI  0x15,0
-; 0000 016D             LOAD2=0;
+; 0000 016C             LOAD2=0;
 	RCALL SUBOPT_0x23
-; 0000 016E             save1=save2=0;
+; 0000 016D             save1=save2=0;
 	RCALL SUBOPT_0x1
 	RCALL __EEPROMWRB
-; 0000 016F             printf("off");
+; 0000 016E             printf("off");
 	__POINTW1FN _0x0,32
-	RJMP _0xE5
-; 0000 0170             printf("ATH\r\n");
-; 0000 0171             clearBuffer();
-; 0000 0172             result=callFlag=0;
-; 0000 0173         }
-; 0000 0174         else
+	RJMP _0xFB
+; 0000 016F             printf("ATH\r\n");
+; 0000 0170             clearBuffer();
+; 0000 0171             result=callFlag=0;
+; 0000 0172         }
+; 0000 0173         else
 _0x5A:
-; 0000 0175         {
-; 0000 0176             LOAD1=1;
+; 0000 0174         {
+; 0000 0175             LOAD1=1;
 	SBI  0x15,0
-; 0000 0177             LOAD2=1;
+; 0000 0176             LOAD2=1;
 	RCALL SUBOPT_0x24
-; 0000 0178             save1=save2=1;
+; 0000 0177             save1=save2=1;
 	RCALL SUBOPT_0x1
 	RCALL __EEPROMWRB
-; 0000 0179             printf("on");
+; 0000 0178             printf("on");
 	__POINTW1FN _0x0,36
-_0xE5:
+_0xFB:
 	ST   -Y,R31
 	ST   -Y,R30
-	LDI  R24,0
-	RCALL _printf
-	ADIW R28,2
-; 0000 017A             printf("ATH\r\n");
+	RCALL SUBOPT_0x25
+; 0000 0179             printf("ATH\r\n");
 	__POINTW1FN _0x0,26
+	RCALL SUBOPT_0x1F
+; 0000 017A             clearBuffer();
 	RCALL SUBOPT_0x20
-; 0000 017B             clearBuffer();
-	RCALL SUBOPT_0x21
-; 0000 017C             result=callFlag=0;
-; 0000 017D         }
-; 0000 017E     }
-; 0000 017F }
+; 0000 017B             result=callFlag=0;
+; 0000 017C         }
+; 0000 017D     }
+; 0000 017E }
 _0x59:
 _0x2080003:
 	LD   R17,Y+
 	RET
 ; .FEND
 ;
+;void checkStatus()
+; 0000 0181 {
+_checkStatus:
+; .FSTART _checkStatus
+; 0000 0182   if(save1==1)
+	RCALL SUBOPT_0x21
+	BRNE _0x66
+; 0000 0183   {
+; 0000 0184     if(save2==1)
+	RCALL SUBOPT_0x22
+	BRNE _0x67
+; 0000 0185     {
+; 0000 0186       printf("tai 1 va 2 dang bat");
+	__POINTW1FN _0x0,39
+	RJMP _0xFC
+; 0000 0187     }
+; 0000 0188     else
+_0x67:
+; 0000 0189     {
+; 0000 018A       printf("tai 1 bat, tai 2 tat");
+	__POINTW1FN _0x0,59
+_0xFC:
+	ST   -Y,R31
+	ST   -Y,R30
+	RCALL SUBOPT_0x25
+; 0000 018B     }
+; 0000 018C   }
+; 0000 018D   else
+	RJMP _0x69
+_0x66:
+; 0000 018E   {
+; 0000 018F     if(save2==1)
+	RCALL SUBOPT_0x22
+	BRNE _0x6A
+; 0000 0190     {
+; 0000 0191         printf("tai 1 tat, tai 2 bat");
+	__POINTW1FN _0x0,80
+	RJMP _0xFD
+; 0000 0192     }
+; 0000 0193     else
+_0x6A:
+; 0000 0194     {
+; 0000 0195       printf("tai 1 va 2 dang tat");
+	__POINTW1FN _0x0,101
+_0xFD:
+	ST   -Y,R31
+	ST   -Y,R30
+	RCALL SUBOPT_0x25
+; 0000 0196     }
+; 0000 0197   }
+_0x69:
+; 0000 0198 }
+	RET
+; .FEND
+;
 ;void smsHandle()
-; 0000 0182 {
+; 0000 019B {
 _smsHandle:
 ; .FSTART _smsHandle
-; 0000 0183     char k,i1,i,poskey,i2,endstr=0,lastspace,firstspace,n=0;
-; 0000 0184     char syntax[15];
-; 0000 0185     char ndt1[11],ndt2[11],ndt3[11];
-; 0000 0186     poskey=11;
+; 0000 019C     char k,i1,i,poskey,i2,endstr=0,lastspace,firstspace,n=0;
+; 0000 019D     char syntax[15];
+; 0000 019E     char ndt1[11],ndt2[11],ndt3[11];
+; 0000 019F     poskey=11;
 	SBIW R28,51
 	LDI  R30,LOW(0)
 	STD  Y+48,R30
@@ -2428,32 +2501,32 @@ _smsHandle:
 ;	ndt3 -> Y+6
 	LDI  R20,0
 	LDI  R18,LOW(11)
-; 0000 0187     lastspace=strrpos(msgStr,32);
-	RCALL SUBOPT_0x25
+; 0000 01A0     lastspace=strrpos(msgStr,32);
+	RCALL SUBOPT_0x26
 	RCALL _strrpos
 	STD  Y+56,R30
-; 0000 0188     firstspace=strpos(msgStr,32);
-	RCALL SUBOPT_0x25
+; 0000 01A1     firstspace=strpos(msgStr,32);
+	RCALL SUBOPT_0x26
 	RCALL _strpos
 	STD  Y+55,R30
-; 0000 0189     endstr=strrpos(msgStr,'.');
+; 0000 01A2     endstr=strrpos(msgStr,'.');
 	LDI  R30,LOW(_msgStr)
 	LDI  R31,HIGH(_msgStr)
-	RCALL SUBOPT_0x26
+	RCALL SUBOPT_0x27
 	LDI  R26,LOW(46)
 	RCALL _strrpos
 	MOV  R20,R30
-; 0000 018A 
-; 0000 018B     for(i=0;i<endstr-5;i++)
+; 0000 01A3 
+; 0000 01A4     for(i=0;i<endstr-5;i++)
 	LDI  R19,LOW(0)
-_0x67:
+_0x6D:
 	MOV  R30,R20
 	LDI  R31,0
 	SBIW R30,5
 	RCALL SUBOPT_0x18
-	BRGE _0x68
-; 0000 018C         {
-; 0000 018D           content[i]=msgStr[5+i];
+	BRGE _0x6E
+; 0000 01A5         {
+; 0000 01A6           content[i]=msgStr[5+i];
 	MOV  R26,R19
 	LDI  R27,0
 	SUBI R26,LOW(-_content)
@@ -2463,13 +2536,13 @@ _0x67:
 	__ADDW1MN _msgStr,5
 	LD   R30,Z
 	ST   X,R30
-; 0000 018E         }
+; 0000 01A7         }
 	SUBI R19,-1
-	RJMP _0x67
-_0x68:
-; 0000 018F     for(i2=0;i2<(lastspace-(firstspace+1));i2++)
+	RJMP _0x6D
+_0x6E:
+; 0000 01A8     for(i2=0;i2<(lastspace-(firstspace+1));i2++)
 	LDI  R21,LOW(0)
-_0x6A:
+_0x70:
 	LDD  R26,Y+56
 	CLR  R27
 	LDD  R30,Y+55
@@ -2478,10 +2551,11 @@ _0x6A:
 	RCALL SUBOPT_0x16
 	MOV  R26,R21
 	LDI  R27,0
-	RCALL SUBOPT_0x27
-	BRGE _0x6B
-; 0000 0190         {
-; 0000 0191           syntax[i2]=msgStr[firstspace+1+i2];
+	CP   R26,R30
+	CPC  R27,R31
+	BRGE _0x71
+; 0000 01A9         {
+; 0000 01AA           syntax[i2]=msgStr[firstspace+1+i2];
 	MOV  R30,R21
 	LDI  R31,0
 	MOVW R26,R28
@@ -2495,49 +2569,49 @@ _0x6A:
 	LDI  R31,0
 	RCALL SUBOPT_0x29
 	RCALL SUBOPT_0xB
-; 0000 0192         }
+; 0000 01AB         }
 	SUBI R21,-1
-	RJMP _0x6A
-_0x6B:
-; 0000 0193     for(i2=(lastspace-(firstspace+1));i2<15;i2++)
+	RJMP _0x70
+_0x71:
+; 0000 01AC     for(i2=(lastspace-(firstspace+1));i2<15;i2++)
 	LDD  R30,Y+55
 	SUBI R30,-LOW(1)
 	LDD  R26,Y+56
 	SUB  R26,R30
 	MOV  R21,R26
-_0x6D:
+_0x73:
 	CPI  R21,15
-	BRSH _0x6E
-; 0000 0194         {
-; 0000 0195             syntax[i2]=0;
+	BRSH _0x74
+; 0000 01AD         {
+; 0000 01AE             syntax[i2]=0;
 	MOV  R30,R21
 	LDI  R31,0
 	MOVW R26,R28
 	ADIW R26,39
 	RCALL SUBOPT_0x2A
-; 0000 0196         }
+; 0000 01AF         }
 	SUBI R21,-1
-	RJMP _0x6D
-_0x6E:
-; 0000 0197     if(msgStr[0]=='c' && msgStr[1]=='t' && msgStr[2]=='a' && msgStr[3]=='G')
+	RJMP _0x73
+_0x74:
+; 0000 01B0     if(msgStr[0]=='c' && msgStr[1]=='t' && msgStr[2]=='a' && msgStr[3]=='G')
 	LDS  R26,_msgStr
 	CPI  R26,LOW(0x63)
-	BRNE _0x70
+	BRNE _0x76
 	__GETB2MN _msgStr,1
 	CPI  R26,LOW(0x74)
-	BRNE _0x70
+	BRNE _0x76
 	__GETB2MN _msgStr,2
 	CPI  R26,LOW(0x61)
-	BRNE _0x70
+	BRNE _0x76
 	__GETB2MN _msgStr,3
 	CPI  R26,LOW(0x47)
-	BREQ _0x71
-_0x70:
-	RJMP _0x6F
-_0x71:
-; 0000 0198     {
-; 0000 0199       char rs;
-; 0000 019A       for(rs=0;rs<4;rs++)
+	BREQ _0x77
+_0x76:
+	RJMP _0x75
+_0x77:
+; 0000 01B1     {
+; 0000 01B2       char rs;
+; 0000 01B3       for(rs=0;rs<4;rs++)
 	SBIW R28,1
 ;	lastspace -> Y+57
 ;	firstspace -> Y+56
@@ -2549,403 +2623,423 @@ _0x71:
 ;	rs -> Y+0
 	LDI  R30,LOW(0)
 	ST   Y,R30
-_0x73:
+_0x79:
 	LD   R26,Y
 	CPI  R26,LOW(0x4)
-	BRSH _0x74
-; 0000 019B       {
-; 0000 019C         password[rs]='0';
+	BRSH _0x7A
+; 0000 01B4       {
+; 0000 01B5         password[rs]='0';
 	LDI  R27,0
 	SUBI R26,LOW(-_password)
 	SBCI R27,HIGH(-_password)
 	RCALL SUBOPT_0x2B
-; 0000 019D       }
+; 0000 01B6       }
 	LD   R30,Y
 	SUBI R30,-LOW(1)
 	ST   Y,R30
-	RJMP _0x73
-_0x74:
-; 0000 019E       printf("reset success");
-	__POINTW1FN _0x0,39
-	RCALL SUBOPT_0x20
-; 0000 019F       clearBuffer();
+	RJMP _0x79
+_0x7A:
+; 0000 01B7       printf("reset success");
+	__POINTW1FN _0x0,121
+	RCALL SUBOPT_0x1F
+; 0000 01B8       clearBuffer();
+	RCALL _clearBuffer
+; 0000 01B9       smsFlag=0;
 	RCALL SUBOPT_0x2C
-; 0000 01A0       smsFlag=0;
-; 0000 01A1     }
+; 0000 01BA     }
 	ADIW R28,1
-; 0000 01A2     checkPassword();
-_0x6F:
-	RCALL _checkPassword
-; 0000 01A3     while(checkpass==0)
+; 0000 01BB     checkPassword();
 _0x75:
-	TST  R6
-	BRNE _0x77
-; 0000 01A4     {  checkPassword();
 	RCALL _checkPassword
-; 0000 01A5        n++;
+; 0000 01BC     while(checkpass==0)
+_0x7B:
+	TST  R6
+	BRNE _0x7D
+; 0000 01BD     {  checkPassword();
+	RCALL _checkPassword
+; 0000 01BE        n++;
 	LDD  R30,Y+54
 	SUBI R30,-LOW(1)
 	STD  Y+54,R30
-; 0000 01A6        delay_ms(50);
+; 0000 01BF        delay_ms(50);
 	LDI  R26,LOW(50)
 	RCALL SUBOPT_0x3
-; 0000 01A7        if(n>40)
+; 0000 01C0        if(n>40)
 	LDD  R26,Y+54
 	CPI  R26,LOW(0x29)
-	BRLO _0x78
-; 0000 01A8        {
-; 0000 01A9          printf("password error");
-	__POINTW1FN _0x0,53
-	RCALL SUBOPT_0x20
-; 0000 01AA          clearBuffer();
+	BRLO _0x7E
+; 0000 01C1        {
+; 0000 01C2          printf("password error");
+	__POINTW1FN _0x0,135
+	RCALL SUBOPT_0x1F
+; 0000 01C3          clearBuffer();
 	RCALL _clearBuffer
-; 0000 01AB          checkpass=0;
+; 0000 01C4          checkpass=0;
 	CLR  R6
-; 0000 01AC          smsFlag=0;
-	RCALL SUBOPT_0x2D
-; 0000 01AD          break;
-	RJMP _0x77
-; 0000 01AE        }
-; 0000 01AF     }
-_0x78:
-	RJMP _0x75
-_0x77:
-; 0000 01B0     if(checkpass==1)
+; 0000 01C5          smsFlag=0;
+	RCALL SUBOPT_0x2C
+; 0000 01C6          break;
+	RJMP _0x7D
+; 0000 01C7        }
+; 0000 01C8     }
+_0x7E:
+	RJMP _0x7B
+_0x7D:
+; 0000 01C9     if(checkpass==1)
 	LDI  R30,LOW(1)
 	CP   R30,R6
 	BREQ PC+2
-	RJMP _0x79
-; 0000 01B1     {
-; 0000 01B2         if(strcmp(content,"on1")==0)
-	RCALL SUBOPT_0x2E
-	__POINTW2MN _0x7B,0
+	RJMP _0x7F
+; 0000 01CA     {
+; 0000 01CB         if(strcmp(content,"on1")==0)
+	RCALL SUBOPT_0x2D
+	__POINTW2MN _0x81,0
 	RCALL SUBOPT_0xD
-	BRNE _0x7A
-; 0000 01B3         {
-; 0000 01B4           LOAD1=1;
+	BRNE _0x80
+; 0000 01CC         {
+; 0000 01CD           LOAD1=1;
 	SBI  0x15,0
-; 0000 01B5           save1=1;
+; 0000 01CE           save1=1;
 	RCALL SUBOPT_0x1
-	LDI  R30,LOW(1)
-	RCALL SUBOPT_0x2F
-; 0000 01B6           //printf("on1");
-; 0000 01B7           clearBuffer();
-; 0000 01B8           smsFlag=0;
-; 0000 01B9 
-; 0000 01BA         }else{
-	RJMP _0x7E
-_0x7A:
-; 0000 01BB            if(strcmp(content,"on2")==0)
 	RCALL SUBOPT_0x2E
-	__POINTW2MN _0x7B,4
+; 0000 01CF           if(tb!=1) printf("on1");
+	RCALL SUBOPT_0x2F
+	BREQ _0x84
+	__POINTW1FN _0x0,150
+	RCALL SUBOPT_0x1F
+; 0000 01D0           clearBuffer();
+_0x84:
+	RJMP _0xFE
+; 0000 01D1           smsFlag=0;
+; 0000 01D2 
+; 0000 01D3         }else{
+_0x80:
+; 0000 01D4            if(strcmp(content,"on2")==0)
+	RCALL SUBOPT_0x2D
+	__POINTW2MN _0x81,4
 	RCALL SUBOPT_0xD
-	BRNE _0x7F
-; 0000 01BC             {
-; 0000 01BD               LOAD2=1;
+	BRNE _0x86
+; 0000 01D5             {
+; 0000 01D6               LOAD2=1;
 	RCALL SUBOPT_0x24
-; 0000 01BE               save2=1;
-; 0000 01BF               //printf("on2");
-; 0000 01C0               clearBuffer();
-	RCALL SUBOPT_0x2C
-; 0000 01C1               smsFlag=0;
-; 0000 01C2             }else{
-	RJMP _0x82
-_0x7F:
-; 0000 01C3                 if(strcmp(content,"off1")==0)
-	RCALL SUBOPT_0x2E
-	__POINTW2MN _0x7B,8
-	RCALL SUBOPT_0xD
-	BRNE _0x83
-; 0000 01C4                 {
-; 0000 01C5                   LOAD1=0;
-	CBI  0x15,0
-; 0000 01C6                   save1=0;
-	RCALL SUBOPT_0x1
-	LDI  R30,LOW(0)
+; 0000 01D7               save2=1;
+; 0000 01D8               if(tb!=1) printf("on2");
 	RCALL SUBOPT_0x2F
-; 0000 01C7                   //printf("off1");
-; 0000 01C8                   clearBuffer();
-; 0000 01C9                   smsFlag=0;
-; 0000 01CA                 } else{
-	RJMP _0x86
-_0x83:
-; 0000 01CB 
-; 0000 01CC                     if(strcmp(content,"off2")==0)
-	RCALL SUBOPT_0x2E
-	__POINTW2MN _0x7B,13
-	RCALL SUBOPT_0xD
-	BRNE _0x87
-; 0000 01CD                     {
-; 0000 01CE                       LOAD2=0;
-	RCALL SUBOPT_0x23
-; 0000 01CF                       save2=0;
-; 0000 01D0                       //printf("off2");
-; 0000 01D1                       clearBuffer();
-	RCALL SUBOPT_0x2C
-; 0000 01D2                       smsFlag=0;
-; 0000 01D3                     }else {
-	RJMP _0x8A
-_0x87:
-; 0000 01D4 
-; 0000 01D5                         if(strcmp(content,"on")==0)
-	RCALL SUBOPT_0x2E
-	__POINTW2MN _0x7B,18
+	BREQ _0x89
+	__POINTW1FN _0x0,154
+	RCALL SUBOPT_0x1F
+; 0000 01D9               clearBuffer();
+_0x89:
+	RJMP _0xFE
+; 0000 01DA               smsFlag=0;
+; 0000 01DB             }else{
+_0x86:
+; 0000 01DC                 if(strcmp(content,"off1")==0)
+	RCALL SUBOPT_0x2D
+	__POINTW2MN _0x81,8
 	RCALL SUBOPT_0xD
 	BRNE _0x8B
-; 0000 01D6                         {
-; 0000 01D7                           LOAD1=1;
-	SBI  0x15,0
-; 0000 01D8                           LOAD2=1;
-	SBI  0x15,1
-; 0000 01D9                           save1=1;
-	RCALL SUBOPT_0x1
-	LDI  R30,LOW(1)
-	RCALL __EEPROMWRB
-; 0000 01DA                           save2=1;
-	RCALL SUBOPT_0x2
-	LDI  R30,LOW(1)
-	RCALL SUBOPT_0x2F
-; 0000 01DB                           //printf("on");
-; 0000 01DC                           clearBuffer();
-; 0000 01DD                           smsFlag=0;
-; 0000 01DE                         }else{
-	RJMP _0x90
-_0x8B:
-; 0000 01DF 
-; 0000 01E0                             if(strcmp(content,"off")==0)
-	RCALL SUBOPT_0x2E
-	__POINTW2MN _0x7B,21
-	RCALL SUBOPT_0xD
-	BRNE _0x91
-; 0000 01E1                             {
-; 0000 01E2                               LOAD1=0;
+; 0000 01DD                 {
+; 0000 01DE                   LOAD1=0;
 	CBI  0x15,0
-; 0000 01E3                               LOAD2=0;
-	CBI  0x15,1
-; 0000 01E4                               save1=0;
+; 0000 01DF                   save1=0;
 	RCALL SUBOPT_0x1
-	LDI  R30,LOW(0)
-	RCALL __EEPROMWRB
-; 0000 01E5                               save2=0;
-	RCALL SUBOPT_0x2
-	LDI  R30,LOW(0)
-	RCALL SUBOPT_0x2F
-; 0000 01E6                               //printf("off");
-; 0000 01E7                               clearBuffer();
-; 0000 01E8                               smsFlag=0;
-; 0000 01E9                             }
-; 0000 01EA                             else
-	RJMP _0x96
-_0x91:
-; 0000 01EB                             {
-; 0000 01EC                               if(strcmp(syntax,"doimk")==0)
 	RCALL SUBOPT_0x30
-	__POINTW2MN _0x7B,25
+; 0000 01E0                   if(tb!=1) printf("off1");
+	RCALL SUBOPT_0x2F
+	BREQ _0x8E
+	__POINTW1FN _0x0,158
+	RCALL SUBOPT_0x1F
+; 0000 01E1                   clearBuffer();
+_0x8E:
+	RJMP _0xFE
+; 0000 01E2                   smsFlag=0;
+; 0000 01E3                 } else{
+_0x8B:
+; 0000 01E4 
+; 0000 01E5                     if(strcmp(content,"off2")==0)
+	RCALL SUBOPT_0x2D
+	__POINTW2MN _0x81,13
 	RCALL SUBOPT_0xD
-	BRNE _0x97
-; 0000 01ED                                 {
-; 0000 01EE                                   for(k=0;k<4;k++)
+	BRNE _0x90
+; 0000 01E6                     {
+; 0000 01E7                       LOAD2=0;
+	RCALL SUBOPT_0x23
+; 0000 01E8                       save2=0;
+; 0000 01E9                       if(tb!=1) printf("off2");
+	RCALL SUBOPT_0x2F
+	BREQ _0x93
+	__POINTW1FN _0x0,163
+	RCALL SUBOPT_0x1F
+; 0000 01EA                       clearBuffer();
+_0x93:
+	RJMP _0xFE
+; 0000 01EB                       smsFlag=0;
+; 0000 01EC                     }else {
+_0x90:
+; 0000 01ED 
+; 0000 01EE                         if(strcmp(content,"on")==0)
+	RCALL SUBOPT_0x2D
+	__POINTW2MN _0x81,18
+	RCALL SUBOPT_0xD
+	BRNE _0x95
+; 0000 01EF                         {
+; 0000 01F0                           LOAD1=1;
+	SBI  0x15,0
+; 0000 01F1                           LOAD2=1;
+	SBI  0x15,1
+; 0000 01F2                           save1=1;
+	RCALL SUBOPT_0x1
+	RCALL SUBOPT_0x2E
+; 0000 01F3                           save2=1;
+	RCALL SUBOPT_0x2
+	RCALL SUBOPT_0x2E
+; 0000 01F4                           if(tb!=1) printf("on");
+	RCALL SUBOPT_0x2F
+	BREQ _0x9A
+	__POINTW1FN _0x0,36
+	RCALL SUBOPT_0x1F
+; 0000 01F5                           clearBuffer();
+_0x9A:
+	RJMP _0xFE
+; 0000 01F6                           smsFlag=0;
+; 0000 01F7                         }else{
+_0x95:
+; 0000 01F8 
+; 0000 01F9                             if(strcmp(content,"off")==0)
+	RCALL SUBOPT_0x2D
+	__POINTW2MN _0x81,21
+	RCALL SUBOPT_0xD
+	BRNE _0x9C
+; 0000 01FA                             {
+; 0000 01FB                               LOAD1=0;
+	CBI  0x15,0
+; 0000 01FC                               LOAD2=0;
+	CBI  0x15,1
+; 0000 01FD                               save1=0;
+	RCALL SUBOPT_0x1
+	RCALL SUBOPT_0x30
+; 0000 01FE                               save2=0;
+	RCALL SUBOPT_0x2
+	RCALL SUBOPT_0x30
+; 0000 01FF                               if(tb!=1) printf("off");
+	RCALL SUBOPT_0x2F
+	BREQ _0xA1
+	__POINTW1FN _0x0,32
+	RCALL SUBOPT_0x1F
+; 0000 0200                               clearBuffer();
+_0xA1:
+	RJMP _0xFE
+; 0000 0201                               smsFlag=0;
+; 0000 0202                             }
+; 0000 0203                             else
+_0x9C:
+; 0000 0204                             {
+; 0000 0205                               if(strcmp(syntax,"doimk")==0)
+	RCALL SUBOPT_0x31
+	__POINTW2MN _0x81,25
+	RCALL SUBOPT_0xD
+	BRNE _0xA3
+; 0000 0206                                 {
+; 0000 0207                                   for(k=0;k<4;k++)
 	LDI  R17,LOW(0)
-_0x99:
+_0xA5:
 	CPI  R17,4
-	BRSH _0x9A
-; 0000 01EF                                   {
-; 0000 01F0                                     password[k]=msgStr[poskey+k];
+	BRSH _0xA6
+; 0000 0208                                   {
+; 0000 0209                                     password[k]=msgStr[poskey+k];
 	RCALL SUBOPT_0x7
 	SUBI R30,LOW(-_password)
 	SBCI R31,HIGH(-_password)
-	RCALL SUBOPT_0x31
+	RCALL SUBOPT_0x32
 	RCALL SUBOPT_0x7
 	RCALL SUBOPT_0x29
 	MOVW R26,R0
 	RCALL __EEPROMWRB
-; 0000 01F1                                   }
+; 0000 020A                                   }
 	SUBI R17,-1
-	RJMP _0x99
-_0x9A:
-; 0000 01F2                                   //sendSMS(phoneNumber,"Doi mat khau thanh cong");
-; 0000 01F3                                   printf("success:");
-	__POINTW1FN _0x0,92
-	RCALL SUBOPT_0x20
-; 0000 01F4                                   putchar(password[0]);
+	RJMP _0xA5
+_0xA6:
+; 0000 020B                                   //sendSMS(phoneNumber,"Doi mat khau thanh cong");
+; 0000 020C                                   printf("success:");
+	__POINTW1FN _0x0,174
+	RCALL SUBOPT_0x1F
+; 0000 020D                                   putchar(password[0]);
 	LDI  R26,LOW(_password)
 	LDI  R27,HIGH(_password)
-	RCALL SUBOPT_0x32
-; 0000 01F5                                   putchar(password[1]);
-	__POINTW2MN _password,1
-	RCALL SUBOPT_0x32
-; 0000 01F6                                   putchar(password[2]);
-	__POINTW2MN _password,2
-	RCALL SUBOPT_0x32
-; 0000 01F7                                   putchar(password[3]);
-	__POINTW2MN _password,3
-	RCALL SUBOPT_0x32
-; 0000 01F8                                   clearBuffer();
-	RCALL SUBOPT_0x2C
-; 0000 01F9                                   smsFlag=0;
-; 0000 01FA 
-; 0000 01FB                                 }
-; 0000 01FC                                 else
-	RJMP _0x9B
-_0x97:
-; 0000 01FD                                 {
-; 0000 01FE                                   if(strcmp(syntax,"them1")==0)
-	RCALL SUBOPT_0x30
-	__POINTW2MN _0x7B,31
-	RCALL SUBOPT_0xD
-	BRNE _0x9C
-; 0000 01FF                                   {
-; 0000 0200                                     for(i1=0;i1<11;i1++)
-	LDI  R16,LOW(0)
-_0x9E:
-	CPI  R16,11
-	BRSH _0x9F
-; 0000 0201                                     {
-; 0000 0202                                       if(msgStr[poskey+i1]<48||msgStr[poskey+i1]>57) sdt1[i1]=ndt1[i1]=0;
 	RCALL SUBOPT_0x33
-	RCALL SUBOPT_0x34
-	BRLO _0xA1
-	RCALL SUBOPT_0x35
-	BRLO _0xA0
-_0xA1:
-	RCALL SUBOPT_0x15
-	SUBI R30,LOW(-_sdt1)
-	SBCI R31,HIGH(-_sdt1)
-	MOVW R0,R30
-	RCALL SUBOPT_0x15
-	MOVW R26,R28
-	ADIW R26,28
-	RCALL SUBOPT_0x2A
-	MOVW R26,R0
-	RJMP _0xE6
-; 0000 0203                                       else sdt1[i1]=ndt1[i1]=msgStr[poskey+i1];
-_0xA0:
-	RCALL SUBOPT_0x15
-	SUBI R30,LOW(-_sdt1)
-	SBCI R31,HIGH(-_sdt1)
-	MOVW R22,R30
-	RCALL SUBOPT_0x15
-	MOVW R26,R28
-	ADIW R26,28
-	RCALL SUBOPT_0x28
+; 0000 020E                                   putchar(password[1]);
+	__POINTW2MN _password,1
+	RCALL SUBOPT_0x33
+; 0000 020F                                   putchar(password[2]);
+	__POINTW2MN _password,2
+	RCALL SUBOPT_0x33
+; 0000 0210                                   putchar(password[3]);
+	__POINTW2MN _password,3
+	RCALL SUBOPT_0x33
+; 0000 0211                                   clearBuffer();
+	RJMP _0xFE
+; 0000 0212                                   smsFlag=0;
+; 0000 0213 
+; 0000 0214                                 }
+; 0000 0215                                 else
+_0xA3:
+; 0000 0216                                 {
+; 0000 0217                                   if(strcmp(syntax,"sdt1")==0)
 	RCALL SUBOPT_0x31
-	RCALL SUBOPT_0x15
-	RCALL SUBOPT_0x29
-	RCALL SUBOPT_0xB
-	MOVW R26,R22
-_0xE6:
-	RCALL __EEPROMWRB
-; 0000 0204                                     }
-	SUBI R16,-1
-	RJMP _0x9E
-_0x9F:
-; 0000 0205                                     while(i1<11);
-_0xA4:
-	CPI  R16,11
-	BRLO _0xA4
-; 0000 0206                                     printf("sdt1:");
-	__POINTW1FN _0x0,107
-	RCALL SUBOPT_0x20
-; 0000 0207                                     puts(ndt1);
-	MOVW R26,R28
-	ADIW R26,28
-	RCALL SUBOPT_0x19
-; 0000 0208                                     clearBuffer();
-; 0000 0209                                     smsFlag=0;
-	RCALL SUBOPT_0x2D
-; 0000 020A                                   }
-; 0000 020B                                   else
-	RJMP _0xA7
-_0x9C:
-; 0000 020C                                   {
-; 0000 020D                                      if(strcmp(syntax,"them2")==0)
-	RCALL SUBOPT_0x30
-	__POINTW2MN _0x7B,37
+	__POINTW2MN _0x81,31
 	RCALL SUBOPT_0xD
 	BRNE _0xA8
-; 0000 020E                                       {
-; 0000 020F                                         for(i1=0;i1<11;i1++)
+; 0000 0218                                   {
+; 0000 0219                                     for(i1=0;i1<11;i1++)
 	LDI  R16,LOW(0)
 _0xAA:
 	CPI  R16,11
 	BRSH _0xAB
-; 0000 0210                                         {
-; 0000 0211                                           if(msgStr[poskey+i1]<48||msgStr[poskey+i1]>57) sdt2[i1]=ndt2[i1]=0;
-	RCALL SUBOPT_0x33
+; 0000 021A                                     {
+; 0000 021B                                       if(msgStr[poskey+i1]<48||msgStr[poskey+i1]>57) sdt1[i1]=ndt1[i1]=0;
 	RCALL SUBOPT_0x34
-	BRLO _0xAD
 	RCALL SUBOPT_0x35
+	BRLO _0xAD
+	RCALL SUBOPT_0x36
 	BRLO _0xAC
 _0xAD:
 	RCALL SUBOPT_0x15
-	SUBI R30,LOW(-_sdt2)
-	SBCI R31,HIGH(-_sdt2)
+	SUBI R30,LOW(-_sdt1)
+	SBCI R31,HIGH(-_sdt1)
 	MOVW R0,R30
 	RCALL SUBOPT_0x15
 	MOVW R26,R28
-	ADIW R26,17
+	ADIW R26,28
 	RCALL SUBOPT_0x2A
 	MOVW R26,R0
-	RJMP _0xE7
-; 0000 0212                                           else sdt2[i1]=ndt2[i1]=msgStr[poskey+i1];
+	RJMP _0xFF
+; 0000 021C                                       else sdt1[i1]=ndt1[i1]=msgStr[poskey+i1];
 _0xAC:
 	RCALL SUBOPT_0x15
-	SUBI R30,LOW(-_sdt2)
-	SBCI R31,HIGH(-_sdt2)
+	SUBI R30,LOW(-_sdt1)
+	SBCI R31,HIGH(-_sdt1)
 	MOVW R22,R30
 	RCALL SUBOPT_0x15
 	MOVW R26,R28
-	ADIW R26,17
+	ADIW R26,28
 	RCALL SUBOPT_0x28
-	RCALL SUBOPT_0x31
+	RCALL SUBOPT_0x32
 	RCALL SUBOPT_0x15
 	RCALL SUBOPT_0x29
 	RCALL SUBOPT_0xB
 	MOVW R26,R22
-_0xE7:
+_0xFF:
 	RCALL __EEPROMWRB
-; 0000 0213                                         }
+; 0000 021D                                     }
 	SUBI R16,-1
 	RJMP _0xAA
 _0xAB:
-; 0000 0214                                         while(i1<11);
+; 0000 021E                                     while(i1<11);
 _0xB0:
 	CPI  R16,11
 	BRLO _0xB0
-; 0000 0215                                         printf("\nsdt2:");
-	__POINTW1FN _0x0,119
-	RCALL SUBOPT_0x20
-; 0000 0216                                         puts(ndt2);
+; 0000 021F                                     printf("sdt1:");
+	__POINTW1FN _0x0,188
+	RCALL SUBOPT_0x1F
+; 0000 0220                                     puts(ndt1);
 	MOVW R26,R28
-	ADIW R26,17
-	RCALL SUBOPT_0x19
-; 0000 0217                                         clearBuffer();
-; 0000 0218                                         smsFlag=0;
-	RCALL SUBOPT_0x2D
-; 0000 0219                                       }
-; 0000 021A                                       else
-	RJMP _0xB3
+	ADIW R26,28
+	RCALL _puts
+; 0000 0221                                     clearBuffer();
+	RJMP _0xFE
+; 0000 0222                                     smsFlag=0;
+; 0000 0223                                   }
+; 0000 0224                                   else
 _0xA8:
-; 0000 021B                                       {
-; 0000 021C                                          if(strcmp(syntax,"them3")==0)
-	RCALL SUBOPT_0x30
-	__POINTW2MN _0x7B,43
+; 0000 0225                                   {
+; 0000 0226                                      if(strcmp(syntax,"sdt2")==0)
+	RCALL SUBOPT_0x31
+	__POINTW2MN _0x81,36
 	RCALL SUBOPT_0xD
 	BRNE _0xB4
-; 0000 021D                                           {
-; 0000 021E                                             for(i1=0;i1<11;i1++)
+; 0000 0227                                       {
+; 0000 0228                                         for(i1=0;i1<11;i1++)
 	LDI  R16,LOW(0)
 _0xB6:
 	CPI  R16,11
 	BRSH _0xB7
-; 0000 021F                                             {
-; 0000 0220                                               if(msgStr[poskey+i1]<48||msgStr[poskey+i1]>57) sdt3[i1]=ndt3[i1]=0;
-	RCALL SUBOPT_0x33
+; 0000 0229                                         {
+; 0000 022A                                           if(msgStr[poskey+i1]<48||msgStr[poskey+i1]>57) sdt2[i1]=ndt2[i1]=0;
 	RCALL SUBOPT_0x34
-	BRLO _0xB9
 	RCALL SUBOPT_0x35
+	BRLO _0xB9
+	RCALL SUBOPT_0x36
 	BRLO _0xB8
 _0xB9:
+	RCALL SUBOPT_0x15
+	SUBI R30,LOW(-_sdt2)
+	SBCI R31,HIGH(-_sdt2)
+	MOVW R0,R30
+	RCALL SUBOPT_0x15
+	MOVW R26,R28
+	ADIW R26,17
+	RCALL SUBOPT_0x2A
+	MOVW R26,R0
+	RJMP _0x100
+; 0000 022B                                           else sdt2[i1]=ndt2[i1]=msgStr[poskey+i1];
+_0xB8:
+	RCALL SUBOPT_0x15
+	SUBI R30,LOW(-_sdt2)
+	SBCI R31,HIGH(-_sdt2)
+	MOVW R22,R30
+	RCALL SUBOPT_0x15
+	MOVW R26,R28
+	ADIW R26,17
+	RCALL SUBOPT_0x28
+	RCALL SUBOPT_0x32
+	RCALL SUBOPT_0x15
+	RCALL SUBOPT_0x29
+	RCALL SUBOPT_0xB
+	MOVW R26,R22
+_0x100:
+	RCALL __EEPROMWRB
+; 0000 022C                                         }
+	SUBI R16,-1
+	RJMP _0xB6
+_0xB7:
+; 0000 022D                                         while(i1<11);
+_0xBC:
+	CPI  R16,11
+	BRLO _0xBC
+; 0000 022E                                         printf("\nsdt2:");
+	__POINTW1FN _0x0,199
+	RCALL SUBOPT_0x1F
+; 0000 022F                                         puts(ndt2);
+	MOVW R26,R28
+	ADIW R26,17
+	RCALL _puts
+; 0000 0230                                         clearBuffer();
+	RJMP _0xFE
+; 0000 0231                                         smsFlag=0;
+; 0000 0232                                       }
+; 0000 0233                                       else
+_0xB4:
+; 0000 0234                                       {
+; 0000 0235                                          if(strcmp(syntax,"sdt3")==0)
+	RCALL SUBOPT_0x31
+	__POINTW2MN _0x81,41
+	RCALL SUBOPT_0xD
+	BRNE _0xC0
+; 0000 0236                                           {
+; 0000 0237                                             for(i1=0;i1<11;i1++)
+	LDI  R16,LOW(0)
+_0xC2:
+	CPI  R16,11
+	BRSH _0xC3
+; 0000 0238                                             {
+; 0000 0239                                               if(msgStr[poskey+i1]<48||msgStr[poskey+i1]>57) sdt3[i1]=ndt3[i1]=0;
+	RCALL SUBOPT_0x34
+	RCALL SUBOPT_0x35
+	BRLO _0xC5
+	RCALL SUBOPT_0x36
+	BRLO _0xC4
+_0xC5:
 	RCALL SUBOPT_0x15
 	SUBI R30,LOW(-_sdt3)
 	SBCI R31,HIGH(-_sdt3)
@@ -2955,9 +3049,9 @@ _0xB9:
 	ADIW R26,6
 	RCALL SUBOPT_0x2A
 	MOVW R26,R0
-	RJMP _0xE8
-; 0000 0221                                               else sdt3[i1]=ndt3[i1]=msgStr[poskey+i1];
-_0xB8:
+	RJMP _0x101
+; 0000 023A                                               else sdt3[i1]=ndt3[i1]=msgStr[poskey+i1];
+_0xC4:
 	RCALL SUBOPT_0x15
 	SUBI R30,LOW(-_sdt3)
 	SBCI R31,HIGH(-_sdt3)
@@ -2966,60 +3060,58 @@ _0xB8:
 	MOVW R26,R28
 	ADIW R26,6
 	RCALL SUBOPT_0x28
-	RCALL SUBOPT_0x31
+	RCALL SUBOPT_0x32
 	RCALL SUBOPT_0x15
 	RCALL SUBOPT_0x29
 	RCALL SUBOPT_0xB
 	MOVW R26,R22
-_0xE8:
+_0x101:
 	RCALL __EEPROMWRB
-; 0000 0222                                             }
+; 0000 023B                                             }
 	SUBI R16,-1
-	RJMP _0xB6
-_0xB7:
-; 0000 0223                                             while(i1<11);
-_0xBC:
+	RJMP _0xC2
+_0xC3:
+; 0000 023C                                             while(i1<11);
+_0xC8:
 	CPI  R16,11
-	BRLO _0xBC
-; 0000 0224                                             printf("sdt3:");
-	__POINTW1FN _0x0,132
-	RCALL SUBOPT_0x20
-; 0000 0225                                             puts(ndt3);
+	BRLO _0xC8
+; 0000 023D                                             printf("sdt3:");
+	__POINTW1FN _0x0,211
+	RCALL SUBOPT_0x1F
+; 0000 023E                                             puts(ndt3);
 	MOVW R26,R28
 	ADIW R26,6
-	RCALL SUBOPT_0x19
-; 0000 0226                                             clearBuffer();
-; 0000 0227                                             smsFlag=0;
-	RCALL SUBOPT_0x2D
-; 0000 0228                                           }
-; 0000 0229                                           else
-	RJMP _0xBF
-_0xB4:
-; 0000 022A                                           {
-; 0000 022B                                                if(strcmp(content,"kttk")==0)
-	RCALL SUBOPT_0x2E
-	__POINTW2MN _0x7B,49
-	RCALL SUBOPT_0xD
-	BRNE _0xC0
-; 0000 022C                                                {
-; 0000 022D                                                  KTTK();
-	RCALL _KTTK
-; 0000 022E                                                  clearBuffer();
-	RCALL SUBOPT_0x2C
-; 0000 022F                                                  smsFlag=0;
-; 0000 0230                                                }
-; 0000 0231                                                else
-	RJMP _0xC1
+	RCALL _puts
+; 0000 023F                                             clearBuffer();
+	RJMP _0xFE
+; 0000 0240                                             smsFlag=0;
+; 0000 0241                                           }
+; 0000 0242                                           else
 _0xC0:
-; 0000 0232                                                {
-; 0000 0233                                                  if(strcmp(syntax,"naptien")==0)
-	RCALL SUBOPT_0x30
-	__POINTW2MN _0x7B,54
+; 0000 0243                                           {
+; 0000 0244                                                if(strcmp(content,"kttk")==0)
+	RCALL SUBOPT_0x2D
+	__POINTW2MN _0x81,46
 	RCALL SUBOPT_0xD
-	BRNE _0xC2
-; 0000 0234                                                  {  char mathe[13];
-; 0000 0235                                                     char mt;
-; 0000 0236                                                     for(mt=0;mt<13;mt++)
+	BRNE _0xCC
+; 0000 0245                                                {
+; 0000 0246                                                  KTTK();
+	RCALL _KTTK
+; 0000 0247                                                  clearBuffer();
+	RJMP _0xFE
+; 0000 0248                                                  smsFlag=0;
+; 0000 0249                                                }
+; 0000 024A                                                else
+_0xCC:
+; 0000 024B                                                {
+; 0000 024C                                                  if(strcmp(syntax,"naptien")==0)
+	RCALL SUBOPT_0x31
+	__POINTW2MN _0x81,51
+	RCALL SUBOPT_0xD
+	BRNE _0xCE
+; 0000 024D                                                  {  char mathe[13];
+; 0000 024E                                                     char mt;
+; 0000 024F                                                     for(mt=0;mt<13;mt++)
 	SBIW R28,14
 ;	lastspace -> Y+70
 ;	firstspace -> Y+69
@@ -3032,307 +3124,368 @@ _0xC0:
 ;	mt -> Y+0
 	LDI  R30,LOW(0)
 	ST   Y,R30
-_0xC4:
+_0xD0:
 	LD   R26,Y
 	CPI  R26,LOW(0xD)
-	BRSH _0xC5
-; 0000 0237                                                     {
-; 0000 0238                                                       if(msgStr[13+mt]<48||msgStr[13+mt]>57) mathe[mt]='0';
-	RCALL SUBOPT_0x36
+	BRSH _0xD1
+; 0000 0250                                                     {
+; 0000 0251                                                       if(msgStr[13+mt]<48||msgStr[13+mt]>57) mathe[mt]='0';
+	RCALL SUBOPT_0x37
 	__ADDW1MN _msgStr,13
 	LD   R26,Z
 	CPI  R26,LOW(0x30)
-	BRLO _0xC7
-	RCALL SUBOPT_0x35
-	BRLO _0xC6
-_0xC7:
+	BRLO _0xD3
 	RCALL SUBOPT_0x36
-	RCALL SUBOPT_0x1E
+	BRLO _0xD2
+_0xD3:
+	RCALL SUBOPT_0x37
+	RCALL SUBOPT_0x1D
 	ADD  R26,R30
 	ADC  R27,R31
 	LDI  R30,LOW(48)
-	RJMP _0xE9
-; 0000 0239                                                       else mathe[mt]=msgStr[13+mt];
-_0xC6:
-	RCALL SUBOPT_0x36
-	RCALL SUBOPT_0x1E
+	RJMP _0x102
+; 0000 0252                                                       else mathe[mt]=msgStr[13+mt];
+_0xD2:
+	RCALL SUBOPT_0x37
+	RCALL SUBOPT_0x1D
 	ADD  R26,R30
 	ADC  R27,R31
-	RCALL SUBOPT_0x36
+	RCALL SUBOPT_0x37
 	__ADDW1MN _msgStr,13
 	LD   R30,Z
-_0xE9:
+_0x102:
 	ST   X,R30
-; 0000 023A                                                     }
+; 0000 0253                                                     }
 	LD   R30,Y
 	SUBI R30,-LOW(1)
 	ST   Y,R30
-	RJMP _0xC4
-_0xC5:
-; 0000 023B                                                     naptien(mathe);
-	RCALL SUBOPT_0x1E
+	RJMP _0xD0
+_0xD1:
+; 0000 0254                                                     naptien(mathe);
+	RCALL SUBOPT_0x1D
 	RCALL _naptien
-; 0000 023C                                                     clearBuffer();
+; 0000 0255                                                     clearBuffer();
+	RCALL _clearBuffer
+; 0000 0256                                                     smsFlag=0;
 	RCALL SUBOPT_0x2C
-; 0000 023D                                                     smsFlag=0;
-; 0000 023E                                                  }
+; 0000 0257                                                  }
 	ADIW R28,14
-; 0000 023F                                                }
-_0xC2:
-_0xC1:
-; 0000 0240                                           }
-_0xBF:
-; 0000 0241                                       }
-_0xB3:
-; 0000 0242                                   }
-_0xA7:
-; 0000 0243                                 }
-_0x9B:
-; 0000 0244                             }
-_0x96:
-; 0000 0245                         }
-_0x90:
-; 0000 0246                     }
-_0x8A:
-; 0000 0247                 }
-_0x86:
-; 0000 0248             }
-_0x82:
-; 0000 0249         }
-_0x7E:
-; 0000 024A     }
-; 0000 024B }
-_0x79:
+; 0000 0258                                                  else
+	RJMP _0xD6
+_0xCE:
+; 0000 0259                                                  {
+; 0000 025A                                                    if(strcmp(content,"thongbao on")==0)
+	RCALL SUBOPT_0x2D
+	__POINTW2MN _0x81,59
+	RCALL SUBOPT_0xD
+	BRNE _0xD7
+; 0000 025B                                                    {
+; 0000 025C                                                      tb=2;
+	LDI  R26,LOW(_tb)
+	LDI  R27,HIGH(_tb)
+	LDI  R30,LOW(2)
+	RCALL __EEPROMWRB
+; 0000 025D                                                      printf("da bat thong bao");
+	__POINTW1FN _0x0,242
+	RJMP _0x103
+; 0000 025E                                                      clearBuffer();
+; 0000 025F                                                      smsFlag=0;
+; 0000 0260                                                    }
+; 0000 0261                                                    else
+_0xD7:
+; 0000 0262                                                    {
+; 0000 0263                                                      if(strcmp(content,"thongbao off")==0)
+	RCALL SUBOPT_0x2D
+	__POINTW2MN _0x81,71
+	RCALL SUBOPT_0xD
+	BRNE _0xD9
+; 0000 0264                                                        {
+; 0000 0265                                                          tb=1;
+	LDI  R26,LOW(_tb)
+	LDI  R27,HIGH(_tb)
+	RCALL SUBOPT_0x2E
+; 0000 0266                                                          printf("da tat thong bao");
+	__POINTW1FN _0x0,272
+	RJMP _0x103
+; 0000 0267                                                          clearBuffer();
+; 0000 0268                                                          smsFlag=0;
+; 0000 0269                                                        }
+; 0000 026A                                                        else
+_0xD9:
+; 0000 026B                                                        {
+; 0000 026C                                                          if(strcmp(content,"kttt")==0)
+	RCALL SUBOPT_0x2D
+	__POINTW2MN _0x81,84
+	RCALL SUBOPT_0xD
+	BRNE _0xDB
+; 0000 026D                                                          {
+; 0000 026E                                                            checkStatus();
+	RCALL _checkStatus
+; 0000 026F                                                            clearBuffer();
+	RJMP _0xFE
+; 0000 0270                                                            smsFlag=0;
+; 0000 0271                                                          }
+; 0000 0272                                                          else
+_0xDB:
+; 0000 0273                                                          {
+; 0000 0274                                                            printf("Syntax error");
+	__POINTW1FN _0x0,294
+_0x103:
+	ST   -Y,R31
+	ST   -Y,R30
+	RCALL SUBOPT_0x25
+; 0000 0275                                                            clearBuffer();
+_0xFE:
+	RCALL _clearBuffer
+; 0000 0276                                                            smsFlag=0;
+	RCALL SUBOPT_0x2C
+; 0000 0277                                                          }
+; 0000 0278                                                        }
+; 0000 0279                                                    }
+; 0000 027A 
+; 0000 027B                                                  }
+_0xD6:
+; 0000 027C 
+; 0000 027D                                                }
+; 0000 027E                                           }
+; 0000 027F                                       }
+; 0000 0280                                   }
+; 0000 0281                                 }
+; 0000 0282                             }
+; 0000 0283                         }
+; 0000 0284                     }
+; 0000 0285                 }
+; 0000 0286             }
+; 0000 0287         }
+; 0000 0288     }
+; 0000 0289 }
+_0x7F:
 	RCALL __LOADLOCR6
 	ADIW R28,57
 	RET
 ; .FEND
 
 	.DSEG
-_0x7B:
-	.BYTE 0x3E
+_0x81:
+	.BYTE 0x59
 ;
 ;
 ;void main(void)
-; 0000 024F {
+; 0000 028D {
 
 	.CSEG
 _main:
 ; .FSTART _main
-; 0000 0250 // Declare your local variables here
-; 0000 0251 
-; 0000 0252 // Input/Output Ports initialization
-; 0000 0253 // Port B initialization
-; 0000 0254 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
-; 0000 0255 DDRB=(0<<DDB7) | (0<<DDB6) | (0<<DDB5) | (0<<DDB4) | (1<<DDB3) | (1<<DDB2) | (1<<DDB1) | (1<<DDB0);
+; 0000 028E // Declare your local variables here
+; 0000 028F 
+; 0000 0290 // Input/Output Ports initialization
+; 0000 0291 // Port B initialization
+; 0000 0292 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
+; 0000 0293 DDRB=(0<<DDB7) | (0<<DDB6) | (0<<DDB5) | (0<<DDB4) | (1<<DDB3) | (1<<DDB2) | (1<<DDB1) | (1<<DDB0);
 	LDI  R30,LOW(15)
 	OUT  0x17,R30
-; 0000 0256 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
-; 0000 0257 PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
+; 0000 0294 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
+; 0000 0295 PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
 	LDI  R30,LOW(0)
 	OUT  0x18,R30
-; 0000 0258 
-; 0000 0259 // Port C initialization
-; 0000 025A // Function: Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=Out Bit0=Out
-; 0000 025B DDRC=(0<<DDC6) | (0<<DDC5) | (0<<DDC4) | (0<<DDC3) | (0<<DDC2) | (1<<DDC1) | (1<<DDC0);
+; 0000 0296 
+; 0000 0297 // Port C initialization
+; 0000 0298 // Function: Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=Out Bit0=Out
+; 0000 0299 DDRC=(0<<DDC6) | (0<<DDC5) | (0<<DDC4) | (0<<DDC3) | (0<<DDC2) | (1<<DDC1) | (1<<DDC0);
 	LDI  R30,LOW(3)
 	OUT  0x14,R30
-; 0000 025C // State: Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=0 Bit0=0
-; 0000 025D PORTC=(0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
+; 0000 029A // State: Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=0 Bit0=0
+; 0000 029B PORTC=(0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
 	LDI  R30,LOW(0)
 	OUT  0x15,R30
-; 0000 025E 
-; 0000 025F // Port D initialization
-; 0000 0260 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=Out Bit0=In
-; 0000 0261 DDRD=(0<<DDD7) | (0<<DDD6) | (0<<DDD5) | (0<<DDD4) | (0<<DDD3) | (0<<DDD2) | (1<<DDD1) | (0<<DDD0);
+; 0000 029C 
+; 0000 029D // Port D initialization
+; 0000 029E // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=Out Bit0=In
+; 0000 029F DDRD=(0<<DDD7) | (0<<DDD6) | (0<<DDD5) | (0<<DDD4) | (0<<DDD3) | (0<<DDD2) | (1<<DDD1) | (0<<DDD0);
 	LDI  R30,LOW(2)
 	OUT  0x11,R30
-; 0000 0262 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=P Bit2=P Bit1=0 Bit0=T
-; 0000 0263 PORTD=(0<<PORTD7) | (0<<PORTD6) | (0<<PORTD5) | (0<<PORTD4) | (1<<PORTD3) | (1<<PORTD2) | (0<<PORTD1) | (0<<PORTD0);
+; 0000 02A0 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=P Bit2=P Bit1=0 Bit0=T
+; 0000 02A1 PORTD=(0<<PORTD7) | (0<<PORTD6) | (0<<PORTD5) | (0<<PORTD4) | (1<<PORTD3) | (1<<PORTD2) | (0<<PORTD1) | (0<<PORTD0);
 	LDI  R30,LOW(12)
 	OUT  0x12,R30
-; 0000 0264 
-; 0000 0265 // Timer/Counter 0 initialization
-; 0000 0266 // Clock source: System Clock
-; 0000 0267 // Clock value: 0.977 kHz
-; 0000 0268 //0.26214s
-; 0000 0269 TCCR0=(0<<CS02) | (0<<CS01) | (0<<CS00);
+; 0000 02A2 
+; 0000 02A3 // Timer/Counter 0 initialization
+; 0000 02A4 // Clock source: System Clock
+; 0000 02A5 // Clock value: 0.977 kHz
+; 0000 02A6 //0.26214s
+; 0000 02A7 TCCR0=(0<<CS02) | (0<<CS01) | (0<<CS00);
 	LDI  R30,LOW(0)
 	OUT  0x33,R30
-; 0000 026A TCNT0=0x00;
+; 0000 02A8 TCNT0=0x00;
 	OUT  0x32,R30
-; 0000 026B 
-; 0000 026C // Timer(s)/Counter(s) Interrupt(s) initialization
-; 0000 026D TIMSK=(0<<OCIE2) | (0<<TOIE2) | (0<<TICIE1) | (0<<OCIE1A) | (0<<OCIE1B) | (0<<TOIE1) | (0<<TOIE0);
+; 0000 02A9 
+; 0000 02AA // Timer(s)/Counter(s) Interrupt(s) initialization
+; 0000 02AB TIMSK=(0<<OCIE2) | (0<<TOIE2) | (0<<TICIE1) | (0<<OCIE1A) | (0<<OCIE1B) | (0<<TOIE1) | (0<<TOIE0);
 	OUT  0x39,R30
-; 0000 026E 
-; 0000 026F // External Interrupt(s) initialization
-; 0000 0270 // INT0: On
-; 0000 0271 // INT0 Mode: Falling Edge
-; 0000 0272 // INT1: On
-; 0000 0273 // INT1 Mode: Falling Edge
-; 0000 0274 GICR|=(1<<INT1) | (1<<INT0);
+; 0000 02AC 
+; 0000 02AD // External Interrupt(s) initialization
+; 0000 02AE // INT0: On
+; 0000 02AF // INT0 Mode: Falling Edge
+; 0000 02B0 // INT1: On
+; 0000 02B1 // INT1 Mode: Falling Edge
+; 0000 02B2 GICR|=(1<<INT1) | (1<<INT0);
 	IN   R30,0x3B
 	ORI  R30,LOW(0xC0)
 	OUT  0x3B,R30
-; 0000 0275 MCUCR=(1<<ISC11) | (0<<ISC10) | (1<<ISC01) | (0<<ISC00);
+; 0000 02B3 MCUCR=(1<<ISC11) | (0<<ISC10) | (1<<ISC01) | (0<<ISC00);
 	LDI  R30,LOW(10)
 	OUT  0x35,R30
-; 0000 0276 GIFR=(1<<INTF1) | (1<<INTF0);
+; 0000 02B4 GIFR=(1<<INTF1) | (1<<INTF0);
 	LDI  R30,LOW(192)
 	OUT  0x3A,R30
-; 0000 0277 
-; 0000 0278 // USART initialization
-; 0000 0279 // Communication Parameters: 8 Data, 1 Stop, No Parity
-; 0000 027A // USART Receiver: On
-; 0000 027B // USART Transmitter: On
-; 0000 027C // USART Mode: Asynchronous
-; 0000 027D // USART Baud Rate: 9600 (Double Speed Mode)
-; 0000 027E UCSRA=(0<<RXC) | (0<<TXC) | (0<<UDRE) | (0<<FE) | (0<<DOR) | (0<<UPE) | (1<<U2X) | (1<<MPCM);
+; 0000 02B5 
+; 0000 02B6 // USART initialization
+; 0000 02B7 // Communication Parameters: 8 Data, 1 Stop, No Parity
+; 0000 02B8 // USART Receiver: On
+; 0000 02B9 // USART Transmitter: On
+; 0000 02BA // USART Mode: Asynchronous
+; 0000 02BB // USART Baud Rate: 9600 (Double Speed Mode)
+; 0000 02BC UCSRA=(0<<RXC) | (0<<TXC) | (0<<UDRE) | (0<<FE) | (0<<DOR) | (0<<UPE) | (1<<U2X) | (1<<MPCM);
 	LDI  R30,LOW(3)
 	OUT  0xB,R30
-; 0000 027F UCSRB=(1<<RXCIE) | (1<<TXCIE) | (0<<UDRIE) | (1<<RXEN) | (1<<TXEN) | (0<<UCSZ2) | (0<<RXB8) | (0<<TXB8);
+; 0000 02BD UCSRB=(1<<RXCIE) | (1<<TXCIE) | (0<<UDRIE) | (1<<RXEN) | (1<<TXEN) | (0<<UCSZ2) | (0<<RXB8) | (0<<TXB8);
 	LDI  R30,LOW(216)
 	OUT  0xA,R30
-; 0000 0280 UCSRC=(1<<URSEL) | (0<<UMSEL) | (0<<UPM1) | (0<<UPM0) | (0<<USBS) | (1<<UCSZ1) | (1<<UCSZ0) | (0<<UCPOL);
+; 0000 02BE UCSRC=(1<<URSEL) | (0<<UMSEL) | (0<<UPM1) | (0<<UPM0) | (0<<USBS) | (1<<UCSZ1) | (1<<UCSZ0) | (0<<UCPOL);
 	LDI  R30,LOW(134)
 	OUT  0x20,R30
-; 0000 0281 UBRRH=0x00;
+; 0000 02BF UBRRH=0x00;
 	LDI  R30,LOW(0)
 	OUT  0x20,R30
-; 0000 0282 UBRRL=0x0C;
+; 0000 02C0 UBRRL=0x0C;
 	LDI  R30,LOW(12)
 	OUT  0x9,R30
-; 0000 0283 
-; 0000 0284 
-; 0000 0285 // Global enable interrupts
-; 0000 0286 #asm("sei")
+; 0000 02C1 
+; 0000 02C2 
+; 0000 02C3 // Global enable interrupts
+; 0000 02C4 #asm("sei")
 	sei
-; 0000 0287 while(strpos(rx_buffer,'O')<0)
-_0xCA:
+; 0000 02C5 while(strpos(rx_buffer,'O')<0||strpos(rx_buffer,'K')<0)
+_0xDD:
 	RCALL SUBOPT_0xE
 	LDI  R26,LOW(79)
-	RCALL _strpos
-	TST  R31
-	BRPL _0xCC
-; 0000 0288 {
-; 0000 0289     printf("AT\r\n");
-	__POINTW1FN _0x0,151
-	RCALL SUBOPT_0x20
-; 0000 028A     printf(DISABLE_ECHO);
-	__POINTW1FN _0x0,156
-	RCALL SUBOPT_0x20
-; 0000 028B     delay_ms(1000);
+	RCALL SUBOPT_0x38
+	BRMI _0xE0
+	RCALL SUBOPT_0xE
+	LDI  R26,LOW(75)
+	RCALL SUBOPT_0x38
+	BRPL _0xDF
+_0xE0:
+; 0000 02C6 {
+; 0000 02C7     printf("AT\r\n");
+	__POINTW1FN _0x0,307
+	RCALL SUBOPT_0x1F
+; 0000 02C8     printf(DISABLE_ECHO);
+	__POINTW1FN _0x0,312
+	RCALL SUBOPT_0x1F
+; 0000 02C9     delay_ms(1000);
 	LDI  R26,LOW(1000)
 	LDI  R27,HIGH(1000)
 	RCALL _delay_ms
-; 0000 028C     if(strpos(rx_buffer,'O')<0) clearBuffer();
+; 0000 02CA     if(strpos(rx_buffer,'O')<0||strpos(rx_buffer,'K')<0) clearBuffer();
 	RCALL SUBOPT_0xE
 	LDI  R26,LOW(79)
-	RCALL _strpos
-	TST  R31
-	BRPL _0xCD
+	RCALL SUBOPT_0x38
+	BRMI _0xE3
+	RCALL SUBOPT_0xE
+	LDI  R26,LOW(75)
+	RCALL SUBOPT_0x38
+	BRPL _0xE2
+_0xE3:
 	RCALL _clearBuffer
-; 0000 028D }
-_0xCD:
-	RJMP _0xCA
-_0xCC:
-; 0000 028E printf(FORMAT_SMS_TEXT);
-	__POINTW1FN _0x0,163
-	RCALL SUBOPT_0x20
-; 0000 028F delay_ms(200);
-	RCALL SUBOPT_0x37
-; 0000 0290 printf(DISABLE_ECHO);
-	__POINTW1FN _0x0,156
-	RCALL SUBOPT_0x20
-; 0000 0291 delay_ms(200);
-	RCALL SUBOPT_0x37
-; 0000 0292 printf(READ_WHEN_NEWSMS);
-	__POINTW1FN _0x0,175
-	RCALL SUBOPT_0x20
-; 0000 0293 delay_ms(200);
-	RCALL SUBOPT_0x37
-; 0000 0294 printf(ENABLE_USSD);
-	__POINTW1FN _0x0,195
-	RCALL SUBOPT_0x20
-; 0000 0295 delay_ms(200);
-	RCALL SUBOPT_0x37
-; 0000 0296 printf(DELETE_ALL_MSG);
-	__POINTW1FN _0x0,207
-	RCALL SUBOPT_0x20
-; 0000 0297 delay_ms(200);
-	RCALL SUBOPT_0x37
-; 0000 0298 if(begin==255)
+; 0000 02CB }
+_0xE2:
+	RJMP _0xDD
+_0xDF:
+; 0000 02CC printf(FORMAT_SMS_TEXT);
+	__POINTW1FN _0x0,319
+	RCALL SUBOPT_0x1F
+; 0000 02CD delay_ms(200);
+	RCALL SUBOPT_0x39
+; 0000 02CE printf(DISABLE_ECHO);
+	__POINTW1FN _0x0,312
+	RCALL SUBOPT_0x1F
+; 0000 02CF delay_ms(200);
+	RCALL SUBOPT_0x39
+; 0000 02D0 printf(READ_WHEN_NEWSMS);
+	__POINTW1FN _0x0,331
+	RCALL SUBOPT_0x1F
+; 0000 02D1 delay_ms(200);
+	RCALL SUBOPT_0x39
+; 0000 02D2 printf(ENABLE_USSD);
+	__POINTW1FN _0x0,351
+	RCALL SUBOPT_0x1F
+; 0000 02D3 delay_ms(200);
+	RCALL SUBOPT_0x39
+; 0000 02D4 printf(DELETE_ALL_MSG);
+	__POINTW1FN _0x0,363
+	RCALL SUBOPT_0x1F
+; 0000 02D5 delay_ms(200);
+	RCALL SUBOPT_0x39
+; 0000 02D6 if(begin==255)
 	LDI  R26,LOW(_begin)
 	LDI  R27,HIGH(_begin)
-	RCALL SUBOPT_0x1B
-	BRNE _0xCE
-; 0000 0299 {
-; 0000 029A 
-; 0000 029B   password[0]='0';
+	RCALL SUBOPT_0x1A
+	BRNE _0xE5
+; 0000 02D7 {
+; 0000 02D8 
+; 0000 02D9   password[0]='0';
 	LDI  R26,LOW(_password)
 	LDI  R27,HIGH(_password)
 	RCALL SUBOPT_0x2B
-; 0000 029C   password[1]='0';
+; 0000 02DA   password[1]='0';
 	__POINTW2MN _password,1
 	RCALL SUBOPT_0x2B
-; 0000 029D   password[2]='0';
+; 0000 02DB   password[2]='0';
 	__POINTW2MN _password,2
 	RCALL SUBOPT_0x2B
-; 0000 029E   password[3]='0';
+; 0000 02DC   password[3]='0';
 	__POINTW2MN _password,3
 	RCALL SUBOPT_0x2B
-; 0000 029F   begin=0;
+; 0000 02DD   begin=0;
 	LDI  R26,LOW(_begin)
 	LDI  R27,HIGH(_begin)
-	LDI  R30,LOW(0)
-	RCALL __EEPROMWRB
-; 0000 02A0 }
-; 0000 02A1 if(save1==1) LOAD1=1;
-_0xCE:
-	RCALL SUBOPT_0x1
-	RCALL SUBOPT_0x22
-	BRNE _0xCF
+	RCALL SUBOPT_0x30
+; 0000 02DE }
+; 0000 02DF if(save1==1) LOAD1=1;
+_0xE5:
+	RCALL SUBOPT_0x21
+	BRNE _0xE6
 	SBI  0x15,0
-; 0000 02A2 else LOAD1=0;
-	RJMP _0xD2
-_0xCF:
+; 0000 02E0 else LOAD1=0;
+	RJMP _0xE9
+_0xE6:
 	CBI  0x15,0
-; 0000 02A3 if(save2==1) LOAD2=1;
-_0xD2:
-	RCALL SUBOPT_0x2
+; 0000 02E1 if(save2==1) LOAD2=1;
+_0xE9:
 	RCALL SUBOPT_0x22
-	BRNE _0xD5
+	BRNE _0xEC
 	SBI  0x15,1
-; 0000 02A4 else LOAD2=0;
-	RJMP _0xD8
-_0xD5:
+; 0000 02E2 else LOAD2=0;
+	RJMP _0xEF
+_0xEC:
 	CBI  0x15,1
-; 0000 02A5 clearBuffer();
-_0xD8:
+; 0000 02E3 clearBuffer();
+_0xEF:
 	RCALL _clearBuffer
-; 0000 02A6 sendSMS("109","hhhhhh");
-	__POINTW1MN _0xDB,0
-	RCALL SUBOPT_0x26
-	__POINTW2MN _0xDB,4
-	RCALL _sendSMS
-; 0000 02A7 while (1)
-_0xDC:
-; 0000 02A8       {     if(flag) strHandle();
+; 0000 02E4 while (1)
+_0xF2:
+; 0000 02E5       {     if(flag) strHandle();
 	TST  R4
-	BREQ _0xDF
+	BREQ _0xF5
 	RCALL _strHandle
-; 0000 02A9       }
-_0xDF:
-	RJMP _0xDC
-; 0000 02AA }
-_0xE0:
-	RJMP _0xE0
+; 0000 02E6       }
+_0xF5:
+	RJMP _0xF2
+; 0000 02E7 }
+_0xF6:
+	RJMP _0xF6
 ; .FEND
-
-	.DSEG
-_0xDB:
-	.BYTE 0xB
 	#ifndef __SLEEP_DEFINED__
 	#define __SLEEP_DEFINED__
 	.EQU __se_bit=0x80
@@ -3348,10 +3501,11 @@ _0xDB:
 	.CSEG
 _puts:
 ; .FSTART _puts
-	RCALL SUBOPT_0x38
+	RCALL SUBOPT_0x3A
 	ST   -Y,R17
 _0x2000003:
-	RCALL SUBOPT_0x39
+	LDD  R26,Y+1
+	LDD  R27,Y+1+1
 	LD   R30,X+
 	STD  Y+1,R26
 	STD  Y+1+1,R27
@@ -3368,7 +3522,7 @@ _0x2000005:
 ; .FEND
 _put_usart_G100:
 ; .FSTART _put_usart_G100
-	RCALL SUBOPT_0x38
+	RCALL SUBOPT_0x3A
 	LDD  R26,Y+2
 	RCALL _putchar
 	LD   R26,Y
@@ -3382,7 +3536,7 @@ _put_usart_G100:
 ; .FEND
 __print_G100:
 ; .FSTART __print_G100
-	RCALL SUBOPT_0x38
+	RCALL SUBOPT_0x3A
 	SBIW R28,6
 	RCALL __SAVELOCR6
 	LDI  R17,0
@@ -3412,7 +3566,7 @@ _0x2000016:
 	LDI  R17,LOW(1)
 	RJMP _0x200001E
 _0x200001D:
-	RCALL SUBOPT_0x3A
+	RCALL SUBOPT_0x3B
 _0x200001E:
 	RJMP _0x200001B
 _0x200001C:
@@ -3420,7 +3574,7 @@ _0x200001C:
 	BRNE _0x200001F
 	CPI  R18,37
 	BRNE _0x2000020
-	RCALL SUBOPT_0x3A
+	RCALL SUBOPT_0x3B
 	RJMP _0x20000CC
 _0x2000020:
 	LDI  R17,LOW(2)
@@ -3477,26 +3631,26 @@ _0x2000029:
 	MOV  R30,R18
 	CPI  R30,LOW(0x63)
 	BRNE _0x200002F
-	RCALL SUBOPT_0x3B
 	RCALL SUBOPT_0x3C
-	RCALL SUBOPT_0x3B
+	RCALL SUBOPT_0x3D
+	RCALL SUBOPT_0x3C
 	LDD  R26,Z+4
 	ST   -Y,R26
-	RCALL SUBOPT_0x3D
+	RCALL SUBOPT_0x3E
 	RJMP _0x2000030
 _0x200002F:
 	CPI  R30,LOW(0x73)
 	BRNE _0x2000032
-	RCALL SUBOPT_0x3E
 	RCALL SUBOPT_0x3F
+	RCALL SUBOPT_0x40
 	RCALL _strlen
 	MOV  R17,R30
 	RJMP _0x2000033
 _0x2000032:
 	CPI  R30,LOW(0x70)
 	BRNE _0x2000035
-	RCALL SUBOPT_0x3E
 	RCALL SUBOPT_0x3F
+	RCALL SUBOPT_0x40
 	RCALL _strlenf
 	MOV  R17,R30
 	ORI  R16,LOW(8)
@@ -3519,7 +3673,7 @@ _0x200003A:
 _0x200003B:
 	LDI  R30,LOW(_tbl10_G100*2)
 	LDI  R31,HIGH(_tbl10_G100*2)
-	RCALL SUBOPT_0x40
+	RCALL SUBOPT_0x41
 	LDI  R17,LOW(5)
 	RJMP _0x200003D
 _0x200003C:
@@ -3534,13 +3688,13 @@ _0x200003F:
 _0x2000040:
 	LDI  R30,LOW(_tbl16_G100*2)
 	LDI  R31,HIGH(_tbl16_G100*2)
-	RCALL SUBOPT_0x40
+	RCALL SUBOPT_0x41
 	LDI  R17,LOW(4)
 _0x200003D:
 	SBRS R16,2
 	RJMP _0x2000042
-	RCALL SUBOPT_0x3E
-	RCALL SUBOPT_0x41
+	RCALL SUBOPT_0x3F
+	RCALL SUBOPT_0x42
 	LDD  R26,Y+11
 	TST  R26
 	BRPL _0x2000043
@@ -3560,8 +3714,8 @@ _0x2000044:
 _0x2000045:
 	RJMP _0x2000046
 _0x2000042:
-	RCALL SUBOPT_0x3E
-	RCALL SUBOPT_0x41
+	RCALL SUBOPT_0x3F
+	RCALL SUBOPT_0x42
 _0x2000046:
 _0x2000036:
 	SBRC R16,0
@@ -3584,7 +3738,7 @@ _0x200004D:
 _0x200004B:
 	LDI  R18,LOW(32)
 _0x200004E:
-	RCALL SUBOPT_0x3A
+	RCALL SUBOPT_0x3B
 	SUBI R21,LOW(1)
 	RJMP _0x2000048
 _0x200004A:
@@ -3600,7 +3754,7 @@ _0x2000050:
 	LDD  R30,Y+6
 	LDD  R31,Y+6+1
 	LPM  R18,Z+
-	RCALL SUBOPT_0x40
+	RCALL SUBOPT_0x41
 	RJMP _0x2000054
 _0x2000053:
 	LDD  R26,Y+6
@@ -3609,7 +3763,7 @@ _0x2000053:
 	STD  Y+6,R26
 	STD  Y+6+1,R27
 _0x2000054:
-	RCALL SUBOPT_0x3A
+	RCALL SUBOPT_0x3B
 	CPI  R21,0
 	BREQ _0x2000055
 	SUBI R21,LOW(1)
@@ -3629,13 +3783,14 @@ _0x2000058:
 	LDD  R30,Y+6
 	LDD  R31,Y+6+1
 	ADIW R30,2
-	RCALL SUBOPT_0x40
+	RCALL SUBOPT_0x41
 _0x200005A:
 	LDD  R30,Y+8
 	LDD  R31,Y+8+1
 	LDD  R26,Y+10
 	LDD  R27,Y+10+1
-	RCALL SUBOPT_0x27
+	CP   R26,R30
+	CPC  R27,R31
 	BRLO _0x200005C
 	SUBI R18,-LOW(1)
 	LDD  R26,Y+8
@@ -3686,7 +3841,7 @@ _0x20000CD:
 	RJMP _0x200006A
 	ANDI R16,LOW(251)
 	ST   -Y,R20
-	RCALL SUBOPT_0x3D
+	RCALL SUBOPT_0x3E
 	CPI  R21,0
 	BREQ _0x200006B
 	SUBI R21,LOW(1)
@@ -3694,7 +3849,7 @@ _0x200006B:
 _0x200006A:
 _0x2000069:
 _0x2000061:
-	RCALL SUBOPT_0x3A
+	RCALL SUBOPT_0x3B
 	CPI  R21,0
 	BREQ _0x200006C
 	SUBI R21,LOW(1)
@@ -3716,7 +3871,7 @@ _0x200006E:
 	SUBI R21,LOW(1)
 	LDI  R30,LOW(32)
 	ST   -Y,R30
-	RCALL SUBOPT_0x3D
+	RCALL SUBOPT_0x3E
 	RJMP _0x200006E
 _0x2000070:
 _0x200006D:
@@ -3753,12 +3908,12 @@ _printf:
 	ADIW R26,8
 	RCALL __ADDW2R15
 	RCALL __GETW1P
-	RCALL SUBOPT_0x26
+	RCALL SUBOPT_0x27
 	ST   -Y,R17
 	ST   -Y,R16
 	LDI  R30,LOW(_put_usart_G100)
 	LDI  R31,HIGH(_put_usart_G100)
-	RCALL SUBOPT_0x26
+	RCALL SUBOPT_0x27
 	MOVW R26,R28
 	ADIW R26,8
 	RCALL __print_G100
@@ -3780,74 +3935,43 @@ _printf:
 	#endif
 
 	.CSEG
-_sendSMS:
-; .FSTART _sendSMS
-	RCALL SUBOPT_0x38
-	ST   -Y,R17
-	__POINTW1FN _0x2020000,7
-	RCALL SUBOPT_0x20
-	LDI  R26,LOW(34)
-	RCALL _putchar
-	LDI  R17,LOW(0)
-_0x2020007:
-	LDD  R26,Y+3
-	LDD  R27,Y+3+1
-	RCALL _strlen
-	RCALL SUBOPT_0x1A
-	RCALL SUBOPT_0x27
-	BRSH _0x2020008
-	LDD  R26,Y+3
-	LDD  R27,Y+3+1
-	RCALL SUBOPT_0x42
-	SUBI R17,-1
-	RJMP _0x2020007
-_0x2020008:
-	LDI  R26,LOW(34)
-	RCALL _putchar
-	__POINTW1FN _0x2020000,5
-	RCALL SUBOPT_0x20
-	LDI  R26,LOW(50)
-	RCALL SUBOPT_0x3
-	RCALL SUBOPT_0x39
-	RCALL _puts
-	LDI  R26,LOW(10)
-	RCALL SUBOPT_0x3
-	LDI  R26,LOW(26)
-	RCALL _putchar
-	LDD  R17,Y+0
-	ADIW R28,5
-	RET
-; .FEND
 _KTTK:
 ; .FSTART _KTTK
 	__POINTW1FN _0x2020000,16
-	RCALL SUBOPT_0x20
+	RCALL SUBOPT_0x1F
 	__POINTW1FN _0x2020000,28
-	RCALL SUBOPT_0x20
+	RCALL SUBOPT_0x1F
 	RET
 ; .FEND
 _naptien:
 ; .FSTART _naptien
-	RCALL SUBOPT_0x38
+	RCALL SUBOPT_0x3A
 	ST   -Y,R17
 	__POINTW1FN _0x2020000,16
-	RCALL SUBOPT_0x20
+	RCALL SUBOPT_0x1F
 	__POINTW1FN _0x2020000,40
-	RCALL SUBOPT_0x20
+	RCALL SUBOPT_0x1F
 	LDI  R17,LOW(0)
 _0x202000A:
-	RCALL SUBOPT_0x39
+	LDD  R26,Y+1
+	LDD  R27,Y+1+1
 	RCALL _strlen
-	RCALL SUBOPT_0x1A
-	RCALL SUBOPT_0x27
+	RCALL SUBOPT_0x19
+	CP   R26,R30
+	CPC  R27,R31
 	BRSH _0x202000B
-	RCALL SUBOPT_0x39
-	RCALL SUBOPT_0x42
+	LDD  R26,Y+1
+	LDD  R27,Y+1+1
+	CLR  R30
+	ADD  R26,R17
+	ADC  R27,R30
+	LD   R26,X
+	RCALL _putchar
 	SUBI R17,-1
 	RJMP _0x202000A
 _0x202000B:
 	__POINTW1FN _0x2020000,35
-	RCALL SUBOPT_0x20
+	RCALL SUBOPT_0x1F
 _0x2080002:
 	LDD  R17,Y+0
 _0x2080001:
@@ -3858,7 +3982,7 @@ _0x2080001:
 	.CSEG
 _strcmp:
 ; .FSTART _strcmp
-	RCALL SUBOPT_0x38
+	RCALL SUBOPT_0x3A
     ld   r30,y+
     ld   r31,y+
     ld   r26,y+
@@ -3884,7 +4008,7 @@ strcmp2:
 ; .FEND
 _strlen:
 ; .FSTART _strlen
-	RCALL SUBOPT_0x38
+	RCALL SUBOPT_0x3A
     ld   r26,y+
     ld   r27,y+
     clr  r30
@@ -3900,7 +4024,7 @@ strlen1:
 ; .FEND
 _strlenf:
 ; .FSTART _strlenf
-	RCALL SUBOPT_0x38
+	RCALL SUBOPT_0x3A
     clr  r26
     clr  r27
     ld   r30,y+
@@ -3984,6 +4108,8 @@ _save2:
 	.BYTE 0x1
 _begin:
 	.BYTE 0x1
+_tb:
+	.BYTE 0x1
 _password:
 	.BYTE 0x4
 
@@ -4013,19 +4139,19 @@ SUBOPT_0x0:
 	ST   -Y,R30
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 10 TIMES, CODE SIZE REDUCTION:7 WORDS
+;OPTIMIZER ADDED SUBROUTINE, CALLED 11 TIMES, CODE SIZE REDUCTION:8 WORDS
 SUBOPT_0x1:
 	LDI  R26,LOW(_save1)
 	LDI  R27,HIGH(_save1)
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 10 TIMES, CODE SIZE REDUCTION:7 WORDS
+;OPTIMIZER ADDED SUBROUTINE, CALLED 12 TIMES, CODE SIZE REDUCTION:9 WORDS
 SUBOPT_0x2:
 	LDI  R26,LOW(_save2)
 	LDI  R27,HIGH(_save2)
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 13 TIMES, CODE SIZE REDUCTION:10 WORDS
+;OPTIMIZER ADDED SUBROUTINE, CALLED 11 TIMES, CODE SIZE REDUCTION:8 WORDS
 SUBOPT_0x3:
 	LDI  R27,0
 	RJMP _delay_ms
@@ -4088,13 +4214,13 @@ SUBOPT_0xC:
 	ST   -Y,R30
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 22 TIMES, CODE SIZE REDUCTION:19 WORDS
+;OPTIMIZER ADDED SUBROUTINE, CALLED 25 TIMES, CODE SIZE REDUCTION:22 WORDS
 SUBOPT_0xD:
 	RCALL _strcmp
 	CPI  R30,0
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 12 TIMES, CODE SIZE REDUCTION:31 WORDS
+;OPTIMIZER ADDED SUBROUTINE, CALLED 14 TIMES, CODE SIZE REDUCTION:37 WORDS
 SUBOPT_0xE:
 	LDI  R30,LOW(_rx_buffer)
 	LDI  R31,HIGH(_rx_buffer)
@@ -4179,50 +4305,45 @@ SUBOPT_0x18:
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
 SUBOPT_0x19:
-	RCALL _puts
-	RJMP _clearBuffer
-
-;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:2 WORDS
-SUBOPT_0x1A:
 	MOV  R26,R17
 	LDI  R27,0
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
-SUBOPT_0x1B:
+SUBOPT_0x1A:
 	RCALL __EEPROMRDB
 	CPI  R30,LOW(0xFF)
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:2 WORDS
-SUBOPT_0x1C:
+SUBOPT_0x1B:
 	ADD  R26,R30
 	ADC  R27,R31
 	LDI  R30,LOW(0)
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:2 WORDS
-SUBOPT_0x1D:
+SUBOPT_0x1C:
 	ADD  R30,R26
 	ADC  R31,R27
 	RJMP SUBOPT_0x9
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:2 WORDS
-SUBOPT_0x1E:
+SUBOPT_0x1D:
 	MOVW R26,R28
 	ADIW R26,1
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:4 WORDS
-SUBOPT_0x1F:
+SUBOPT_0x1E:
 	LDI  R30,LOW(_phoneNumber)
 	LDI  R31,HIGH(_phoneNumber)
 	ST   -Y,R31
 	ST   -Y,R30
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 23 TIMES, CODE SIZE REDUCTION:86 WORDS
-SUBOPT_0x20:
+;OPTIMIZER ADDED SUBROUTINE, CALLED 27 TIMES, CODE SIZE REDUCTION:102 WORDS
+SUBOPT_0x1F:
 	ST   -Y,R31
 	ST   -Y,R30
 	LDI  R24,0
@@ -4231,15 +4352,23 @@ SUBOPT_0x20:
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
-SUBOPT_0x21:
+SUBOPT_0x20:
 	RCALL _clearBuffer
 	CLT
 	BLD  R2,0
 	CLR  R9
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
+;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:2 WORDS
+SUBOPT_0x21:
+	RCALL SUBOPT_0x1
+	RCALL __EEPROMRDB
+	CPI  R30,LOW(0x1)
+	RET
+
+;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:4 WORDS
 SUBOPT_0x22:
+	RCALL SUBOPT_0x2
 	RCALL __EEPROMRDB
 	CPI  R30,LOW(0x1)
 	RET
@@ -4260,8 +4389,15 @@ SUBOPT_0x24:
 	RCALL __EEPROMWRB
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:2 WORDS
+;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:4 WORDS
 SUBOPT_0x25:
+	LDI  R24,0
+	RCALL _printf
+	ADIW R28,2
+	RET
+
+;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:2 WORDS
+SUBOPT_0x26:
 	LDI  R30,LOW(_msgStr)
 	LDI  R31,HIGH(_msgStr)
 	ST   -Y,R31
@@ -4269,16 +4405,10 @@ SUBOPT_0x25:
 	LDI  R26,LOW(32)
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 16 TIMES, CODE SIZE REDUCTION:13 WORDS
-SUBOPT_0x26:
+;OPTIMIZER ADDED SUBROUTINE, CALLED 18 TIMES, CODE SIZE REDUCTION:15 WORDS
+SUBOPT_0x27:
 	ST   -Y,R31
 	ST   -Y,R30
-	RET
-
-;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
-SUBOPT_0x27:
-	CP   R26,R30
-	CPC  R27,R31
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 12 TIMES, CODE SIZE REDUCTION:9 WORDS
@@ -4306,57 +4436,65 @@ SUBOPT_0x2B:
 	RCALL __EEPROMWRB
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 10 TIMES, CODE SIZE REDUCTION:16 WORDS
-SUBOPT_0x2C:
-	RCALL _clearBuffer
-	CLT
-	BLD  R2,1
-	RET
-
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
-SUBOPT_0x2D:
+SUBOPT_0x2C:
 	CLT
 	BLD  R2,1
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 7 TIMES, CODE SIZE REDUCTION:10 WORDS
-SUBOPT_0x2E:
+;OPTIMIZER ADDED SUBROUTINE, CALLED 10 TIMES, CODE SIZE REDUCTION:16 WORDS
+SUBOPT_0x2D:
 	LDI  R30,LOW(_content)
 	LDI  R31,HIGH(_content)
-	RJMP SUBOPT_0x26
+	RJMP SUBOPT_0x27
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
-SUBOPT_0x2F:
+SUBOPT_0x2E:
+	LDI  R30,LOW(1)
 	RCALL __EEPROMWRB
-	RJMP SUBOPT_0x2C
+	RET
+
+;OPTIMIZER ADDED SUBROUTINE, CALLED 6 TIMES, CODE SIZE REDUCTION:13 WORDS
+SUBOPT_0x2F:
+	LDI  R26,LOW(_tb)
+	LDI  R27,HIGH(_tb)
+	RCALL __EEPROMRDB
+	CPI  R30,LOW(0x1)
+	RET
+
+;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
+SUBOPT_0x30:
+	LDI  R30,LOW(0)
+	RCALL __EEPROMWRB
+	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:6 WORDS
-SUBOPT_0x30:
+SUBOPT_0x31:
 	MOVW R30,R28
 	ADIW R30,39
-	RJMP SUBOPT_0x26
+	RJMP SUBOPT_0x27
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:4 WORDS
-SUBOPT_0x31:
+SUBOPT_0x32:
 	MOVW R0,R30
 	MOV  R26,R18
 	CLR  R27
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:4 WORDS
-SUBOPT_0x32:
+SUBOPT_0x33:
 	RCALL __EEPROMRDB
 	MOV  R26,R30
 	RJMP _putchar
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:2 WORDS
-SUBOPT_0x33:
+SUBOPT_0x34:
 	MOV  R26,R18
 	CLR  R27
 	RJMP SUBOPT_0x15
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:4 WORDS
-SUBOPT_0x34:
+SUBOPT_0x35:
 	RCALL SUBOPT_0x28
 	RCALL SUBOPT_0x8
 	LD   R26,Z
@@ -4364,36 +4502,36 @@ SUBOPT_0x34:
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
-SUBOPT_0x35:
+SUBOPT_0x36:
 	LD   R26,Z
 	CPI  R26,LOW(0x3A)
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
-SUBOPT_0x36:
+SUBOPT_0x37:
 	LD   R30,Y
 	LDI  R31,0
 	RET
 
+;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
+SUBOPT_0x38:
+	RCALL _strpos
+	TST  R31
+	RET
+
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:2 WORDS
-SUBOPT_0x37:
+SUBOPT_0x39:
 	LDI  R26,LOW(200)
 	RJMP SUBOPT_0x3
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 8 TIMES, CODE SIZE REDUCTION:5 WORDS
-SUBOPT_0x38:
+;OPTIMIZER ADDED SUBROUTINE, CALLED 7 TIMES, CODE SIZE REDUCTION:4 WORDS
+SUBOPT_0x3A:
 	ST   -Y,R27
 	ST   -Y,R26
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
-SUBOPT_0x39:
-	LDD  R26,Y+1
-	LDD  R27,Y+1+1
-	RET
-
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:18 WORDS
-SUBOPT_0x3A:
+SUBOPT_0x3B:
 	ST   -Y,R18
 	LDD  R26,Y+13
 	LDD  R27,Y+13+1
@@ -4403,20 +4541,20 @@ SUBOPT_0x3A:
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 6 TIMES, CODE SIZE REDUCTION:3 WORDS
-SUBOPT_0x3B:
+SUBOPT_0x3C:
 	LDD  R30,Y+16
 	LDD  R31,Y+16+1
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:6 WORDS
-SUBOPT_0x3C:
+SUBOPT_0x3D:
 	SBIW R30,4
 	STD  Y+16,R30
 	STD  Y+16+1,R31
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:6 WORDS
-SUBOPT_0x3D:
+SUBOPT_0x3E:
 	LDD  R26,Y+13
 	LDD  R27,Y+13+1
 	LDD  R30,Y+15
@@ -4425,12 +4563,12 @@ SUBOPT_0x3D:
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
-SUBOPT_0x3E:
-	RCALL SUBOPT_0x3B
-	RJMP SUBOPT_0x3C
+SUBOPT_0x3F:
+	RCALL SUBOPT_0x3C
+	RJMP SUBOPT_0x3D
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:5 WORDS
-SUBOPT_0x3F:
+SUBOPT_0x40:
 	LDD  R26,Y+16
 	LDD  R27,Y+16+1
 	ADIW R26,4
@@ -4442,13 +4580,13 @@ SUBOPT_0x3F:
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
-SUBOPT_0x40:
+SUBOPT_0x41:
 	STD  Y+6,R30
 	STD  Y+6+1,R31
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:3 WORDS
-SUBOPT_0x41:
+SUBOPT_0x42:
 	LDD  R26,Y+16
 	LDD  R27,Y+16+1
 	ADIW R26,4
@@ -4456,14 +4594,6 @@ SUBOPT_0x41:
 	STD  Y+10,R30
 	STD  Y+10+1,R31
 	RET
-
-;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:2 WORDS
-SUBOPT_0x42:
-	CLR  R30
-	ADD  R26,R17
-	ADC  R27,R30
-	LD   R26,X
-	RJMP _putchar
 
 
 	.CSEG

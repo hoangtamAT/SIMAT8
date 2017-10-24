@@ -21,6 +21,7 @@ content return from sim800:
 #define READ_WHEN_NEWSMS "AT+CNMI=2,2,0,0,0\r\n"
 #define DISCONNECT_CALL	"ATH\r\n";
 
+void call(char *number);
 void sendSMS(char *number, char *msg);
 void KTTK();
 void naptien(char *mathe);

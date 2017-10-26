@@ -35,6 +35,7 @@ Data Stack size         : 256
 #define LOAD1   PORTC.0
 #define LOAD2   PORTC.1
 char content[15]; 
+char dt1[12],dt2[12],dt3[12];
 char syntax[15]; 
 char qtyNum=10;
 char type[4];
@@ -271,9 +272,9 @@ void strHandle()
                    for(k=0;k<11;k++)
                    { 
                      if(phoneNumber[k]<48||phoneNumber[k]>57) lastNumber[k]=0;
-                     else lastNumber[k]=phoneNumber[k];
+                     else lastNumber[k]=phoneNumber[k];     
                    }
-                }
+                } 
                 callFlag=1; 
                 if(callFlag)callHandle();
                        
@@ -377,31 +378,28 @@ void checkPassword()
    }
 }
 void comparePhoneNumber()
-{  char dt1[11],dt2[11],dt3[11];
+{  
    char i;
    for(i=0;i<11;i++)
    {
-        if(sdt1[i]==255) dt1[i]=0; 
+        if(sdt1[i]<48 && sdt1[i]>57) dt1[i]=0; 
         else dt1[i]=sdt1[i]; 
-        if(sdt2[i]==255) dt2[i]=0; 
+        if(sdt2[i]<48 && sdt2[i]>57) dt2[i]=0; 
         else dt2[i]=sdt2[i];  
-        if(sdt3[i]==255) dt3[i]=0; 
+        if(sdt3[i]<48 && sdt3[i]>57) dt3[i]=0; 
         else dt3[i]=sdt3[i];     
    }
    if(callFlag==1)
    {
       if(strcmp(phoneNumber,dt1)==0||strcmp(phoneNumber,dt2)==0||strcmp(phoneNumber,dt3)==0) result=1;
-      else 
-      {
-        result=0;
-      }    
+      else result=0;
    }  
 }
 void callHandle()
 {   unsigned char n=0;
-    comparePhoneNumber();
+    
     while(result==0)
-    {
+    {  comparePhoneNumber();
        n++;
        //printf(".");
        delay_ms(50);
@@ -529,7 +527,8 @@ void smsHandle()
         {
           LOAD1=1;
           save1=1; 
-          if(tb!=1) sendSTT(); 
+          if(tb!=1) sendSTT();   
+          printf(DELETE_ALL_MSG);
           clearBuffer(); 
           flag=0;
           smsFlag=0;
@@ -548,7 +547,8 @@ void smsHandle()
                 {
                   LOAD1=0;
                   save1=0; 
-                  if(tb!=1) sendSTT();  
+                  if(tb!=1) sendSTT(); 
+                  printf(DELETE_ALL_MSG); 
                   clearBuffer(); 
                   flag=0;
                   smsFlag=0;
@@ -570,7 +570,8 @@ void smsHandle()
                           LOAD2=1;
                           save1=1;
                           save2=1;
-                          if(tb!=1) sendSTT();
+                          if(tb!=1) sendSTT();  
+                          printf(DELETE_ALL_MSG);
                           clearBuffer(); 
                           flag=0;
                           smsFlag=0;
@@ -582,7 +583,8 @@ void smsHandle()
                               LOAD2=0;
                               save1=0;
                               save2=0;
-                              if(tb!=1) sendSTT();
+                              if(tb!=1) sendSTT();   
+                              printf(DELETE_ALL_MSG);
                               clearBuffer();  
                               flag=0;
                               smsFlag=0;
@@ -615,8 +617,8 @@ void smsHandle()
                                     } 
                                     //puts(msgStr);
                                     //printf("\n");
-                                    //puts(phoneNumber);
-
+                                    //puts(phoneNumber);     
+                                    
                                     sendSMS(phoneNumber,"Da them sdt1");
                                     clearBuffer();  
                                     flag=0;
@@ -816,6 +818,7 @@ if(begin==255)
   password[1]='0';
   password[2]='0';
   password[3]='0'; 
+  save1=save2=0;
   begin=0;
 }
 if(save1==1) LOAD1=1;
